@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:gplx_600_cau/core/observer/navigator_obs.dart';
 import 'package:gplx_600_cau/core/routes/route_path.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/home_screen.dart';
+import 'package:gplx_600_cau/features/presentation/ui/zlicense/zlicense_screen.dart';
 
 part 'router.g.dart';
 
@@ -29,7 +30,7 @@ class Routers {
 class RootApp extends GoRouteData {
   @override
   FutureOr<String?> redirect(BuildContext context, GoRouterState state) async {
-    return HomeRoute().location;
+    return LicenseRoute().location;
   }
 }
 
@@ -38,5 +39,13 @@ class HomeRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const HomeScreen();
+  }
+}
+
+@TypedGoRoute<LicenseRoute>(path: $RouterPath.license)
+class LicenseRoute extends GoRouteData {
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ZLicenseScreen();
   }
 }

@@ -9,6 +9,7 @@ part of 'router.dart';
 List<RouteBase> get $appRoutes => [
       $rootApp,
       $homeRoute,
+      $licenseRoute,
     ];
 
 RouteBase get $rootApp => GoRouteData.$route(
@@ -43,6 +44,28 @@ extension $HomeRouteExtension on HomeRoute {
 
   String get location => GoRouteData.$location(
         '/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $licenseRoute => GoRouteData.$route(
+      path: '/license',
+      factory: $LicenseRouteExtension._fromState,
+    );
+
+extension $LicenseRouteExtension on LicenseRoute {
+  static LicenseRoute _fromState(GoRouterState state) => LicenseRoute();
+
+  String get location => GoRouteData.$location(
+        '/license',
       );
 
   void go(BuildContext context) => context.go(location);

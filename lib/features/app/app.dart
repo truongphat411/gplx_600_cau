@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:gplx_600_cau/core/extension/extension.dart';
 import 'package:gplx_600_cau/core/routes/router.dart';
 
 class App extends StatelessWidget {
@@ -23,14 +25,14 @@ class App extends StatelessWidget {
           Routers.internal.$router.routeInformationProvider,
       routeInformationParser: Routers.internal.$router.routeInformationParser,
       routerDelegate: Routers.internal.$router.routerDelegate,
-      // localizationsDelegates: const [
-      //     GlobalMaterialLocalizations.delegate,
-      //     GlobalWidgetsLocalizations.delegate,
-      //     GlobalCupertinoLocalizations.delegate,
-      //   ],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       //supportedLocales: L10n.supportedLocales,
       title: _title,
-      // theme: AppThemes.internal().lightTheme,
+      theme: lightTheme,
       // darkTheme: AppThemes.internal().dartTheme,
     );
   }

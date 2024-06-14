@@ -2,22 +2,17 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
+import 'package:injectable/injectable.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-class LocalDatabse {
-  factory LocalDatabse() {
-    return instance;
-  }
-
-  LocalDatabse._internal();
-
-  static final LocalDatabse instance = LocalDatabse._internal();
-
+@lazySingleton
+class DatabaseHelper {
   static Database? _db;
+  Database? get instance => _db;
 
-  Future<Database> get db async {
-    if(_db != null) {
+  Future<Database> get database async {
+    if (_db != null) {
       return _db!;
     }
     _db = await initDb();
@@ -42,9 +37,9 @@ class LocalDatabse {
       } catch (_) {}
 
       // Copy from asset
-      ByteData data = await rootBundle.load(url.join("assets", "gplx.db"));
+      ByteData data = await rootBundle.load(url.join("assets/database", "gplx.db"));
       List<int> bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
 
       // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);

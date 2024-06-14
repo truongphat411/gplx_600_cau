@@ -4,17 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:gplx_600_cau/di.dart';
 import 'package:gplx_600_cau/features/app/app.dart';
-import 'package:gplx_600_cau/features/domain/services/local_database.dart';
 
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await configureDependencies();
-    LocalDatabse().db;
+    configureDependencies();
     runApp(
-      const GlobalBlocProviders(
-        child: App(),
-      ),
+      const App(),
     );
     configLoading();
   }, (error, stack) {});
