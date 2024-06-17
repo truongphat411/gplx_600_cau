@@ -19,7 +19,7 @@ import 'features/domain/repositories/zlicense_repository/zlicense_repository.dar
     as _i5;
 import 'features/domain/use_cases/zlicense_use_case/zlicense_use_case.dart'
     as _i7;
-import 'features/presentation/blocs/home/zlicense/zlicense_bloc.dart' as _i8;
+import 'features/presentation/blocs/zlicense/zlicense_bloc.dart' as _i8;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
