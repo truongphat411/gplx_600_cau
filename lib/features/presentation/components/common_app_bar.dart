@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CommonAppBar({
@@ -29,13 +30,14 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).appColors;
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: appColors.baseWhite,
       elevation: elevation,
       shadowColor: shadowColor,
       leadingWidth: leadingWidth,
-      iconTheme: const IconThemeData(
-        color: Colors.black,
+      iconTheme: IconThemeData(
+        color: appColors.baseBlack,
       ),
       leading: leading,
       automaticallyImplyLeading: isIconBack!,

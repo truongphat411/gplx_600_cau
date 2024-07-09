@@ -1,6 +1,5 @@
 part of 'zlicense_bloc.dart';
 
-
 @freezed
 class ZLicenseState with _$ZLicenseState {
   const factory ZLicenseState.initial() = ZLicenseStateInital;

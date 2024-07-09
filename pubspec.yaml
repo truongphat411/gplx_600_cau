@@ -28,6 +28,7 @@ dependencies:
   path: ^1.9.0
   dartz: ^0.10.1
   gap: ^3.0.1
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   build_runner: ^2.4.9
@@ -46,6 +47,7 @@ flutter:
 
   assets:
     - assets/database/gplx.db
+    - assets/images/
 
   fonts:
     - family: Roboto

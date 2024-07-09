@@ -20,18 +20,21 @@ mixin _$ZLicenseEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getZLicense,
+    required TResult Function(int? Z_PK) selectedZLicense,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getZLicense,
+    TResult? Function(int? Z_PK)? selectedZLicense,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getZLicense,
+    TResult Function(int? Z_PK)? selectedZLicense,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,22 @@ mixin _$ZLicenseEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ZLicenseEventStarted value) started,
     required TResult Function(ZLicenseEventGetZLicense value) getZLicense,
+    required TResult Function(ZLicenseEventSelectedLincense value)
+        selectedZLicense,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ZLicenseEventStarted value)? started,
     TResult? Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult? Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ZLicenseEventStarted value)? started,
     TResult Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,6 +122,7 @@ class _$ZLicenseEventStartedImpl implements ZLicenseEventStarted {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getZLicense,
+    required TResult Function(int? Z_PK) selectedZLicense,
   }) {
     return started();
   }
@@ -124,6 +132,7 @@ class _$ZLicenseEventStartedImpl implements ZLicenseEventStarted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getZLicense,
+    TResult? Function(int? Z_PK)? selectedZLicense,
   }) {
     return started?.call();
   }
@@ -133,6 +142,7 @@ class _$ZLicenseEventStartedImpl implements ZLicenseEventStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getZLicense,
+    TResult Function(int? Z_PK)? selectedZLicense,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -146,6 +156,8 @@ class _$ZLicenseEventStartedImpl implements ZLicenseEventStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(ZLicenseEventStarted value) started,
     required TResult Function(ZLicenseEventGetZLicense value) getZLicense,
+    required TResult Function(ZLicenseEventSelectedLincense value)
+        selectedZLicense,
   }) {
     return started(this);
   }
@@ -155,6 +167,7 @@ class _$ZLicenseEventStartedImpl implements ZLicenseEventStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ZLicenseEventStarted value)? started,
     TResult? Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult? Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
   }) {
     return started?.call(this);
   }
@@ -164,6 +177,7 @@ class _$ZLicenseEventStartedImpl implements ZLicenseEventStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ZLicenseEventStarted value)? started,
     TResult Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -220,6 +234,7 @@ class _$ZLicenseEventGetZLicenseImpl implements ZLicenseEventGetZLicense {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getZLicense,
+    required TResult Function(int? Z_PK) selectedZLicense,
   }) {
     return getZLicense();
   }
@@ -229,6 +244,7 @@ class _$ZLicenseEventGetZLicenseImpl implements ZLicenseEventGetZLicense {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getZLicense,
+    TResult? Function(int? Z_PK)? selectedZLicense,
   }) {
     return getZLicense?.call();
   }
@@ -238,6 +254,7 @@ class _$ZLicenseEventGetZLicenseImpl implements ZLicenseEventGetZLicense {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getZLicense,
+    TResult Function(int? Z_PK)? selectedZLicense,
     required TResult orElse(),
   }) {
     if (getZLicense != null) {
@@ -251,6 +268,8 @@ class _$ZLicenseEventGetZLicenseImpl implements ZLicenseEventGetZLicense {
   TResult map<TResult extends Object?>({
     required TResult Function(ZLicenseEventStarted value) started,
     required TResult Function(ZLicenseEventGetZLicense value) getZLicense,
+    required TResult Function(ZLicenseEventSelectedLincense value)
+        selectedZLicense,
   }) {
     return getZLicense(this);
   }
@@ -260,6 +279,7 @@ class _$ZLicenseEventGetZLicenseImpl implements ZLicenseEventGetZLicense {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ZLicenseEventStarted value)? started,
     TResult? Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult? Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
   }) {
     return getZLicense?.call(this);
   }
@@ -269,6 +289,7 @@ class _$ZLicenseEventGetZLicenseImpl implements ZLicenseEventGetZLicense {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ZLicenseEventStarted value)? started,
     TResult Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
     required TResult orElse(),
   }) {
     if (getZLicense != null) {
@@ -280,6 +301,154 @@ class _$ZLicenseEventGetZLicenseImpl implements ZLicenseEventGetZLicense {
 
 abstract class ZLicenseEventGetZLicense implements ZLicenseEvent {
   const factory ZLicenseEventGetZLicense() = _$ZLicenseEventGetZLicenseImpl;
+}
+
+/// @nodoc
+abstract class _$$ZLicenseEventSelectedLincenseImplCopyWith<$Res> {
+  factory _$$ZLicenseEventSelectedLincenseImplCopyWith(
+          _$ZLicenseEventSelectedLincenseImpl value,
+          $Res Function(_$ZLicenseEventSelectedLincenseImpl) then) =
+      __$$ZLicenseEventSelectedLincenseImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int? Z_PK});
+}
+
+/// @nodoc
+class __$$ZLicenseEventSelectedLincenseImplCopyWithImpl<$Res>
+    extends _$ZLicenseEventCopyWithImpl<$Res,
+        _$ZLicenseEventSelectedLincenseImpl>
+    implements _$$ZLicenseEventSelectedLincenseImplCopyWith<$Res> {
+  __$$ZLicenseEventSelectedLincenseImplCopyWithImpl(
+      _$ZLicenseEventSelectedLincenseImpl _value,
+      $Res Function(_$ZLicenseEventSelectedLincenseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? Z_PK = freezed,
+  }) {
+    return _then(_$ZLicenseEventSelectedLincenseImpl(
+      freezed == Z_PK
+          ? _value.Z_PK
+          : Z_PK // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ZLicenseEventSelectedLincenseImpl
+    implements ZLicenseEventSelectedLincense {
+  const _$ZLicenseEventSelectedLincenseImpl(this.Z_PK);
+
+  @override
+  final int? Z_PK;
+
+  @override
+  String toString() {
+    return 'ZLicenseEvent.selectedZLicense(Z_PK: $Z_PK)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ZLicenseEventSelectedLincenseImpl &&
+            (identical(other.Z_PK, Z_PK) || other.Z_PK == Z_PK));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, Z_PK);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ZLicenseEventSelectedLincenseImplCopyWith<
+          _$ZLicenseEventSelectedLincenseImpl>
+      get copyWith => __$$ZLicenseEventSelectedLincenseImplCopyWithImpl<
+          _$ZLicenseEventSelectedLincenseImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getZLicense,
+    required TResult Function(int? Z_PK) selectedZLicense,
+  }) {
+    return selectedZLicense(Z_PK);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getZLicense,
+    TResult? Function(int? Z_PK)? selectedZLicense,
+  }) {
+    return selectedZLicense?.call(Z_PK);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getZLicense,
+    TResult Function(int? Z_PK)? selectedZLicense,
+    required TResult orElse(),
+  }) {
+    if (selectedZLicense != null) {
+      return selectedZLicense(Z_PK);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ZLicenseEventStarted value) started,
+    required TResult Function(ZLicenseEventGetZLicense value) getZLicense,
+    required TResult Function(ZLicenseEventSelectedLincense value)
+        selectedZLicense,
+  }) {
+    return selectedZLicense(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ZLicenseEventStarted value)? started,
+    TResult? Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult? Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
+  }) {
+    return selectedZLicense?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ZLicenseEventStarted value)? started,
+    TResult Function(ZLicenseEventGetZLicense value)? getZLicense,
+    TResult Function(ZLicenseEventSelectedLincense value)? selectedZLicense,
+    required TResult orElse(),
+  }) {
+    if (selectedZLicense != null) {
+      return selectedZLicense(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ZLicenseEventSelectedLincense implements ZLicenseEvent {
+  const factory ZLicenseEventSelectedLincense(final int? Z_PK) =
+      _$ZLicenseEventSelectedLincenseImpl;
+
+  int? get Z_PK;
+  @JsonKey(ignore: true)
+  _$$ZLicenseEventSelectedLincenseImplCopyWith<
+          _$ZLicenseEventSelectedLincenseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

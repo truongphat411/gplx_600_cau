@@ -25,6 +25,21 @@ class ZLicenseBloc extends Bloc<ZLicenseEvent, ZLicenseState> {
             ),
           );
         },
+        selectedZLicense: (value) async {
+          final selectedId = value.Z_PK;
+          final result = await zLicenseRepository.getAllLicenses();
+          result.fold((l) => null, (r) {
+            final updatedZLicenses = r.map((zlicense) {
+              if (zlicense.Z_PK == selectedId) {
+                return zlicense.copyWith(isSelected: !zlicense.isSelected);
+              }
+              return zlicense;
+            }).toList();
+            emit(
+              ZLicenseState.data(zlicenses: updatedZLicenses),
+            );
+          });
+        },
       );
     });
   }

@@ -30,7 +30,7 @@ class Routers {
 class RootApp extends GoRouteData {
   @override
   FutureOr<String?> redirect(BuildContext context, GoRouterState state) async {
-    return LicenseRoute().location;
+    return HomeRoute().location;
   }
 }
 
@@ -46,6 +46,6 @@ class HomeRoute extends GoRouteData {
 class LicenseRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const ZLicenseScreen();
+    return ZLicenseScreen();
   }
 }

@@ -19,6 +19,7 @@ _$ZLicenseImpl _$$ZLicenseImplFromJson(Map<String, dynamic> json) =>
       Z_ENT: (json['Z_ENT'] as num?)?.toInt(),
       Z_OPT: (json['Z_OPT'] as num?)?.toInt(),
       Z_PK: (json['Z_PK'] as num?)?.toInt(),
+      isSelected: json['isSelected'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$ZLicenseImplToJson(_$ZLicenseImpl instance) =>
@@ -33,4 +34,5 @@ Map<String, dynamic> _$$ZLicenseImplToJson(_$ZLicenseImpl instance) =>
       'Z_ENT': instance.Z_ENT,
       'Z_OPT': instance.Z_OPT,
       'Z_PK': instance.Z_PK,
+      'isSelected': instance.isSelected,
     };

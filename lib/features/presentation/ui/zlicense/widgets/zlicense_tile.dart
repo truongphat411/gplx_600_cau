@@ -1,61 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 
 class ZLicenseTile extends StatelessWidget {
-  ZLicenseTile({
+  const ZLicenseTile({
     super.key,
     this.licenseName,
     this.description,
+    this.isSelected = false,
   });
 
-  String? licenseName;
-  String? description;
+  final String? licenseName;
+  final String? description;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 0), // changes position of shadow
+    final appColors = Theme.of(context).appColors;
+    return Semantics(
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        margin: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: appColors.baseWhite,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(8),
           ),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          boxShadow: [
+            BoxShadow(
+              color: appColors.baseGray.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 0), // changes position of shadow
+            ),
+          ],
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Bằng $licenseName',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Container(
-                  height: 18,
-                  width: 18,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      width: 1,
-                      color: Colors.black,
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 8,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Bằng $licenseName',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 17),
+                        ),
+                        Text(
+                          description ?? '',
+                          style: const TextStyle(
+                              fontSize: 12, color: Colors.black54),
+                        ),
+                      ],
                     ),
                   ),
                 ),
+                Expanded(
+                  child: isSelected
+                      ? Icon(
+                          Icons.check_circle,
+                          color: appColors.baseLightGreen,
+                        )
+                      : Container(),
+                ),
               ],
             ),
-            const Gap(10),
-            Text(description ?? ''),
           ],
         ),
       ),

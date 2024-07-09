@@ -16,6 +16,7 @@ class ZLicense with _$ZLicense {
     int? Z_ENT,
     int? Z_OPT,
     int? Z_PK,
+    @Default(false) bool isSelected,
   }) = _ZLicense;
 
   const ZLicense._();

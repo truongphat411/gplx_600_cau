@@ -30,6 +30,7 @@ mixin _$ZLicense {
   int? get Z_ENT => throw _privateConstructorUsedError;
   int? get Z_OPT => throw _privateConstructorUsedError;
   int? get Z_PK => throw _privateConstructorUsedError;
+  bool get isSelected => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +53,8 @@ abstract class $ZLicenseCopyWith<$Res> {
       int? zNUMBEROFTEST,
       int? Z_ENT,
       int? Z_OPT,
-      int? Z_PK});
+      int? Z_PK,
+      bool isSelected});
 }
 
 /// @nodoc
@@ -78,6 +80,7 @@ class _$ZLicenseCopyWithImpl<$Res, $Val extends ZLicense>
     Object? Z_ENT = freezed,
     Object? Z_OPT = freezed,
     Object? Z_PK = freezed,
+    Object? isSelected = null,
   }) {
     return _then(_value.copyWith(
       ZCONTENT: freezed == ZCONTENT
@@ -120,6 +123,10 @@ class _$ZLicenseCopyWithImpl<$Res, $Val extends ZLicense>
           ? _value.Z_PK
           : Z_PK // ignore: cast_nullable_to_non_nullable
               as int?,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -142,7 +149,8 @@ abstract class _$$ZLicenseImplCopyWith<$Res>
       int? zNUMBEROFTEST,
       int? Z_ENT,
       int? Z_OPT,
-      int? Z_PK});
+      int? Z_PK,
+      bool isSelected});
 }
 
 /// @nodoc
@@ -166,6 +174,7 @@ class __$$ZLicenseImplCopyWithImpl<$Res>
     Object? Z_ENT = freezed,
     Object? Z_OPT = freezed,
     Object? Z_PK = freezed,
+    Object? isSelected = null,
   }) {
     return _then(_$ZLicenseImpl(
       ZCONTENT: freezed == ZCONTENT
@@ -208,6 +217,10 @@ class __$$ZLicenseImplCopyWithImpl<$Res>
           ? _value.Z_PK
           : Z_PK // ignore: cast_nullable_to_non_nullable
               as int?,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -225,7 +238,8 @@ class _$ZLicenseImpl extends _ZLicense {
       this.zNUMBEROFTEST,
       this.Z_ENT,
       this.Z_OPT,
-      this.Z_PK})
+      this.Z_PK,
+      this.isSelected = false})
       : super._();
 
   factory _$ZLicenseImpl.fromJson(Map<String, dynamic> json) =>
@@ -251,10 +265,13 @@ class _$ZLicenseImpl extends _ZLicense {
   final int? Z_OPT;
   @override
   final int? Z_PK;
+  @override
+  @JsonKey()
+  final bool isSelected;
 
   @override
   String toString() {
-    return 'ZLicense(ZCONTENT: $ZCONTENT, ZDESC: $ZDESC, ZDURATION: $ZDURATION, ZNAME: $ZNAME, ZNUMBEROFCORRECTQUESTION: $ZNUMBEROFCORRECTQUESTION, zNUMBEROFQUESTION: $zNUMBEROFQUESTION, zNUMBEROFTEST: $zNUMBEROFTEST, Z_ENT: $Z_ENT, Z_OPT: $Z_OPT, Z_PK: $Z_PK)';
+    return 'ZLicense(ZCONTENT: $ZCONTENT, ZDESC: $ZDESC, ZDURATION: $ZDURATION, ZNAME: $ZNAME, ZNUMBEROFCORRECTQUESTION: $ZNUMBEROFCORRECTQUESTION, zNUMBEROFQUESTION: $zNUMBEROFQUESTION, zNUMBEROFTEST: $zNUMBEROFTEST, Z_ENT: $Z_ENT, Z_OPT: $Z_OPT, Z_PK: $Z_PK, isSelected: $isSelected)';
   }
 
   @override
@@ -277,7 +294,9 @@ class _$ZLicenseImpl extends _ZLicense {
                 other.zNUMBEROFTEST == zNUMBEROFTEST) &&
             (identical(other.Z_ENT, Z_ENT) || other.Z_ENT == Z_ENT) &&
             (identical(other.Z_OPT, Z_OPT) || other.Z_OPT == Z_OPT) &&
-            (identical(other.Z_PK, Z_PK) || other.Z_PK == Z_PK));
+            (identical(other.Z_PK, Z_PK) || other.Z_PK == Z_PK) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected));
   }
 
   @JsonKey(ignore: true)
@@ -293,7 +312,8 @@ class _$ZLicenseImpl extends _ZLicense {
       zNUMBEROFTEST,
       Z_ENT,
       Z_OPT,
-      Z_PK);
+      Z_PK,
+      isSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -320,7 +340,8 @@ abstract class _ZLicense extends ZLicense {
       final int? zNUMBEROFTEST,
       final int? Z_ENT,
       final int? Z_OPT,
-      final int? Z_PK}) = _$ZLicenseImpl;
+      final int? Z_PK,
+      final bool isSelected}) = _$ZLicenseImpl;
   const _ZLicense._() : super._();
 
   factory _ZLicense.fromJson(Map<String, dynamic> json) =
@@ -346,6 +367,8 @@ abstract class _ZLicense extends ZLicense {
   int? get Z_OPT;
   @override
   int? get Z_PK;
+  @override
+  bool get isSelected;
   @override
   @JsonKey(ignore: true)
   _$$ZLicenseImplCopyWith<_$ZLicenseImpl> get copyWith =>

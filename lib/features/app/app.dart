@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:gplx_600_cau/core/extension/extension.dart';
 import 'package:gplx_600_cau/core/routes/router.dart';
+import 'package:gplx_600_cau/core/theme/theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

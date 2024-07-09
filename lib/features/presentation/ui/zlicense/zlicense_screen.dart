@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/di.dart';
 import 'package:gplx_600_cau/features/presentation/blocs/zlicense/zlicense_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
@@ -10,16 +13,24 @@ class ZLicenseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).appColors;
     return Scaffold(
-      appBar: const CommonAppBar(
+      backgroundColor: appColors.backgroundPrimary,
+      appBar: CommonAppBar(
         title: Text(
           'Chọn giấy phép',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
+          style: TextStyle(
+            color: appColors.textPrimary,
+            fontWeight: FontWeight.w700,
+          ),
         ),
+        elevation: 1,
       ),
       body: BlocProvider(
-        create: ((context) =>
-            getIt<ZLicenseBloc>()..add(const ZLicenseEvent.getZLicense())),
+        create: ((context) => getIt<ZLicenseBloc>()
+          ..add(
+            const ZLicenseEvent.getZLicense(),
+          )),
         child:
             BlocBuilder<ZLicenseBloc, ZLicenseState>(builder: (context, state) {
           return state.maybeMap(
@@ -35,6 +46,7 @@ class ZLicenseScreen extends StatelessWidget {
             },
             data: (value) {
               final zlicenses = value.zlicenses;
+              var isSelected = false;
               return ListView.builder(
                   physics: const ScrollPhysics(),
                   shrinkWrap: true,
@@ -45,14 +57,23 @@ class ZLicenseScreen extends StatelessWidget {
                         child: Text('ZLicense Empty'),
                       );
                     } else {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 5,
-                          horizontal: 10,
-                        ),
-                        child: ZLicenseTile(
-                          licenseName: zlicenses[index].ZNAME,
-                          description: zlicenses[index].ZCONTENT,
+                      return GestureDetector(
+                        onTap: () {
+                          context.read<ZLicenseBloc>().add(
+                                ZLicenseEvent.selectedZLicense(
+                                    zlicenses[index].Z_PK),
+                              );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 10,
+                          ),
+                          child: ZLicenseTile(
+                            licenseName: zlicenses[index].ZNAME,
+                            description: zlicenses[index].ZCONTENT,
+                            isSelected: zlicenses[index].isSelected,
+                          ),
                         ),
                       );
                     }
