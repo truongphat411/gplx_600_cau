@@ -1,12 +1,14 @@
-import 'package:gplx_600_cau/core/gen/assets.gen.dart';
+import 'package:flutter/material.dart';
 
 class ItemHome {
   ItemHome({
-    this.title,
-    this.icon,
-    this.route_path,
+    required this.title,
+    required this.icon,
+    required this.navigationPath,
+    required this.color,
   });
-  final String? title;
-  final String? icon;
-  final String? route_path;
+  final String title;
+  final Color color;
+  final String icon;
+  final String navigationPath;
 }
