@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:gplx_600_cau/core/base_error/exception.dart';
 import 'package:gplx_600_cau/core/base_error/failure.dart';
-import 'package:gplx_600_cau/features/data/data_sources/zlicense_data_source/zlicense_data_source.dart';
+import 'package:gplx_600_cau/features/data/data_sources/local/zlicense_data_source/zlicense_data_source.dart';
 import 'package:gplx_600_cau/features/data/models/zlicense/zlicense.dart';
 import 'package:gplx_600_cau/features/domain/repositories/zlicense_repository/zlicense_repository.dart';
 import 'package:injectable/injectable.dart';

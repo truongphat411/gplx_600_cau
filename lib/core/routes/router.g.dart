@@ -10,6 +10,12 @@ List<RouteBase> get $appRoutes => [
       $rootApp,
       $homeRoute,
       $licenseRoute,
+      $mockTestRoute,
+      $reviewQuestionsRoute,
+      $frequentMistakesRoute,
+      $memoryTipsRoute,
+      $savedQuestionRoute,
+      $trafficSignsRoute,
     ];
 
 RouteBase get $rootApp => GoRouteData.$route(
@@ -66,6 +72,142 @@ extension $LicenseRouteExtension on LicenseRoute {
 
   String get location => GoRouteData.$location(
         '/license',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $mockTestRoute => GoRouteData.$route(
+      path: '/mock-test',
+      factory: $MockTestRouteExtension._fromState,
+    );
+
+extension $MockTestRouteExtension on MockTestRoute {
+  static MockTestRoute _fromState(GoRouterState state) => MockTestRoute();
+
+  String get location => GoRouteData.$location(
+        '/mock-test',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $reviewQuestionsRoute => GoRouteData.$route(
+      path: '/review-questions',
+      factory: $ReviewQuestionsRouteExtension._fromState,
+    );
+
+extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
+  static ReviewQuestionsRoute _fromState(GoRouterState state) =>
+      ReviewQuestionsRoute();
+
+  String get location => GoRouteData.$location(
+        '/review-questions',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $frequentMistakesRoute => GoRouteData.$route(
+      path: '/frequent-mistakes',
+      factory: $FrequentMistakesRouteExtension._fromState,
+    );
+
+extension $FrequentMistakesRouteExtension on FrequentMistakesRoute {
+  static FrequentMistakesRoute _fromState(GoRouterState state) =>
+      FrequentMistakesRoute();
+
+  String get location => GoRouteData.$location(
+        '/frequent-mistakes',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $memoryTipsRoute => GoRouteData.$route(
+      path: '/memory-tips',
+      factory: $MemoryTipsRouteExtension._fromState,
+    );
+
+extension $MemoryTipsRouteExtension on MemoryTipsRoute {
+  static MemoryTipsRoute _fromState(GoRouterState state) => MemoryTipsRoute();
+
+  String get location => GoRouteData.$location(
+        '/memory-tips',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $savedQuestionRoute => GoRouteData.$route(
+      path: '/saved-question',
+      factory: $SavedQuestionRouteExtension._fromState,
+    );
+
+extension $SavedQuestionRouteExtension on SavedQuestionRoute {
+  static SavedQuestionRoute _fromState(GoRouterState state) =>
+      SavedQuestionRoute();
+
+  String get location => GoRouteData.$location(
+        '/saved-question',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $trafficSignsRoute => GoRouteData.$route(
+      path: '/traffic-signs',
+      factory: $TrafficSignsRouteExtension._fromState,
+    );
+
+extension $TrafficSignsRouteExtension on TrafficSignsRoute {
+  static TrafficSignsRoute _fromState(GoRouterState state) =>
+      TrafficSignsRoute();
+
+  String get location => GoRouteData.$location(
+        '/traffic-signs',
       );
 
   void go(BuildContext context) => context.go(location);

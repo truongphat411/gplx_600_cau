@@ -26,7 +26,9 @@ class _HomeMenuItems extends StatelessWidget {
                       vertical: 4,
                     ),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        context.push(item.navigationPath);
+                      },
                       child: _HomeMenuItemTile(
                         itemHome: item,
                       ),

@@ -4,24 +4,23 @@ import 'package:gplx_600_cau/features/data/models/zlicense/zlicense.dart';
 import 'package:gplx_600_cau/features/domain/repositories/zlicense_repository/zlicense_repository.dart';
 import 'package:injectable/injectable.dart';
 
-part 'zlicense_bloc.freezed.dart';
-part 'zlicense_event.dart';
-part 'zlicense_state.dart';
+part 'license_bloc.freezed.dart';
+part 'license_event.dart';
+part 'license_state.dart';
 
 @injectable
-class ZLicenseBloc extends Bloc<ZLicenseEvent, ZLicenseState> {
+class LicenseBloc extends Bloc<LicenseEvent, LicenseState> {
   ZLicenseRepository zLicenseRepository;
-  ZLicenseBloc(this.zLicenseRepository) : super(const ZLicenseState.initial()) {
-    on<ZLicenseEvent>((event, emit) async {
+  LicenseBloc(this.zLicenseRepository) : super(const LicenseState.initial()) {
+    on<LicenseEvent>((event, emit) async {
       await event.map(
-        started: (value) {},
-        getZLicense: (value) async {
-          emit(const ZLicenseStateLoading());
+        getAllLicenses: (value) async {
+          emit(const LicenseStateLoading());
           final result = await zLicenseRepository.getAllLicenses();
           result.fold(
             (l) => null,
             (r) => emit(
-              ZLicenseState.data(zlicenses: r),
+              LicenseState.data(zLicenses: r),
             ),
           );
         },
@@ -36,7 +35,7 @@ class ZLicenseBloc extends Bloc<ZLicenseEvent, ZLicenseState> {
               return zlicense;
             }).toList();
             emit(
-              ZLicenseState.data(zlicenses: updatedZLicenses),
+              LicenseState.data(zLicenses: updatedZLicenses),
             );
           });
         },

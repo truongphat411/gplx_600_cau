@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
+part of '../license_screen.dart';
 
-class ZLicenseTile extends StatelessWidget {
-  const ZLicenseTile({
-    super.key,
+class _LicenseTile extends StatelessWidget {
+  const _LicenseTile({
     this.licenseName,
     this.description,
     this.isSelected = false,

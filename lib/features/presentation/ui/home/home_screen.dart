@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/core/gen/assets.gen.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
@@ -22,53 +23,41 @@ class _HomeScreenState extends State<HomeScreen> {
     final appColors = Theme.of(context).appColors;
     final mockDataHomeMenuItems = [
       ItemHome(
-        title: 'Đề ngẫu nhiên',
+        title: 'Thi thử',
         icon: Assets.images.icRandomQuiz,
         color: Colors.amber,
-        navigationPath: '/random-quiz',
+        navigationPath: '/mock-test',
       ),
       ItemHome(
-        title: 'Thi theo bộ đề',
+        title: 'Ôn tập câu hỏi',
         icon: Assets.images.icExamBySet,
-        color: Colors.red,
-        navigationPath: '/exam-by-set',
+        color: Colors.green,
+        navigationPath: '/review-questions',
       ),
       ItemHome(
-        title: 'Xem câu hay bị sai',
+        title: 'Xem câu sai',
         icon: Assets.images.icFrequentMistakes,
         color: Colors.blue,
         navigationPath: '/frequent-mistakes',
       ),
       ItemHome(
-        title: 'Ôn tập câu hỏi',
-        icon: Assets.images.icQuizSave,
-        color: Colors.green,
-        navigationPath: '/review-questions',
-      ),
-      ItemHome(
-        title: 'Các biển báo',
-        icon: Assets.images.icTrafficSigns,
-        color: Colors.yellow,
-        navigationPath: '/traffic-signs',
-      ),
-      ItemHome(
-        title: 'Mẹo ghi nhớ',
+        title: 'Mẹo thi kết quả cao',
         icon: Assets.images.icMemoryTips,
         color: Colors.purple,
         navigationPath: '/memory-tips',
       ),
       ItemHome(
-        title: '60 câu liệt điểm',
-        icon: Assets.images.icMemoryTips,
-        color: Colors.brown,
-        navigationPath: '/60-critical-questions',
+        title: 'Câu đã lưu',
+        icon: Assets.images.icQuizSave,
+        color: Colors.grey,
+        navigationPath: '/saved-question',
       ),
       ItemHome(
-        title: 'Những câu hay sai',
-        icon: Assets.images.icMemoryTips,
-        color: Colors.grey,
-        navigationPath: '/common-mistakes',
-      ),
+        title: 'Ôn tập biển báo',
+        icon: Assets.images.icTrafficSigns,
+        color: Colors.yellow,
+        navigationPath: '/traffic-signs',
+      )
     ];
     return Scaffold(
       appBar: CommonAppBar(

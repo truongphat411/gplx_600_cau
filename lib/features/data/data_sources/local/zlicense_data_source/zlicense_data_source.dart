@@ -1,4 +1,4 @@
-import 'package:gplx_600_cau/features/data/data_sources/db/database_helper.dart';
+import 'package:gplx_600_cau/features/data/data_sources/local/database_helper.dart';
 import 'package:gplx_600_cau/features/data/models/zlicense/zlicense.dart';
 import 'package:injectable/injectable.dart';
 

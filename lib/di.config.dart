@@ -11,15 +11,24 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'features/data/data_sources/db/database_helper.dart' as _i3;
-import 'features/data/data_sources/zlicense_data_source/zlicense_data_source.dart'
+import 'features/data/data_sources/local/database_helper.dart' as _i3;
+import 'features/data/data_sources/local/zlicense_data_source/zlicense_data_source.dart'
     as _i4;
-import 'features/data/repositories/zlicense_repository_impl.dart' as _i6;
-import 'features/domain/repositories/zlicense_repository/zlicense_repository.dart'
+import 'features/data/data_sources/local/zquestion_data_source/zquestion_data_source.dart'
     as _i5;
+import 'features/data/repositories/zlicense_repository_impl.dart' as _i7;
+import 'features/data/repositories/zquestion_repository_impl.dart' as _i11;
+import 'features/domain/repositories/zlicense_repository/zlicense_repository.dart'
+    as _i6;
+import 'features/domain/repositories/zquestion_repository/zquestion_repository.dart'
+    as _i10;
 import 'features/domain/use_cases/zlicense_use_case/zlicense_use_case.dart'
-    as _i7;
-import 'features/presentation/blocs/zlicense/zlicense_bloc.dart' as _i8;
+    as _i8;
+import 'features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dart'
+    as _i12;
+import 'features/presentation/blocs/license/license_bloc.dart' as _i9;
+import 'features/presentation/blocs/review_questions/review_questions_bloc.dart'
+    as _i13;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -35,11 +44,19 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i3.DatabaseHelper>(() => _i3.DatabaseHelper());
   gh.lazySingleton<_i4.ZLicenseDataSource>(
       () => _i4.ZLicenseDataSourceImpl(gh<_i3.DatabaseHelper>()));
-  gh.lazySingleton<_i5.ZLicenseRepository>(
-      () => _i6.ZLicenseRepositoryImpl(gh<_i4.ZLicenseDataSource>()));
-  gh.lazySingleton<_i7.ZLicenseUseCase>(
-      () => _i7.ZLicenseUseCaseImpl(gh<_i5.ZLicenseRepository>()));
-  gh.factory<_i8.ZLicenseBloc>(
-      () => _i8.ZLicenseBloc(gh<_i5.ZLicenseRepository>()));
+  gh.lazySingleton<_i5.ZQuestionDataSource>(
+      () => _i5.ZLicenseDataSourceImpl(gh<_i3.DatabaseHelper>()));
+  gh.lazySingleton<_i6.ZLicenseRepository>(
+      () => _i7.ZLicenseRepositoryImpl(gh<_i4.ZLicenseDataSource>()));
+  gh.lazySingleton<_i8.ZLicenseUseCase>(
+      () => _i8.ZLicenseUseCaseImpl(gh<_i6.ZLicenseRepository>()));
+  gh.factory<_i9.LicenseBloc>(
+      () => _i9.LicenseBloc(gh<_i6.ZLicenseRepository>()));
+  gh.lazySingleton<_i10.ZQuestionRepository>(
+      () => _i11.ZQuestionRepositoryImpl(gh<_i5.ZQuestionDataSource>()));
+  gh.lazySingleton<_i12.ZQuestionUseCase>(
+      () => _i12.ZQuestionUseCaseImpl(gh<_i10.ZQuestionRepository>()));
+  gh.factory<_i13.ReviewQuestionsBloc>(
+      () => _i13.ReviewQuestionsBloc(gh<_i10.ZQuestionRepository>()));
   return getIt;
 }

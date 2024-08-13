@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/di.dart';
-import 'package:gplx_600_cau/features/presentation/blocs/zlicense/zlicense_bloc.dart';
+import 'package:gplx_600_cau/features/presentation/blocs/license/license_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
-import 'package:gplx_600_cau/features/presentation/ui/zlicense/widgets/zlicense_tile.dart';
 
-class ZLicenseScreen extends StatelessWidget {
-  const ZLicenseScreen({super.key});
+part 'widgets/license_tile.dart';
+
+class LicenseScreen extends StatelessWidget {
+  const LicenseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,12 @@ class ZLicenseScreen extends StatelessWidget {
         elevation: 1,
       ),
       body: BlocProvider(
-        create: ((context) => getIt<ZLicenseBloc>()
+        create: ((context) => getIt<LicenseBloc>()
           ..add(
-            const ZLicenseEvent.getZLicense(),
+            const LicenseEvent.getAllLicenses(),
           )),
         child:
-            BlocBuilder<ZLicenseBloc, ZLicenseState>(builder: (context, state) {
+            BlocBuilder<LicenseBloc, LicenseState>(builder: (context, state) {
           return state.maybeMap(
             orElse: () {
               return const Center(
@@ -43,23 +44,22 @@ class ZLicenseScreen extends StatelessWidget {
               );
             },
             data: (value) {
-              final zlicenses = value.zlicenses;
-              var isSelected = false;
+              final licenses = value.zLicenses;
               return ListView.builder(
                   physics: const ScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: zlicenses.length,
+                  itemCount: licenses.length,
                   itemBuilder: (context, index) {
-                    if (zlicenses.isEmpty) {
+                    if (licenses.isEmpty) {
                       return const Center(
                         child: Text('ZLicense Empty'),
                       );
                     } else {
                       return GestureDetector(
                         onTap: () {
-                          context.read<ZLicenseBloc>().add(
-                                ZLicenseEvent.selectedZLicense(
-                                    zlicenses[index].Z_PK),
+                          context.read<LicenseBloc>().add(
+                                LicenseEvent.selectedZLicense(
+                                    licenses[index].Z_PK),
                               );
                         },
                         child: Padding(
@@ -67,10 +67,10 @@ class ZLicenseScreen extends StatelessWidget {
                             vertical: 10,
                             horizontal: 10,
                           ),
-                          child: ZLicenseTile(
-                            licenseName: zlicenses[index].ZNAME,
-                            description: zlicenses[index].ZCONTENT,
-                            isSelected: zlicenses[index].isSelected,
+                          child: _LicenseTile(
+                            licenseName: licenses[index].ZNAME,
+                            description: licenses[index].ZCONTENT,
+                            isSelected: licenses[index].isSelected,
                           ),
                         ),
                       );
