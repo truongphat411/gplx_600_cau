@@ -26,10 +26,7 @@ class LicenseScreen extends StatelessWidget {
         elevation: 1,
       ),
       body: BlocProvider(
-        create: ((context) => getIt<LicenseBloc>()
-          ..add(
-            const LicenseEvent.getAllLicenses(),
-          )),
+        create: ((context) => getIt<LicenseBloc>()),
         child:
             BlocBuilder<LicenseBloc, LicenseState>(builder: (context, state) {
           return state.maybeMap(

@@ -20,29 +20,29 @@ ZQuestion _$ZQuestionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ZQuestion {
-  String? get zANSWERDESC => throw _privateConstructorUsedError;
-  int? get zANSWERS => throw _privateConstructorUsedError;
-  int? get zAWSA1 => throw _privateConstructorUsedError;
-  String? get zIMAGE => throw _privateConstructorUsedError;
-  int? get zINCLUDEA1 => throw _privateConstructorUsedError;
-  int? get zINCLUDEA2 => throw _privateConstructorUsedError;
-  int? get zINCLUDEA34 => throw _privateConstructorUsedError;
-  int? get zINCLUDEB1 => throw _privateConstructorUsedError;
-  int? get zINCLUDEB2 => throw _privateConstructorUsedError;
-  int? get zINCLUDEC => throw _privateConstructorUsedError;
-  int? get zINCLUDEDEF => throw _privateConstructorUsedError;
-  int? get zLEARNED => throw _privateConstructorUsedError;
-  int? get zMARKED => throw _privateConstructorUsedError;
-  String? get zOPTION1 => throw _privateConstructorUsedError;
-  String? get zOPTION2 => throw _privateConstructorUsedError;
-  String? get zOPTION3 => throw _privateConstructorUsedError;
-  String? get zOPTION4 => throw _privateConstructorUsedError;
-  String? get zQUESTIONCONTENT => throw _privateConstructorUsedError;
-  String? get zQUESTIONDIE => throw _privateConstructorUsedError;
-  int? get zQUESTIONTYPE => throw _privateConstructorUsedError;
-  int? get zWRONG => throw _privateConstructorUsedError;
-  int? get zENT => throw _privateConstructorUsedError;
-  int? get zPK => throw _privateConstructorUsedError;
+  String? get ZANSWERDESC => throw _privateConstructorUsedError;
+  int? get ZANSWERS => throw _privateConstructorUsedError;
+  int? get ZAWSA1 => throw _privateConstructorUsedError;
+  String? get ZIMAGE => throw _privateConstructorUsedError;
+  int? get ZINCLUDEA1 => throw _privateConstructorUsedError;
+  int? get ZINCLUDEA2 => throw _privateConstructorUsedError;
+  int? get ZINCLUDEA34 => throw _privateConstructorUsedError;
+  int? get ZINCLUDEB1 => throw _privateConstructorUsedError;
+  int? get ZINCLUDEB2 => throw _privateConstructorUsedError;
+  int? get ZINCLUDEC => throw _privateConstructorUsedError;
+  int? get ZINCLUDEDEF => throw _privateConstructorUsedError;
+  int? get ZLEARNED => throw _privateConstructorUsedError;
+  int? get ZMARKED => throw _privateConstructorUsedError;
+  String? get ZOPTION1 => throw _privateConstructorUsedError;
+  String? get ZOPTION2 => throw _privateConstructorUsedError;
+  String? get ZOPTION3 => throw _privateConstructorUsedError;
+  String? get ZOPTION4 => throw _privateConstructorUsedError;
+  String? get ZQUESTIONCONTENT => throw _privateConstructorUsedError;
+  String? get ZQUESTIONDIE => throw _privateConstructorUsedError;
+  int? get ZQUESTIONTYPE => throw _privateConstructorUsedError;
+  int? get ZWRONG => throw _privateConstructorUsedError;
+  int? get Z_ENT => throw _privateConstructorUsedError;
+  int? get Z_PK => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,29 +56,29 @@ abstract class $ZQuestionCopyWith<$Res> {
       _$ZQuestionCopyWithImpl<$Res, ZQuestion>;
   @useResult
   $Res call(
-      {String? zANSWERDESC,
-      int? zANSWERS,
-      int? zAWSA1,
-      String? zIMAGE,
-      int? zINCLUDEA1,
-      int? zINCLUDEA2,
-      int? zINCLUDEA34,
-      int? zINCLUDEB1,
-      int? zINCLUDEB2,
-      int? zINCLUDEC,
-      int? zINCLUDEDEF,
-      int? zLEARNED,
-      int? zMARKED,
-      String? zOPTION1,
-      String? zOPTION2,
-      String? zOPTION3,
-      String? zOPTION4,
-      String? zQUESTIONCONTENT,
-      String? zQUESTIONDIE,
-      int? zQUESTIONTYPE,
-      int? zWRONG,
-      int? zENT,
-      int? zPK});
+      {String? ZANSWERDESC,
+      int? ZANSWERS,
+      int? ZAWSA1,
+      String? ZIMAGE,
+      int? ZINCLUDEA1,
+      int? ZINCLUDEA2,
+      int? ZINCLUDEA34,
+      int? ZINCLUDEB1,
+      int? ZINCLUDEB2,
+      int? ZINCLUDEC,
+      int? ZINCLUDEDEF,
+      int? ZLEARNED,
+      int? ZMARKED,
+      String? ZOPTION1,
+      String? ZOPTION2,
+      String? ZOPTION3,
+      String? ZOPTION4,
+      String? ZQUESTIONCONTENT,
+      String? ZQUESTIONDIE,
+      int? ZQUESTIONTYPE,
+      int? ZWRONG,
+      int? Z_ENT,
+      int? Z_PK});
 }
 
 /// @nodoc
@@ -94,122 +94,122 @@ class _$ZQuestionCopyWithImpl<$Res, $Val extends ZQuestion>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? zANSWERDESC = freezed,
-    Object? zANSWERS = freezed,
-    Object? zAWSA1 = freezed,
-    Object? zIMAGE = freezed,
-    Object? zINCLUDEA1 = freezed,
-    Object? zINCLUDEA2 = freezed,
-    Object? zINCLUDEA34 = freezed,
-    Object? zINCLUDEB1 = freezed,
-    Object? zINCLUDEB2 = freezed,
-    Object? zINCLUDEC = freezed,
-    Object? zINCLUDEDEF = freezed,
-    Object? zLEARNED = freezed,
-    Object? zMARKED = freezed,
-    Object? zOPTION1 = freezed,
-    Object? zOPTION2 = freezed,
-    Object? zOPTION3 = freezed,
-    Object? zOPTION4 = freezed,
-    Object? zQUESTIONCONTENT = freezed,
-    Object? zQUESTIONDIE = freezed,
-    Object? zQUESTIONTYPE = freezed,
-    Object? zWRONG = freezed,
-    Object? zENT = freezed,
-    Object? zPK = freezed,
+    Object? ZANSWERDESC = freezed,
+    Object? ZANSWERS = freezed,
+    Object? ZAWSA1 = freezed,
+    Object? ZIMAGE = freezed,
+    Object? ZINCLUDEA1 = freezed,
+    Object? ZINCLUDEA2 = freezed,
+    Object? ZINCLUDEA34 = freezed,
+    Object? ZINCLUDEB1 = freezed,
+    Object? ZINCLUDEB2 = freezed,
+    Object? ZINCLUDEC = freezed,
+    Object? ZINCLUDEDEF = freezed,
+    Object? ZLEARNED = freezed,
+    Object? ZMARKED = freezed,
+    Object? ZOPTION1 = freezed,
+    Object? ZOPTION2 = freezed,
+    Object? ZOPTION3 = freezed,
+    Object? ZOPTION4 = freezed,
+    Object? ZQUESTIONCONTENT = freezed,
+    Object? ZQUESTIONDIE = freezed,
+    Object? ZQUESTIONTYPE = freezed,
+    Object? ZWRONG = freezed,
+    Object? Z_ENT = freezed,
+    Object? Z_PK = freezed,
   }) {
     return _then(_value.copyWith(
-      zANSWERDESC: freezed == zANSWERDESC
-          ? _value.zANSWERDESC
-          : zANSWERDESC // ignore: cast_nullable_to_non_nullable
+      ZANSWERDESC: freezed == ZANSWERDESC
+          ? _value.ZANSWERDESC
+          : ZANSWERDESC // ignore: cast_nullable_to_non_nullable
               as String?,
-      zANSWERS: freezed == zANSWERS
-          ? _value.zANSWERS
-          : zANSWERS // ignore: cast_nullable_to_non_nullable
+      ZANSWERS: freezed == ZANSWERS
+          ? _value.ZANSWERS
+          : ZANSWERS // ignore: cast_nullable_to_non_nullable
               as int?,
-      zAWSA1: freezed == zAWSA1
-          ? _value.zAWSA1
-          : zAWSA1 // ignore: cast_nullable_to_non_nullable
+      ZAWSA1: freezed == ZAWSA1
+          ? _value.ZAWSA1
+          : ZAWSA1 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zIMAGE: freezed == zIMAGE
-          ? _value.zIMAGE
-          : zIMAGE // ignore: cast_nullable_to_non_nullable
+      ZIMAGE: freezed == ZIMAGE
+          ? _value.ZIMAGE
+          : ZIMAGE // ignore: cast_nullable_to_non_nullable
               as String?,
-      zINCLUDEA1: freezed == zINCLUDEA1
-          ? _value.zINCLUDEA1
-          : zINCLUDEA1 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEA1: freezed == ZINCLUDEA1
+          ? _value.ZINCLUDEA1
+          : ZINCLUDEA1 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEA2: freezed == zINCLUDEA2
-          ? _value.zINCLUDEA2
-          : zINCLUDEA2 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEA2: freezed == ZINCLUDEA2
+          ? _value.ZINCLUDEA2
+          : ZINCLUDEA2 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEA34: freezed == zINCLUDEA34
-          ? _value.zINCLUDEA34
-          : zINCLUDEA34 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEA34: freezed == ZINCLUDEA34
+          ? _value.ZINCLUDEA34
+          : ZINCLUDEA34 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEB1: freezed == zINCLUDEB1
-          ? _value.zINCLUDEB1
-          : zINCLUDEB1 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEB1: freezed == ZINCLUDEB1
+          ? _value.ZINCLUDEB1
+          : ZINCLUDEB1 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEB2: freezed == zINCLUDEB2
-          ? _value.zINCLUDEB2
-          : zINCLUDEB2 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEB2: freezed == ZINCLUDEB2
+          ? _value.ZINCLUDEB2
+          : ZINCLUDEB2 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEC: freezed == zINCLUDEC
-          ? _value.zINCLUDEC
-          : zINCLUDEC // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEC: freezed == ZINCLUDEC
+          ? _value.ZINCLUDEC
+          : ZINCLUDEC // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEDEF: freezed == zINCLUDEDEF
-          ? _value.zINCLUDEDEF
-          : zINCLUDEDEF // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEDEF: freezed == ZINCLUDEDEF
+          ? _value.ZINCLUDEDEF
+          : ZINCLUDEDEF // ignore: cast_nullable_to_non_nullable
               as int?,
-      zLEARNED: freezed == zLEARNED
-          ? _value.zLEARNED
-          : zLEARNED // ignore: cast_nullable_to_non_nullable
+      ZLEARNED: freezed == ZLEARNED
+          ? _value.ZLEARNED
+          : ZLEARNED // ignore: cast_nullable_to_non_nullable
               as int?,
-      zMARKED: freezed == zMARKED
-          ? _value.zMARKED
-          : zMARKED // ignore: cast_nullable_to_non_nullable
+      ZMARKED: freezed == ZMARKED
+          ? _value.ZMARKED
+          : ZMARKED // ignore: cast_nullable_to_non_nullable
               as int?,
-      zOPTION1: freezed == zOPTION1
-          ? _value.zOPTION1
-          : zOPTION1 // ignore: cast_nullable_to_non_nullable
+      ZOPTION1: freezed == ZOPTION1
+          ? _value.ZOPTION1
+          : ZOPTION1 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zOPTION2: freezed == zOPTION2
-          ? _value.zOPTION2
-          : zOPTION2 // ignore: cast_nullable_to_non_nullable
+      ZOPTION2: freezed == ZOPTION2
+          ? _value.ZOPTION2
+          : ZOPTION2 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zOPTION3: freezed == zOPTION3
-          ? _value.zOPTION3
-          : zOPTION3 // ignore: cast_nullable_to_non_nullable
+      ZOPTION3: freezed == ZOPTION3
+          ? _value.ZOPTION3
+          : ZOPTION3 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zOPTION4: freezed == zOPTION4
-          ? _value.zOPTION4
-          : zOPTION4 // ignore: cast_nullable_to_non_nullable
+      ZOPTION4: freezed == ZOPTION4
+          ? _value.ZOPTION4
+          : ZOPTION4 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zQUESTIONCONTENT: freezed == zQUESTIONCONTENT
-          ? _value.zQUESTIONCONTENT
-          : zQUESTIONCONTENT // ignore: cast_nullable_to_non_nullable
+      ZQUESTIONCONTENT: freezed == ZQUESTIONCONTENT
+          ? _value.ZQUESTIONCONTENT
+          : ZQUESTIONCONTENT // ignore: cast_nullable_to_non_nullable
               as String?,
-      zQUESTIONDIE: freezed == zQUESTIONDIE
-          ? _value.zQUESTIONDIE
-          : zQUESTIONDIE // ignore: cast_nullable_to_non_nullable
+      ZQUESTIONDIE: freezed == ZQUESTIONDIE
+          ? _value.ZQUESTIONDIE
+          : ZQUESTIONDIE // ignore: cast_nullable_to_non_nullable
               as String?,
-      zQUESTIONTYPE: freezed == zQUESTIONTYPE
-          ? _value.zQUESTIONTYPE
-          : zQUESTIONTYPE // ignore: cast_nullable_to_non_nullable
+      ZQUESTIONTYPE: freezed == ZQUESTIONTYPE
+          ? _value.ZQUESTIONTYPE
+          : ZQUESTIONTYPE // ignore: cast_nullable_to_non_nullable
               as int?,
-      zWRONG: freezed == zWRONG
-          ? _value.zWRONG
-          : zWRONG // ignore: cast_nullable_to_non_nullable
+      ZWRONG: freezed == ZWRONG
+          ? _value.ZWRONG
+          : ZWRONG // ignore: cast_nullable_to_non_nullable
               as int?,
-      zENT: freezed == zENT
-          ? _value.zENT
-          : zENT // ignore: cast_nullable_to_non_nullable
+      Z_ENT: freezed == Z_ENT
+          ? _value.Z_ENT
+          : Z_ENT // ignore: cast_nullable_to_non_nullable
               as int?,
-      zPK: freezed == zPK
-          ? _value.zPK
-          : zPK // ignore: cast_nullable_to_non_nullable
+      Z_PK: freezed == Z_PK
+          ? _value.Z_PK
+          : Z_PK // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -224,29 +224,29 @@ abstract class _$$ZQuestionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? zANSWERDESC,
-      int? zANSWERS,
-      int? zAWSA1,
-      String? zIMAGE,
-      int? zINCLUDEA1,
-      int? zINCLUDEA2,
-      int? zINCLUDEA34,
-      int? zINCLUDEB1,
-      int? zINCLUDEB2,
-      int? zINCLUDEC,
-      int? zINCLUDEDEF,
-      int? zLEARNED,
-      int? zMARKED,
-      String? zOPTION1,
-      String? zOPTION2,
-      String? zOPTION3,
-      String? zOPTION4,
-      String? zQUESTIONCONTENT,
-      String? zQUESTIONDIE,
-      int? zQUESTIONTYPE,
-      int? zWRONG,
-      int? zENT,
-      int? zPK});
+      {String? ZANSWERDESC,
+      int? ZANSWERS,
+      int? ZAWSA1,
+      String? ZIMAGE,
+      int? ZINCLUDEA1,
+      int? ZINCLUDEA2,
+      int? ZINCLUDEA34,
+      int? ZINCLUDEB1,
+      int? ZINCLUDEB2,
+      int? ZINCLUDEC,
+      int? ZINCLUDEDEF,
+      int? ZLEARNED,
+      int? ZMARKED,
+      String? ZOPTION1,
+      String? ZOPTION2,
+      String? ZOPTION3,
+      String? ZOPTION4,
+      String? ZQUESTIONCONTENT,
+      String? ZQUESTIONDIE,
+      int? ZQUESTIONTYPE,
+      int? ZWRONG,
+      int? Z_ENT,
+      int? Z_PK});
 }
 
 /// @nodoc
@@ -260,122 +260,122 @@ class __$$ZQuestionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? zANSWERDESC = freezed,
-    Object? zANSWERS = freezed,
-    Object? zAWSA1 = freezed,
-    Object? zIMAGE = freezed,
-    Object? zINCLUDEA1 = freezed,
-    Object? zINCLUDEA2 = freezed,
-    Object? zINCLUDEA34 = freezed,
-    Object? zINCLUDEB1 = freezed,
-    Object? zINCLUDEB2 = freezed,
-    Object? zINCLUDEC = freezed,
-    Object? zINCLUDEDEF = freezed,
-    Object? zLEARNED = freezed,
-    Object? zMARKED = freezed,
-    Object? zOPTION1 = freezed,
-    Object? zOPTION2 = freezed,
-    Object? zOPTION3 = freezed,
-    Object? zOPTION4 = freezed,
-    Object? zQUESTIONCONTENT = freezed,
-    Object? zQUESTIONDIE = freezed,
-    Object? zQUESTIONTYPE = freezed,
-    Object? zWRONG = freezed,
-    Object? zENT = freezed,
-    Object? zPK = freezed,
+    Object? ZANSWERDESC = freezed,
+    Object? ZANSWERS = freezed,
+    Object? ZAWSA1 = freezed,
+    Object? ZIMAGE = freezed,
+    Object? ZINCLUDEA1 = freezed,
+    Object? ZINCLUDEA2 = freezed,
+    Object? ZINCLUDEA34 = freezed,
+    Object? ZINCLUDEB1 = freezed,
+    Object? ZINCLUDEB2 = freezed,
+    Object? ZINCLUDEC = freezed,
+    Object? ZINCLUDEDEF = freezed,
+    Object? ZLEARNED = freezed,
+    Object? ZMARKED = freezed,
+    Object? ZOPTION1 = freezed,
+    Object? ZOPTION2 = freezed,
+    Object? ZOPTION3 = freezed,
+    Object? ZOPTION4 = freezed,
+    Object? ZQUESTIONCONTENT = freezed,
+    Object? ZQUESTIONDIE = freezed,
+    Object? ZQUESTIONTYPE = freezed,
+    Object? ZWRONG = freezed,
+    Object? Z_ENT = freezed,
+    Object? Z_PK = freezed,
   }) {
     return _then(_$ZQuestionImpl(
-      zANSWERDESC: freezed == zANSWERDESC
-          ? _value.zANSWERDESC
-          : zANSWERDESC // ignore: cast_nullable_to_non_nullable
+      ZANSWERDESC: freezed == ZANSWERDESC
+          ? _value.ZANSWERDESC
+          : ZANSWERDESC // ignore: cast_nullable_to_non_nullable
               as String?,
-      zANSWERS: freezed == zANSWERS
-          ? _value.zANSWERS
-          : zANSWERS // ignore: cast_nullable_to_non_nullable
+      ZANSWERS: freezed == ZANSWERS
+          ? _value.ZANSWERS
+          : ZANSWERS // ignore: cast_nullable_to_non_nullable
               as int?,
-      zAWSA1: freezed == zAWSA1
-          ? _value.zAWSA1
-          : zAWSA1 // ignore: cast_nullable_to_non_nullable
+      ZAWSA1: freezed == ZAWSA1
+          ? _value.ZAWSA1
+          : ZAWSA1 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zIMAGE: freezed == zIMAGE
-          ? _value.zIMAGE
-          : zIMAGE // ignore: cast_nullable_to_non_nullable
+      ZIMAGE: freezed == ZIMAGE
+          ? _value.ZIMAGE
+          : ZIMAGE // ignore: cast_nullable_to_non_nullable
               as String?,
-      zINCLUDEA1: freezed == zINCLUDEA1
-          ? _value.zINCLUDEA1
-          : zINCLUDEA1 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEA1: freezed == ZINCLUDEA1
+          ? _value.ZINCLUDEA1
+          : ZINCLUDEA1 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEA2: freezed == zINCLUDEA2
-          ? _value.zINCLUDEA2
-          : zINCLUDEA2 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEA2: freezed == ZINCLUDEA2
+          ? _value.ZINCLUDEA2
+          : ZINCLUDEA2 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEA34: freezed == zINCLUDEA34
-          ? _value.zINCLUDEA34
-          : zINCLUDEA34 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEA34: freezed == ZINCLUDEA34
+          ? _value.ZINCLUDEA34
+          : ZINCLUDEA34 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEB1: freezed == zINCLUDEB1
-          ? _value.zINCLUDEB1
-          : zINCLUDEB1 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEB1: freezed == ZINCLUDEB1
+          ? _value.ZINCLUDEB1
+          : ZINCLUDEB1 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEB2: freezed == zINCLUDEB2
-          ? _value.zINCLUDEB2
-          : zINCLUDEB2 // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEB2: freezed == ZINCLUDEB2
+          ? _value.ZINCLUDEB2
+          : ZINCLUDEB2 // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEC: freezed == zINCLUDEC
-          ? _value.zINCLUDEC
-          : zINCLUDEC // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEC: freezed == ZINCLUDEC
+          ? _value.ZINCLUDEC
+          : ZINCLUDEC // ignore: cast_nullable_to_non_nullable
               as int?,
-      zINCLUDEDEF: freezed == zINCLUDEDEF
-          ? _value.zINCLUDEDEF
-          : zINCLUDEDEF // ignore: cast_nullable_to_non_nullable
+      ZINCLUDEDEF: freezed == ZINCLUDEDEF
+          ? _value.ZINCLUDEDEF
+          : ZINCLUDEDEF // ignore: cast_nullable_to_non_nullable
               as int?,
-      zLEARNED: freezed == zLEARNED
-          ? _value.zLEARNED
-          : zLEARNED // ignore: cast_nullable_to_non_nullable
+      ZLEARNED: freezed == ZLEARNED
+          ? _value.ZLEARNED
+          : ZLEARNED // ignore: cast_nullable_to_non_nullable
               as int?,
-      zMARKED: freezed == zMARKED
-          ? _value.zMARKED
-          : zMARKED // ignore: cast_nullable_to_non_nullable
+      ZMARKED: freezed == ZMARKED
+          ? _value.ZMARKED
+          : ZMARKED // ignore: cast_nullable_to_non_nullable
               as int?,
-      zOPTION1: freezed == zOPTION1
-          ? _value.zOPTION1
-          : zOPTION1 // ignore: cast_nullable_to_non_nullable
+      ZOPTION1: freezed == ZOPTION1
+          ? _value.ZOPTION1
+          : ZOPTION1 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zOPTION2: freezed == zOPTION2
-          ? _value.zOPTION2
-          : zOPTION2 // ignore: cast_nullable_to_non_nullable
+      ZOPTION2: freezed == ZOPTION2
+          ? _value.ZOPTION2
+          : ZOPTION2 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zOPTION3: freezed == zOPTION3
-          ? _value.zOPTION3
-          : zOPTION3 // ignore: cast_nullable_to_non_nullable
+      ZOPTION3: freezed == ZOPTION3
+          ? _value.ZOPTION3
+          : ZOPTION3 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zOPTION4: freezed == zOPTION4
-          ? _value.zOPTION4
-          : zOPTION4 // ignore: cast_nullable_to_non_nullable
+      ZOPTION4: freezed == ZOPTION4
+          ? _value.ZOPTION4
+          : ZOPTION4 // ignore: cast_nullable_to_non_nullable
               as String?,
-      zQUESTIONCONTENT: freezed == zQUESTIONCONTENT
-          ? _value.zQUESTIONCONTENT
-          : zQUESTIONCONTENT // ignore: cast_nullable_to_non_nullable
+      ZQUESTIONCONTENT: freezed == ZQUESTIONCONTENT
+          ? _value.ZQUESTIONCONTENT
+          : ZQUESTIONCONTENT // ignore: cast_nullable_to_non_nullable
               as String?,
-      zQUESTIONDIE: freezed == zQUESTIONDIE
-          ? _value.zQUESTIONDIE
-          : zQUESTIONDIE // ignore: cast_nullable_to_non_nullable
+      ZQUESTIONDIE: freezed == ZQUESTIONDIE
+          ? _value.ZQUESTIONDIE
+          : ZQUESTIONDIE // ignore: cast_nullable_to_non_nullable
               as String?,
-      zQUESTIONTYPE: freezed == zQUESTIONTYPE
-          ? _value.zQUESTIONTYPE
-          : zQUESTIONTYPE // ignore: cast_nullable_to_non_nullable
+      ZQUESTIONTYPE: freezed == ZQUESTIONTYPE
+          ? _value.ZQUESTIONTYPE
+          : ZQUESTIONTYPE // ignore: cast_nullable_to_non_nullable
               as int?,
-      zWRONG: freezed == zWRONG
-          ? _value.zWRONG
-          : zWRONG // ignore: cast_nullable_to_non_nullable
+      ZWRONG: freezed == ZWRONG
+          ? _value.ZWRONG
+          : ZWRONG // ignore: cast_nullable_to_non_nullable
               as int?,
-      zENT: freezed == zENT
-          ? _value.zENT
-          : zENT // ignore: cast_nullable_to_non_nullable
+      Z_ENT: freezed == Z_ENT
+          ? _value.Z_ENT
+          : Z_ENT // ignore: cast_nullable_to_non_nullable
               as int?,
-      zPK: freezed == zPK
-          ? _value.zPK
-          : zPK // ignore: cast_nullable_to_non_nullable
+      Z_PK: freezed == Z_PK
+          ? _value.Z_PK
+          : Z_PK // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -385,84 +385,84 @@ class __$$ZQuestionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ZQuestionImpl extends _ZQuestion {
   const _$ZQuestionImpl(
-      {this.zANSWERDESC,
-      this.zANSWERS,
-      this.zAWSA1,
-      this.zIMAGE,
-      this.zINCLUDEA1,
-      this.zINCLUDEA2,
-      this.zINCLUDEA34,
-      this.zINCLUDEB1,
-      this.zINCLUDEB2,
-      this.zINCLUDEC,
-      this.zINCLUDEDEF,
-      this.zLEARNED,
-      this.zMARKED,
-      this.zOPTION1,
-      this.zOPTION2,
-      this.zOPTION3,
-      this.zOPTION4,
-      this.zQUESTIONCONTENT,
-      this.zQUESTIONDIE,
-      this.zQUESTIONTYPE,
-      this.zWRONG,
-      this.zENT,
-      this.zPK})
+      {this.ZANSWERDESC,
+      this.ZANSWERS,
+      this.ZAWSA1,
+      this.ZIMAGE,
+      this.ZINCLUDEA1,
+      this.ZINCLUDEA2,
+      this.ZINCLUDEA34,
+      this.ZINCLUDEB1,
+      this.ZINCLUDEB2,
+      this.ZINCLUDEC,
+      this.ZINCLUDEDEF,
+      this.ZLEARNED,
+      this.ZMARKED,
+      this.ZOPTION1,
+      this.ZOPTION2,
+      this.ZOPTION3,
+      this.ZOPTION4,
+      this.ZQUESTIONCONTENT,
+      this.ZQUESTIONDIE,
+      this.ZQUESTIONTYPE,
+      this.ZWRONG,
+      this.Z_ENT,
+      this.Z_PK})
       : super._();
 
   factory _$ZQuestionImpl.fromJson(Map<String, dynamic> json) =>
       _$$ZQuestionImplFromJson(json);
 
   @override
-  final String? zANSWERDESC;
+  final String? ZANSWERDESC;
   @override
-  final int? zANSWERS;
+  final int? ZANSWERS;
   @override
-  final int? zAWSA1;
+  final int? ZAWSA1;
   @override
-  final String? zIMAGE;
+  final String? ZIMAGE;
   @override
-  final int? zINCLUDEA1;
+  final int? ZINCLUDEA1;
   @override
-  final int? zINCLUDEA2;
+  final int? ZINCLUDEA2;
   @override
-  final int? zINCLUDEA34;
+  final int? ZINCLUDEA34;
   @override
-  final int? zINCLUDEB1;
+  final int? ZINCLUDEB1;
   @override
-  final int? zINCLUDEB2;
+  final int? ZINCLUDEB2;
   @override
-  final int? zINCLUDEC;
+  final int? ZINCLUDEC;
   @override
-  final int? zINCLUDEDEF;
+  final int? ZINCLUDEDEF;
   @override
-  final int? zLEARNED;
+  final int? ZLEARNED;
   @override
-  final int? zMARKED;
+  final int? ZMARKED;
   @override
-  final String? zOPTION1;
+  final String? ZOPTION1;
   @override
-  final String? zOPTION2;
+  final String? ZOPTION2;
   @override
-  final String? zOPTION3;
+  final String? ZOPTION3;
   @override
-  final String? zOPTION4;
+  final String? ZOPTION4;
   @override
-  final String? zQUESTIONCONTENT;
+  final String? ZQUESTIONCONTENT;
   @override
-  final String? zQUESTIONDIE;
+  final String? ZQUESTIONDIE;
   @override
-  final int? zQUESTIONTYPE;
+  final int? ZQUESTIONTYPE;
   @override
-  final int? zWRONG;
+  final int? ZWRONG;
   @override
-  final int? zENT;
+  final int? Z_ENT;
   @override
-  final int? zPK;
+  final int? Z_PK;
 
   @override
   String toString() {
-    return 'ZQuestion(zANSWERDESC: $zANSWERDESC, zANSWERS: $zANSWERS, zAWSA1: $zAWSA1, zIMAGE: $zIMAGE, zINCLUDEA1: $zINCLUDEA1, zINCLUDEA2: $zINCLUDEA2, zINCLUDEA34: $zINCLUDEA34, zINCLUDEB1: $zINCLUDEB1, zINCLUDEB2: $zINCLUDEB2, zINCLUDEC: $zINCLUDEC, zINCLUDEDEF: $zINCLUDEDEF, zLEARNED: $zLEARNED, zMARKED: $zMARKED, zOPTION1: $zOPTION1, zOPTION2: $zOPTION2, zOPTION3: $zOPTION3, zOPTION4: $zOPTION4, zQUESTIONCONTENT: $zQUESTIONCONTENT, zQUESTIONDIE: $zQUESTIONDIE, zQUESTIONTYPE: $zQUESTIONTYPE, zWRONG: $zWRONG, zENT: $zENT, zPK: $zPK)';
+    return 'ZQuestion(ZANSWERDESC: $ZANSWERDESC, ZANSWERS: $ZANSWERS, ZAWSA1: $ZAWSA1, ZIMAGE: $ZIMAGE, ZINCLUDEA1: $ZINCLUDEA1, ZINCLUDEA2: $ZINCLUDEA2, ZINCLUDEA34: $ZINCLUDEA34, ZINCLUDEB1: $ZINCLUDEB1, ZINCLUDEB2: $ZINCLUDEB2, ZINCLUDEC: $ZINCLUDEC, ZINCLUDEDEF: $ZINCLUDEDEF, ZLEARNED: $ZLEARNED, ZMARKED: $ZMARKED, ZOPTION1: $ZOPTION1, ZOPTION2: $ZOPTION2, ZOPTION3: $ZOPTION3, ZOPTION4: $ZOPTION4, ZQUESTIONCONTENT: $ZQUESTIONCONTENT, ZQUESTIONDIE: $ZQUESTIONDIE, ZQUESTIONTYPE: $ZQUESTIONTYPE, ZWRONG: $ZWRONG, Z_ENT: $Z_ENT, Z_PK: $Z_PK)';
   }
 
   @override
@@ -470,75 +470,75 @@ class _$ZQuestionImpl extends _ZQuestion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ZQuestionImpl &&
-            (identical(other.zANSWERDESC, zANSWERDESC) ||
-                other.zANSWERDESC == zANSWERDESC) &&
-            (identical(other.zANSWERS, zANSWERS) ||
-                other.zANSWERS == zANSWERS) &&
-            (identical(other.zAWSA1, zAWSA1) || other.zAWSA1 == zAWSA1) &&
-            (identical(other.zIMAGE, zIMAGE) || other.zIMAGE == zIMAGE) &&
-            (identical(other.zINCLUDEA1, zINCLUDEA1) ||
-                other.zINCLUDEA1 == zINCLUDEA1) &&
-            (identical(other.zINCLUDEA2, zINCLUDEA2) ||
-                other.zINCLUDEA2 == zINCLUDEA2) &&
-            (identical(other.zINCLUDEA34, zINCLUDEA34) ||
-                other.zINCLUDEA34 == zINCLUDEA34) &&
-            (identical(other.zINCLUDEB1, zINCLUDEB1) ||
-                other.zINCLUDEB1 == zINCLUDEB1) &&
-            (identical(other.zINCLUDEB2, zINCLUDEB2) ||
-                other.zINCLUDEB2 == zINCLUDEB2) &&
-            (identical(other.zINCLUDEC, zINCLUDEC) ||
-                other.zINCLUDEC == zINCLUDEC) &&
-            (identical(other.zINCLUDEDEF, zINCLUDEDEF) ||
-                other.zINCLUDEDEF == zINCLUDEDEF) &&
-            (identical(other.zLEARNED, zLEARNED) ||
-                other.zLEARNED == zLEARNED) &&
-            (identical(other.zMARKED, zMARKED) || other.zMARKED == zMARKED) &&
-            (identical(other.zOPTION1, zOPTION1) ||
-                other.zOPTION1 == zOPTION1) &&
-            (identical(other.zOPTION2, zOPTION2) ||
-                other.zOPTION2 == zOPTION2) &&
-            (identical(other.zOPTION3, zOPTION3) ||
-                other.zOPTION3 == zOPTION3) &&
-            (identical(other.zOPTION4, zOPTION4) ||
-                other.zOPTION4 == zOPTION4) &&
-            (identical(other.zQUESTIONCONTENT, zQUESTIONCONTENT) ||
-                other.zQUESTIONCONTENT == zQUESTIONCONTENT) &&
-            (identical(other.zQUESTIONDIE, zQUESTIONDIE) ||
-                other.zQUESTIONDIE == zQUESTIONDIE) &&
-            (identical(other.zQUESTIONTYPE, zQUESTIONTYPE) ||
-                other.zQUESTIONTYPE == zQUESTIONTYPE) &&
-            (identical(other.zWRONG, zWRONG) || other.zWRONG == zWRONG) &&
-            (identical(other.zENT, zENT) || other.zENT == zENT) &&
-            (identical(other.zPK, zPK) || other.zPK == zPK));
+            (identical(other.ZANSWERDESC, ZANSWERDESC) ||
+                other.ZANSWERDESC == ZANSWERDESC) &&
+            (identical(other.ZANSWERS, ZANSWERS) ||
+                other.ZANSWERS == ZANSWERS) &&
+            (identical(other.ZAWSA1, ZAWSA1) || other.ZAWSA1 == ZAWSA1) &&
+            (identical(other.ZIMAGE, ZIMAGE) || other.ZIMAGE == ZIMAGE) &&
+            (identical(other.ZINCLUDEA1, ZINCLUDEA1) ||
+                other.ZINCLUDEA1 == ZINCLUDEA1) &&
+            (identical(other.ZINCLUDEA2, ZINCLUDEA2) ||
+                other.ZINCLUDEA2 == ZINCLUDEA2) &&
+            (identical(other.ZINCLUDEA34, ZINCLUDEA34) ||
+                other.ZINCLUDEA34 == ZINCLUDEA34) &&
+            (identical(other.ZINCLUDEB1, ZINCLUDEB1) ||
+                other.ZINCLUDEB1 == ZINCLUDEB1) &&
+            (identical(other.ZINCLUDEB2, ZINCLUDEB2) ||
+                other.ZINCLUDEB2 == ZINCLUDEB2) &&
+            (identical(other.ZINCLUDEC, ZINCLUDEC) ||
+                other.ZINCLUDEC == ZINCLUDEC) &&
+            (identical(other.ZINCLUDEDEF, ZINCLUDEDEF) ||
+                other.ZINCLUDEDEF == ZINCLUDEDEF) &&
+            (identical(other.ZLEARNED, ZLEARNED) ||
+                other.ZLEARNED == ZLEARNED) &&
+            (identical(other.ZMARKED, ZMARKED) || other.ZMARKED == ZMARKED) &&
+            (identical(other.ZOPTION1, ZOPTION1) ||
+                other.ZOPTION1 == ZOPTION1) &&
+            (identical(other.ZOPTION2, ZOPTION2) ||
+                other.ZOPTION2 == ZOPTION2) &&
+            (identical(other.ZOPTION3, ZOPTION3) ||
+                other.ZOPTION3 == ZOPTION3) &&
+            (identical(other.ZOPTION4, ZOPTION4) ||
+                other.ZOPTION4 == ZOPTION4) &&
+            (identical(other.ZQUESTIONCONTENT, ZQUESTIONCONTENT) ||
+                other.ZQUESTIONCONTENT == ZQUESTIONCONTENT) &&
+            (identical(other.ZQUESTIONDIE, ZQUESTIONDIE) ||
+                other.ZQUESTIONDIE == ZQUESTIONDIE) &&
+            (identical(other.ZQUESTIONTYPE, ZQUESTIONTYPE) ||
+                other.ZQUESTIONTYPE == ZQUESTIONTYPE) &&
+            (identical(other.ZWRONG, ZWRONG) || other.ZWRONG == ZWRONG) &&
+            (identical(other.Z_ENT, Z_ENT) || other.Z_ENT == Z_ENT) &&
+            (identical(other.Z_PK, Z_PK) || other.Z_PK == Z_PK));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        zANSWERDESC,
-        zANSWERS,
-        zAWSA1,
-        zIMAGE,
-        zINCLUDEA1,
-        zINCLUDEA2,
-        zINCLUDEA34,
-        zINCLUDEB1,
-        zINCLUDEB2,
-        zINCLUDEC,
-        zINCLUDEDEF,
-        zLEARNED,
-        zMARKED,
-        zOPTION1,
-        zOPTION2,
-        zOPTION3,
-        zOPTION4,
-        zQUESTIONCONTENT,
-        zQUESTIONDIE,
-        zQUESTIONTYPE,
-        zWRONG,
-        zENT,
-        zPK
+        ZANSWERDESC,
+        ZANSWERS,
+        ZAWSA1,
+        ZIMAGE,
+        ZINCLUDEA1,
+        ZINCLUDEA2,
+        ZINCLUDEA34,
+        ZINCLUDEB1,
+        ZINCLUDEB2,
+        ZINCLUDEC,
+        ZINCLUDEDEF,
+        ZLEARNED,
+        ZMARKED,
+        ZOPTION1,
+        ZOPTION2,
+        ZOPTION3,
+        ZOPTION4,
+        ZQUESTIONCONTENT,
+        ZQUESTIONDIE,
+        ZQUESTIONTYPE,
+        ZWRONG,
+        Z_ENT,
+        Z_PK
       ]);
 
   @JsonKey(ignore: true)
@@ -557,80 +557,80 @@ class _$ZQuestionImpl extends _ZQuestion {
 
 abstract class _ZQuestion extends ZQuestion {
   const factory _ZQuestion(
-      {final String? zANSWERDESC,
-      final int? zANSWERS,
-      final int? zAWSA1,
-      final String? zIMAGE,
-      final int? zINCLUDEA1,
-      final int? zINCLUDEA2,
-      final int? zINCLUDEA34,
-      final int? zINCLUDEB1,
-      final int? zINCLUDEB2,
-      final int? zINCLUDEC,
-      final int? zINCLUDEDEF,
-      final int? zLEARNED,
-      final int? zMARKED,
-      final String? zOPTION1,
-      final String? zOPTION2,
-      final String? zOPTION3,
-      final String? zOPTION4,
-      final String? zQUESTIONCONTENT,
-      final String? zQUESTIONDIE,
-      final int? zQUESTIONTYPE,
-      final int? zWRONG,
-      final int? zENT,
-      final int? zPK}) = _$ZQuestionImpl;
+      {final String? ZANSWERDESC,
+      final int? ZANSWERS,
+      final int? ZAWSA1,
+      final String? ZIMAGE,
+      final int? ZINCLUDEA1,
+      final int? ZINCLUDEA2,
+      final int? ZINCLUDEA34,
+      final int? ZINCLUDEB1,
+      final int? ZINCLUDEB2,
+      final int? ZINCLUDEC,
+      final int? ZINCLUDEDEF,
+      final int? ZLEARNED,
+      final int? ZMARKED,
+      final String? ZOPTION1,
+      final String? ZOPTION2,
+      final String? ZOPTION3,
+      final String? ZOPTION4,
+      final String? ZQUESTIONCONTENT,
+      final String? ZQUESTIONDIE,
+      final int? ZQUESTIONTYPE,
+      final int? ZWRONG,
+      final int? Z_ENT,
+      final int? Z_PK}) = _$ZQuestionImpl;
   const _ZQuestion._() : super._();
 
   factory _ZQuestion.fromJson(Map<String, dynamic> json) =
       _$ZQuestionImpl.fromJson;
 
   @override
-  String? get zANSWERDESC;
+  String? get ZANSWERDESC;
   @override
-  int? get zANSWERS;
+  int? get ZANSWERS;
   @override
-  int? get zAWSA1;
+  int? get ZAWSA1;
   @override
-  String? get zIMAGE;
+  String? get ZIMAGE;
   @override
-  int? get zINCLUDEA1;
+  int? get ZINCLUDEA1;
   @override
-  int? get zINCLUDEA2;
+  int? get ZINCLUDEA2;
   @override
-  int? get zINCLUDEA34;
+  int? get ZINCLUDEA34;
   @override
-  int? get zINCLUDEB1;
+  int? get ZINCLUDEB1;
   @override
-  int? get zINCLUDEB2;
+  int? get ZINCLUDEB2;
   @override
-  int? get zINCLUDEC;
+  int? get ZINCLUDEC;
   @override
-  int? get zINCLUDEDEF;
+  int? get ZINCLUDEDEF;
   @override
-  int? get zLEARNED;
+  int? get ZLEARNED;
   @override
-  int? get zMARKED;
+  int? get ZMARKED;
   @override
-  String? get zOPTION1;
+  String? get ZOPTION1;
   @override
-  String? get zOPTION2;
+  String? get ZOPTION2;
   @override
-  String? get zOPTION3;
+  String? get ZOPTION3;
   @override
-  String? get zOPTION4;
+  String? get ZOPTION4;
   @override
-  String? get zQUESTIONCONTENT;
+  String? get ZQUESTIONCONTENT;
   @override
-  String? get zQUESTIONDIE;
+  String? get ZQUESTIONDIE;
   @override
-  int? get zQUESTIONTYPE;
+  int? get ZQUESTIONTYPE;
   @override
-  int? get zWRONG;
+  int? get ZWRONG;
   @override
-  int? get zENT;
+  int? get Z_ENT;
   @override
-  int? get zPK;
+  int? get Z_PK;
   @override
   @JsonKey(ignore: true)
   _$$ZQuestionImplCopyWith<_$ZQuestionImpl> get copyWith =>

@@ -12,17 +12,9 @@ Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     configureDependencies();
-    runApp(MultiBlocProvider(
-      providers: [
-        BlocProvider<LicenseBloc>(
-          create: (context) => getIt.get<LicenseBloc>(),
-        ),
-        BlocProvider<ReviewQuestionsBloc>(
-          create: (context) => getIt.get<ReviewQuestionsBloc>(),
-        ),
-      ],
-      child: const App(),
-    ));
+    runApp(
+      const App(),
+    );
     configLoading();
   }, (error, stack) {});
 }

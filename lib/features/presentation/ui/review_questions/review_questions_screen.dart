@@ -22,25 +22,38 @@ class ReviewQuestionsScreen extends StatelessWidget {
         ),
         elevation: 1,
       ),
-      body: BlocBuilder<ReviewQuestionsBloc, ReviewQuestionsState>(
-        builder: (context, state) {
-          return state.maybeMap(
-            orElse: () {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
-            loading: (e) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
-            data: (value) {
-              final questions = value.zQuestions;
-              return Container();
-            },
-          );
-        },
+      body: BlocProvider(
+        create: ((context) => getIt<ReviewQuestionsBloc>()..add(
+          const ReviewQuestionsEvent.getAllQuestions(),
+        )),
+        child: BlocBuilder<ReviewQuestionsBloc, ReviewQuestionsState>(
+          builder: (context, state) {
+            return state.maybeMap(
+              orElse: () {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+              loading: (e) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+              data: (value) {
+                final questions = value.zQuestions;
+                return ListView.builder(
+                  itemCount: questions.length,
+                  itemBuilder: (_, i) {
+                    return Container(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(questions[i].ZQUESTIONCONTENT ?? ''),
+                    );
+                  },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

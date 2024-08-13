@@ -9,8 +9,8 @@ abstract class ZQuestionDataSource {
 }
 
 @LazySingleton(as: ZQuestionDataSource)
-class ZLicenseDataSourceImpl extends ZQuestionDataSource {
-  ZLicenseDataSourceImpl(this.databaseHelper);
+class ZQuestionDataSourceImpl extends ZQuestionDataSource {
+  ZQuestionDataSourceImpl(this.databaseHelper);
 
   final DatabaseHelper databaseHelper;
 
