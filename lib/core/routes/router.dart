@@ -1,8 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gplx_600_cau/core/observer/navigator_obs.dart';
 import 'package:gplx_600_cau/core/routes/route_path.dart';
+import 'package:gplx_600_cau/di.dart';
+import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/question_cubit/question_cubit.dart';
+import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/frequent-mistakes/frequent_mistakes_screen.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/home_screen.dart';
 import 'package:gplx_600_cau/features/presentation/ui/memory_tips/memory_tips_screen.dart';
@@ -68,7 +72,20 @@ class MockTestRoute extends GoRouteData {
 class ReviewQuestionsRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const ReviewQuestionsScreen();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<ReviewQuestionsBloc>()
+            ..add(
+              const ReviewQuestionsEvent.getAllQuestions(),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => getIt<QuestionCubit>(),
+        ),
+      ],
+      child: const ReviewQuestionsScreen(),
+    );
   }
 }
 

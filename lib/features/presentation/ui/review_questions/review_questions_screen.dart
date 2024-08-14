@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
-import 'package:gplx_600_cau/di.dart';
-import 'package:gplx_600_cau/features/presentation/blocs/review_questions/review_questions_bloc.dart';
+import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
+import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/question_cubit/question_cubit.dart';
+import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
+
+part 'widgets/question_screen.dart';
+part 'widgets/question_detail_screen.dart';
+part 'widgets/question_detail_tile.dart';
+part 'widgets/question_controls.dart';
 
 class ReviewQuestionsScreen extends StatelessWidget {
   const ReviewQuestionsScreen({super.key});
@@ -22,38 +29,21 @@ class ReviewQuestionsScreen extends StatelessWidget {
         ),
         elevation: 1,
       ),
-      body: BlocProvider(
-        create: ((context) => getIt<ReviewQuestionsBloc>()..add(
-          const ReviewQuestionsEvent.getAllQuestions(),
-        )),
-        child: BlocBuilder<ReviewQuestionsBloc, ReviewQuestionsState>(
-          builder: (context, state) {
-            return state.maybeMap(
-              orElse: () {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
-              loading: (e) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
-              data: (value) {
-                final questions = value.zQuestions;
-                return ListView.builder(
-                  itemCount: questions.length,
-                  itemBuilder: (_, i) {
-                    return Container(
-                      padding: const EdgeInsets.all(4),
-                      child: Text(questions[i].ZQUESTIONCONTENT ?? ''),
-                    );
-                  },
-                );
-              },
-            );
-          },
-        ),
+      body: BlocBuilder<ReviewQuestionsBloc, ReviewQuestionsState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            orElse: () => Container(),
+            loading: () {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+            data: (value) {
+              final questions = value;
+              return _QuestionScreen(questions: questions);
+            },
+          );
+        },
       ),
     );
   }

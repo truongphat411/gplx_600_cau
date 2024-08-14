@@ -35,6 +35,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/ic_random_quiz.svg
   String get icRandomQuiz => 'assets/images/ic_random_quiz.svg';
 
+  /// File path: assets/images/ic_save.svg
+  String get icSave => 'assets/images/ic_save.svg';
+
   /// File path: assets/images/ic_traffic-signs.svg
   String get icTrafficSigns => 'assets/images/ic_traffic-signs.svg';
 
@@ -45,6 +48,7 @@ class $AssetsImagesGen {
         icMemoryTips,
         icQuizSave,
         icRandomQuiz,
+        icSave,
         icTrafficSigns
       ];
 }
