@@ -16,10 +16,10 @@ class _QuestionScreenState extends State<_QuestionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<QuestionCubit, int>(
+    return BlocListener<ReviewQuestionsActionBloc, ReviewQuestionsActionState>(
       listener: (context, state) {
         _pageController.animateToPage(
-          state,
+          state.currentPage,
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,
         );
@@ -38,7 +38,9 @@ class _QuestionScreenState extends State<_QuestionScreen> {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: widget.questions.length,
               onPageChanged: (index) {
-                context.read<QuestionCubit>().jumpToPage(index);
+                context.read<ReviewQuestionsActionBloc>().add(
+                      ReviewQuestionsActionEvent.JumpPage(index),
+                    );
               },
               itemBuilder: (_, i) {
                 return _QuestionDetailScreen(

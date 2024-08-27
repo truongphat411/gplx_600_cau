@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:gplx_600_cau/core/observer/navigator_obs.dart';
 import 'package:gplx_600_cau/core/routes/route_path.dart';
 import 'package:gplx_600_cau/di.dart';
-import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/question_cubit/question_cubit.dart';
+import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/frequent-mistakes/frequent_mistakes_screen.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/home_screen.dart';
@@ -81,7 +81,7 @@ class ReviewQuestionsRoute extends GoRouteData {
             ),
         ),
         BlocProvider(
-          create: (context) => getIt<QuestionCubit>(),
+          create: (context) => getIt<ReviewQuestionsActionBloc>(),
         ),
       ],
       child: const ReviewQuestionsScreen(),

@@ -28,7 +28,7 @@ import 'features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dar
     as _i9;
 import 'features/presentation/ui/license/blocs/license/license_bloc.dart'
     as _i14;
-import 'features/presentation/ui/review_questions/blocs/question_cubit/question_cubit.dart'
+import 'features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart'
     as _i3;
 import 'features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart'
     as _i10;
@@ -44,7 +44,8 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.factory<_i3.QuestionCubit>(() => _i3.QuestionCubit());
+  gh.factory<_i3.ReviewQuestionsActionBloc>(
+      () => _i3.ReviewQuestionsActionBloc());
   gh.lazySingleton<_i4.DatabaseHelper>(() => _i4.DatabaseHelper());
   gh.lazySingleton<_i5.ZLicenseDataSource>(
       () => _i5.ZLicenseDataSourceImpl(gh<_i4.DatabaseHelper>()));
