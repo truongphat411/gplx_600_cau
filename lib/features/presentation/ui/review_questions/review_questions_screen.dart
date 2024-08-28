@@ -12,8 +12,28 @@ part 'widgets/question_detail_screen.dart';
 part 'widgets/question_detail_tile.dart';
 part 'widgets/question_controls.dart';
 
-class ReviewQuestionsScreen extends StatelessWidget {
-  const ReviewQuestionsScreen({super.key});
+class ReviewQuestionsScreen extends StatefulWidget {
+  const ReviewQuestionsScreen({
+    super.key,
+    this.isQuestionDie = false,
+  });
+
+  final bool isQuestionDie;
+
+  @override
+  State<ReviewQuestionsScreen> createState() => _ReviewQuestionsScreenState();
+}
+
+class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ReviewQuestionsBloc>().add(
+          widget.isQuestionDie
+              ? const ReviewQuestionsEvent.getTop60CriticalQuestions()
+              : const ReviewQuestionsEvent.getAllQuestions(),
+        );
+  }
 
   @override
   Widget build(BuildContext context) {

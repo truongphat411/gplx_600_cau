@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:gplx_600_cau/di.dart';
 import 'package:gplx_600_cau/features/app/app.dart';
 
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    unawaited(MobileAds.instance.initialize());
     configureDependencies();
     runApp(
       const App(),

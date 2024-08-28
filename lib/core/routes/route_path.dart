@@ -4,7 +4,7 @@ class $RouterPath {
   static const home = '/home';
   static const license = '/license';
   static const mockTest = '/mock-test';
-  static const reviewQuestions = '/review-questions';
+  static const reviewQuestions = '/review-questions/:isQuestionDie';
   static const frequentMistakes = '/frequent-mistakes';
   static const memoryTips = '/memory-tips';
   static const savedQuestion = '/saved-question';

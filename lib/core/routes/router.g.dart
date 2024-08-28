@@ -107,16 +107,19 @@ extension $MockTestRouteExtension on MockTestRoute {
 }
 
 RouteBase get $reviewQuestionsRoute => GoRouteData.$route(
-      path: '/review-questions',
+      path: '/review-questions/:isQuestionDie',
       factory: $ReviewQuestionsRouteExtension._fromState,
     );
 
 extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
   static ReviewQuestionsRoute _fromState(GoRouterState state) =>
-      ReviewQuestionsRoute();
+      ReviewQuestionsRoute(
+        isQuestionDie:
+            _$boolConverter(state.pathParameters['isQuestionDie']!) ?? false,
+      );
 
   String get location => GoRouteData.$location(
-        '/review-questions',
+        '/review-questions/${Uri.encodeComponent(isQuestionDie.toString())}',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -127,6 +130,17 @@ extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
+}
+
+bool _$boolConverter(String value) {
+  switch (value) {
+    case 'true':
+      return true;
+    case 'false':
+      return false;
+    default:
+      throw UnsupportedError('Cannot convert "$value" into a bool.');
+  }
 }
 
 RouteBase get $frequentMistakesRoute => GoRouteData.$route(

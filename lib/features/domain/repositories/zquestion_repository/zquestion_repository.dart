@@ -5,4 +5,5 @@ import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
 
 abstract class ZQuestionRepository {
   Future<Either<Failure, List<ZQuestion>>> getAllQuestions();
+  Future<Either<Failure, List<ZQuestion>>> getTop60CriticalQuestions();
 }

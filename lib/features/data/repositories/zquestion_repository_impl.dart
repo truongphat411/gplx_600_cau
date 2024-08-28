@@ -23,4 +23,14 @@ class ZQuestionRepositoryImpl extends ZQuestionRepository {
       return Left(CacheFailure(e.message));
     }
   }
+
+  @override
+  Future<Either<Failure, List<ZQuestion>>> getTop60CriticalQuestions() async {
+    try {
+      List<ZQuestion> result = await _local.getTop60CriticalQuestions();
+      return Right(result);
+    } on CacheException catch (e) {
+      return Left(CacheFailure(e.message));
+    }
+  }
 }

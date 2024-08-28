@@ -4,7 +4,11 @@ import 'package:injectable/injectable.dart';
 
 abstract class ZQuestionDataSource {
   Future<List<ZQuestion>> getAllQuestions() async {
-    throw UnimplementedError('getAllQuestions');
+    throw UnimplementedError('dataSource-getAllQuestions');
+  }
+
+  Future<List<ZQuestion>> getTop60CriticalQuestions() async {
+    throw UnimplementedError('dataSource-getTop60CriticalQuestions');
   }
 }
 
@@ -18,6 +22,20 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
   Future<List<ZQuestion>> getAllQuestions() async {
     final db = await databaseHelper.database;
     var res = await db.query("ZQUESTION");
+    List<ZQuestion> list =
+        res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
+    return list;
+  }
+
+  @override
+  Future<List<ZQuestion>> getTop60CriticalQuestions() async {
+    final db = await databaseHelper.database;
+    var res = await db.query(
+      "ZQUESTION",
+      where: "ZQUESTIONDIE = ?",
+      whereArgs: [1],
+    );
+
     List<ZQuestion> list =
         res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
     return list;

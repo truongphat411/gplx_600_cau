@@ -4,9 +4,11 @@ class QuestionControls extends StatelessWidget {
   const QuestionControls({
     super.key,
     required this.pageTotal,
+    this.isQuestionDie = false,
   });
 
   final int pageTotal;
+  final bool isQuestionDie;
 
   @override
   Widget build(BuildContext context) {

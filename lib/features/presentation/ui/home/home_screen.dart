@@ -2,8 +2,10 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/core/gen/assets.gen.dart';
+import 'package:gplx_600_cau/features/presentation/components/banner_ads_widget.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/models/item_home.dart';
 
@@ -32,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: 'Ôn tập câu hỏi',
         icon: Assets.images.icExamBySet,
         color: Colors.green,
-        navigationPath: '/review-questions',
+        navigationPath: '/review-questions/false',
       ),
       ItemHome(
         title: 'Xem câu sai',
@@ -55,14 +57,36 @@ class _HomeScreenState extends State<HomeScreen> {
       ItemHome(
         title: 'Ôn tập biển báo',
         icon: Assets.images.icTrafficSigns,
-        color: Colors.yellow,
+        color: Colors.teal,
+        navigationPath: '/traffic-signs',
+      ),
+      ItemHome(
+        title: '60 câu điểm liệt',
+        icon: Assets.images.icTrafficSigns,
+        color: Colors.deepOrange,
+        navigationPath: '/review-questions/true',
+      ),
+      ItemHome(
+        title: '50 câu hay sai',
+        icon: Assets.images.icTrafficSigns,
+        color: Colors.pinkAccent,
         navigationPath: '/traffic-signs',
       )
     ];
     return Scaffold(
       appBar: CommonAppBar(
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
         title: Text(
-          'Home',
+          '600 câu hỏi GPLX - B1',
           style: TextStyle(
             color: appColors.textPrimary,
             fontWeight: FontWeight.w700,
@@ -70,13 +94,40 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         elevation: 1,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _HomeMenuItems(
-              list: mockDataHomeMenuItems.slices(2).toList(),
-            )
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.amber,
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            // Add more drawer items here
           ],
+        ),
+      ),
+      body: _HomeMenuItems(
+        list: mockDataHomeMenuItems.slices(2).toList(),
+      ),
+      bottomNavigationBar: const BannerAdsWidget(
+        adSize: AdSize(
+          width: 320,
+          height: 50,
         ),
       ),
     );

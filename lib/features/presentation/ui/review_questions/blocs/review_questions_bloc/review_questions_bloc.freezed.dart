@@ -19,16 +19,19 @@ mixin _$ReviewQuestionsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllQuestions,
+    required TResult Function() getTop60CriticalQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllQuestions,
+    TResult? Function()? getTop60CriticalQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllQuestions,
+    TResult Function()? getTop60CriticalQuestions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -36,16 +39,23 @@ mixin _$ReviewQuestionsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ReviewQuestionsEventGetZLicense value)
         getAllQuestions,
+    required TResult Function(
+            ReviewQuestionsEventGetTop60CriticalQuestions value)
+        getTop60CriticalQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +124,7 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllQuestions,
+    required TResult Function() getTop60CriticalQuestions,
   }) {
     return getAllQuestions();
   }
@@ -122,6 +133,7 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllQuestions,
+    TResult? Function()? getTop60CriticalQuestions,
   }) {
     return getAllQuestions?.call();
   }
@@ -130,6 +142,7 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllQuestions,
+    TResult Function()? getTop60CriticalQuestions,
     required TResult orElse(),
   }) {
     if (getAllQuestions != null) {
@@ -143,6 +156,9 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   TResult map<TResult extends Object?>({
     required TResult Function(ReviewQuestionsEventGetZLicense value)
         getAllQuestions,
+    required TResult Function(
+            ReviewQuestionsEventGetTop60CriticalQuestions value)
+        getTop60CriticalQuestions,
   }) {
     return getAllQuestions(this);
   }
@@ -151,6 +167,8 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
   }) {
     return getAllQuestions?.call(this);
   }
@@ -159,6 +177,8 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
     required TResult orElse(),
   }) {
     if (getAllQuestions != null) {
@@ -171,6 +191,123 @@ class _$ReviewQuestionsEventGetZLicenseImpl
 abstract class ReviewQuestionsEventGetZLicense implements ReviewQuestionsEvent {
   const factory ReviewQuestionsEventGetZLicense() =
       _$ReviewQuestionsEventGetZLicenseImpl;
+}
+
+/// @nodoc
+abstract class _$$ReviewQuestionsEventGetTop60CriticalQuestionsImplCopyWith<
+    $Res> {
+  factory _$$ReviewQuestionsEventGetTop60CriticalQuestionsImplCopyWith(
+          _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl value,
+          $Res Function(_$ReviewQuestionsEventGetTop60CriticalQuestionsImpl)
+              then) =
+      __$$ReviewQuestionsEventGetTop60CriticalQuestionsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReviewQuestionsEventGetTop60CriticalQuestionsImplCopyWithImpl<$Res>
+    extends _$ReviewQuestionsEventCopyWithImpl<$Res,
+        _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl>
+    implements
+        _$$ReviewQuestionsEventGetTop60CriticalQuestionsImplCopyWith<$Res> {
+  __$$ReviewQuestionsEventGetTop60CriticalQuestionsImplCopyWithImpl(
+      _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl _value,
+      $Res Function(_$ReviewQuestionsEventGetTop60CriticalQuestionsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
+    implements ReviewQuestionsEventGetTop60CriticalQuestions {
+  const _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl();
+
+  @override
+  String toString() {
+    return 'ReviewQuestionsEvent.getTop60CriticalQuestions()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllQuestions,
+    required TResult Function() getTop60CriticalQuestions,
+  }) {
+    return getTop60CriticalQuestions();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllQuestions,
+    TResult? Function()? getTop60CriticalQuestions,
+  }) {
+    return getTop60CriticalQuestions?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllQuestions,
+    TResult Function()? getTop60CriticalQuestions,
+    required TResult orElse(),
+  }) {
+    if (getTop60CriticalQuestions != null) {
+      return getTop60CriticalQuestions();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ReviewQuestionsEventGetZLicense value)
+        getAllQuestions,
+    required TResult Function(
+            ReviewQuestionsEventGetTop60CriticalQuestions value)
+        getTop60CriticalQuestions,
+  }) {
+    return getTop60CriticalQuestions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+  }) {
+    return getTop60CriticalQuestions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+    required TResult orElse(),
+  }) {
+    if (getTop60CriticalQuestions != null) {
+      return getTop60CriticalQuestions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReviewQuestionsEventGetTop60CriticalQuestions
+    implements ReviewQuestionsEvent {
+  const factory ReviewQuestionsEventGetTop60CriticalQuestions() =
+      _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl;
 }
 
 /// @nodoc

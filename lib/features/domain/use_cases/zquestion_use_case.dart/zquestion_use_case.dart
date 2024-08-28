@@ -5,8 +5,13 @@ import 'package:gplx_600_cau/features/domain/repositories/zquestion_repository/z
 import 'package:injectable/injectable.dart';
 
 abstract class ZQuestionUseCase {
-  Future<Either<Failure, List<ZQuestion>>> execute() {
+  Future<Either<Failure, List<ZQuestion>>> executeGetAllQuestions() {
     throw UnimplementedError('execute-ZLicenseUseCase-getAllQuestions');
+  }
+
+  Future<Either<Failure, List<ZQuestion>>> executeGetTop60CriticalQuestions() {
+    throw UnimplementedError(
+        'execute-ZLicenseUseCase-getTop60CriticalQuestions');
   }
 }
 
@@ -17,7 +22,12 @@ class ZQuestionUseCaseImpl extends ZQuestionUseCase {
   ZQuestionUseCaseImpl(this.repository);
 
   @override
-  Future<Either<Failure, List<ZQuestion>>> execute() {
+  Future<Either<Failure, List<ZQuestion>>> executeGetAllQuestions() {
     return repository.getAllQuestions();
+  }
+
+  @override
+  Future<Either<Failure, List<ZQuestion>>> executeGetTop60CriticalQuestions() {
+    return repository.getTop60CriticalQuestions();
   }
 }

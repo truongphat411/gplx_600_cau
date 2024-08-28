@@ -30,7 +30,7 @@ class _QuestionDetailScreenState extends State<_QuestionDetailScreen> {
               children: [
                 Expanded(
                   child: Text(
-                    '${ques.ZQUESTIONCONTENT}',
+                    '${ques.Z_PK}.${ques.ZQUESTIONCONTENT}',
                     style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Colors.black,

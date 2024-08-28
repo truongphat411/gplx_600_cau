@@ -26,6 +26,17 @@ class ReviewQuestionsBloc
             ),
           );
         },
+        getTop60CriticalQuestions:
+            (ReviewQuestionsEventGetTop60CriticalQuestions value) async {
+          emit(const ReviewQuestionsState.loading());
+          final result = await zQuestionRepository.getTop60CriticalQuestions();
+          result.fold(
+            (l) => null,
+            (r) => emit(
+              ReviewQuestionsState.data(zQuestions: r),
+            ),
+          );
+        },
       );
     });
   }

@@ -70,21 +70,26 @@ class MockTestRoute extends GoRouteData {
 
 @TypedGoRoute<ReviewQuestionsRoute>(path: $RouterPath.reviewQuestions)
 class ReviewQuestionsRoute extends GoRouteData {
+  const ReviewQuestionsRoute({
+    this.isQuestionDie = false,
+  });
+
+  final bool isQuestionDie;
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<ReviewQuestionsBloc>()
-            ..add(
-              const ReviewQuestionsEvent.getAllQuestions(),
-            ),
+          create: (context) => getIt<ReviewQuestionsBloc>(),
         ),
         BlocProvider(
           create: (context) => getIt<ReviewQuestionsActionBloc>(),
         ),
       ],
-      child: const ReviewQuestionsScreen(),
+      child: ReviewQuestionsScreen(
+        isQuestionDie: isQuestionDie,
+      ),
     );
   }
 }

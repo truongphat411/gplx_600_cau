@@ -3,9 +3,11 @@ part of '../review_questions_screen.dart';
 class _QuestionScreen extends StatefulWidget {
   const _QuestionScreen({
     required this.questions,
+    this.isQuestionDie = false,
   });
 
   final List<ZQuestion> questions;
+  final bool isQuestionDie;
 
   @override
   State<_QuestionScreen> createState() => _QuestionScreenState();
