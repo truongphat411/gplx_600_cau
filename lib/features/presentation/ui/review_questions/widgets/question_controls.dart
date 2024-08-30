@@ -14,12 +14,16 @@ class QuestionControls extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ReviewQuestionsActionBloc, ReviewQuestionsActionState>(
       builder: (context, state) {
+        final currentPage = state.maybeWhen(
+          pageChanged: (page) => page,
+          orElse: () => 0,
+        );
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              if (state.currentPage > 0)
+              if (currentPage > 0)
                 InkWell(
                   onTap: () {
                     context.read<ReviewQuestionsActionBloc>().add(
@@ -53,13 +57,13 @@ class QuestionControls extends StatelessWidget {
                   ),
                 ),
               Text(
-                '${state.currentPage + 1} / $pageTotal',
+                '${currentPage + 1} / $pageTotal',
                 style: const TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              if (state.currentPage < pageTotal - 1)
+              if (currentPage < pageTotal - 1)
                 InkWell(
                   onTap: () {
                     context.read<ReviewQuestionsActionBloc>().add(

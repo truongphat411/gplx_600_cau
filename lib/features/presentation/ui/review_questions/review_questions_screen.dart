@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
@@ -11,6 +13,7 @@ part 'widgets/question_screen.dart';
 part 'widgets/question_detail_screen.dart';
 part 'widgets/question_detail_tile.dart';
 part 'widgets/question_controls.dart';
+part 'widgets/animated_clip_react.dart';
 
 class ReviewQuestionsScreen extends StatefulWidget {
   const ReviewQuestionsScreen({

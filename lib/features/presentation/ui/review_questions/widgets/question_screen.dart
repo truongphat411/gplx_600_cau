@@ -20,8 +20,12 @@ class _QuestionScreenState extends State<_QuestionScreen> {
   Widget build(BuildContext context) {
     return BlocListener<ReviewQuestionsActionBloc, ReviewQuestionsActionState>(
       listener: (context, state) {
+        final currentPage = state.maybeWhen(
+          pageChanged: (page) => page,
+          orElse: () => 0,
+        );
         _pageController.animateToPage(
-          state.currentPage,
+          currentPage,
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,
         );
