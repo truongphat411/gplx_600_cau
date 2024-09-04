@@ -11,27 +11,29 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'features/data/data_sources/local/database_helper.dart' as _i4;
+import 'features/data/data_sources/local/database_helper.dart' as _i3;
 import 'features/data/data_sources/local/zlicense_data_source/zlicense_data_source.dart'
-    as _i5;
+    as _i4;
 import 'features/data/data_sources/local/zquestion_data_source/zquestion_data_source.dart'
-    as _i6;
-import 'features/data/repositories/zlicense_repository_impl.dart' as _i12;
-import 'features/data/repositories/zquestion_repository_impl.dart' as _i8;
+    as _i5;
+import 'features/data/repositories/zlicense_repository_impl.dart' as _i10;
+import 'features/data/repositories/zquestion_repository_impl.dart' as _i7;
 import 'features/domain/repositories/zlicense_repository/zlicense_repository.dart'
-    as _i11;
-import 'features/domain/repositories/zquestion_repository/zquestion_repository.dart'
-    as _i7;
-import 'features/domain/use_cases/zlicense_use_case/zlicense_use_case.dart'
-    as _i13;
-import 'features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dart'
     as _i9;
+import 'features/domain/repositories/zquestion_repository/zquestion_repository.dart'
+    as _i6;
+import 'features/domain/use_cases/zlicense_use_case/zlicense_use_case.dart'
+    as _i11;
+import 'features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dart'
+    as _i8;
 import 'features/presentation/ui/license/blocs/license/license_bloc.dart'
-    as _i14;
+    as _i12;
+import 'features/presentation/ui/review_questions/blocs/question_detail_boc/question_detail_bloc.dart'
+    as _i15;
 import 'features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart'
-    as _i3;
+    as _i14;
 import 'features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart'
-    as _i10;
+    as _i13;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -44,24 +46,26 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.factory<_i3.ReviewQuestionsActionBloc>(
-      () => _i3.ReviewQuestionsActionBloc());
-  gh.lazySingleton<_i4.DatabaseHelper>(() => _i4.DatabaseHelper());
-  gh.lazySingleton<_i5.ZLicenseDataSource>(
-      () => _i5.ZLicenseDataSourceImpl(gh<_i4.DatabaseHelper>()));
-  gh.lazySingleton<_i6.ZQuestionDataSource>(
-      () => _i6.ZQuestionDataSourceImpl(gh<_i4.DatabaseHelper>()));
-  gh.lazySingleton<_i7.ZQuestionRepository>(
-      () => _i8.ZQuestionRepositoryImpl(gh<_i6.ZQuestionDataSource>()));
-  gh.lazySingleton<_i9.ZQuestionUseCase>(
-      () => _i9.ZQuestionUseCaseImpl(gh<_i7.ZQuestionRepository>()));
-  gh.factory<_i10.ReviewQuestionsBloc>(
-      () => _i10.ReviewQuestionsBloc(gh<_i7.ZQuestionRepository>()));
-  gh.lazySingleton<_i11.ZLicenseRepository>(
-      () => _i12.ZLicenseRepositoryImpl(gh<_i5.ZLicenseDataSource>()));
-  gh.lazySingleton<_i13.ZLicenseUseCase>(
-      () => _i13.ZLicenseUseCaseImpl(gh<_i11.ZLicenseRepository>()));
-  gh.factory<_i14.LicenseBloc>(
-      () => _i14.LicenseBloc(gh<_i11.ZLicenseRepository>()));
+  gh.lazySingleton<_i3.DatabaseHelper>(() => _i3.DatabaseHelper());
+  gh.lazySingleton<_i4.ZLicenseDataSource>(
+      () => _i4.ZLicenseDataSourceImpl(gh<_i3.DatabaseHelper>()));
+  gh.lazySingleton<_i5.ZQuestionDataSource>(
+      () => _i5.ZQuestionDataSourceImpl(gh<_i3.DatabaseHelper>()));
+  gh.lazySingleton<_i6.ZQuestionRepository>(
+      () => _i7.ZQuestionRepositoryImpl(gh<_i5.ZQuestionDataSource>()));
+  gh.lazySingleton<_i8.ZQuestionUseCase>(
+      () => _i8.ZQuestionUseCaseImpl(gh<_i6.ZQuestionRepository>()));
+  gh.lazySingleton<_i9.ZLicenseRepository>(
+      () => _i10.ZLicenseRepositoryImpl(gh<_i4.ZLicenseDataSource>()));
+  gh.lazySingleton<_i11.ZLicenseUseCase>(
+      () => _i11.ZLicenseUseCaseImpl(gh<_i9.ZLicenseRepository>()));
+  gh.factory<_i12.LicenseBloc>(
+      () => _i12.LicenseBloc(gh<_i9.ZLicenseRepository>()));
+  gh.factory<_i13.ReviewQuestionsBloc>(
+      () => _i13.ReviewQuestionsBloc(gh<_i8.ZQuestionUseCase>()));
+  gh.factory<_i14.ReviewQuestionsActionBloc>(
+      () => _i14.ReviewQuestionsActionBloc(gh<_i8.ZQuestionUseCase>()));
+  gh.factory<_i15.QuestionDetailBloc>(
+      () => _i15.QuestionDetailBloc(gh<_i8.ZQuestionUseCase>()));
   return getIt;
 }

@@ -21,7 +21,8 @@ mixin _$ReviewQuestionsActionEvent {
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(bool isCorrectAnswer) toggleAnswer,
+    required TResult Function(ZQuestion question, bool isCorrectAnswer)
+        toggleAnswer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +30,7 @@ mixin _$ReviewQuestionsActionEvent {
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +38,7 @@ mixin _$ReviewQuestionsActionEvent {
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,7 +143,8 @@ class _$ReviewQuestionsActionEventNextPageImpl
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(bool isCorrectAnswer) toggleAnswer,
+    required TResult Function(ZQuestion question, bool isCorrectAnswer)
+        toggleAnswer,
   }) {
     return nextPage();
   }
@@ -153,7 +155,7 @@ class _$ReviewQuestionsActionEventNextPageImpl
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) {
     return nextPage?.call();
   }
@@ -164,7 +166,7 @@ class _$ReviewQuestionsActionEventNextPageImpl
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) {
     if (nextPage != null) {
@@ -271,7 +273,8 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(bool isCorrectAnswer) toggleAnswer,
+    required TResult Function(ZQuestion question, bool isCorrectAnswer)
+        toggleAnswer,
   }) {
     return previousPage();
   }
@@ -282,7 +285,7 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) {
     return previousPage?.call();
   }
@@ -293,7 +296,7 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) {
     if (previousPage != null) {
@@ -428,7 +431,8 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(bool isCorrectAnswer) toggleAnswer,
+    required TResult Function(ZQuestion question, bool isCorrectAnswer)
+        toggleAnswer,
   }) {
     return JumpPage(numberPage);
   }
@@ -439,7 +443,7 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) {
     return JumpPage?.call(numberPage);
   }
@@ -450,7 +454,7 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) {
     if (JumpPage != null) {
@@ -524,7 +528,9 @@ abstract class _$$ReviewQuestionsActionEventToggleAnswerImplCopyWith<$Res> {
           $Res Function(_$ReviewQuestionsActionEventToggleAnswerImpl) then) =
       __$$ReviewQuestionsActionEventToggleAnswerImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isCorrectAnswer});
+  $Res call({ZQuestion question, bool isCorrectAnswer});
+
+  $ZQuestionCopyWith<$Res> get question;
 }
 
 /// @nodoc
@@ -540,14 +546,27 @@ class __$$ReviewQuestionsActionEventToggleAnswerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? question = null,
     Object? isCorrectAnswer = null,
   }) {
     return _then(_$ReviewQuestionsActionEventToggleAnswerImpl(
+      null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as ZQuestion,
       null == isCorrectAnswer
           ? _value.isCorrectAnswer
           : isCorrectAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ZQuestionCopyWith<$Res> get question {
+    return $ZQuestionCopyWith<$Res>(_value.question, (value) {
+      return _then(_value.copyWith(question: value));
+    });
   }
 }
 
@@ -555,14 +574,17 @@ class __$$ReviewQuestionsActionEventToggleAnswerImplCopyWithImpl<$Res>
 
 class _$ReviewQuestionsActionEventToggleAnswerImpl
     implements ReviewQuestionsActionEventToggleAnswer {
-  const _$ReviewQuestionsActionEventToggleAnswerImpl(this.isCorrectAnswer);
+  const _$ReviewQuestionsActionEventToggleAnswerImpl(
+      this.question, this.isCorrectAnswer);
 
+  @override
+  final ZQuestion question;
   @override
   final bool isCorrectAnswer;
 
   @override
   String toString() {
-    return 'ReviewQuestionsActionEvent.toggleAnswer(isCorrectAnswer: $isCorrectAnswer)';
+    return 'ReviewQuestionsActionEvent.toggleAnswer(question: $question, isCorrectAnswer: $isCorrectAnswer)';
   }
 
   @override
@@ -570,12 +592,14 @@ class _$ReviewQuestionsActionEventToggleAnswerImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReviewQuestionsActionEventToggleAnswerImpl &&
+            (identical(other.question, question) ||
+                other.question == question) &&
             (identical(other.isCorrectAnswer, isCorrectAnswer) ||
                 other.isCorrectAnswer == isCorrectAnswer));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isCorrectAnswer);
+  int get hashCode => Object.hash(runtimeType, question, isCorrectAnswer);
 
   @JsonKey(ignore: true)
   @override
@@ -592,9 +616,10 @@ class _$ReviewQuestionsActionEventToggleAnswerImpl
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(bool isCorrectAnswer) toggleAnswer,
+    required TResult Function(ZQuestion question, bool isCorrectAnswer)
+        toggleAnswer,
   }) {
-    return toggleAnswer(isCorrectAnswer);
+    return toggleAnswer(question, isCorrectAnswer);
   }
 
   @override
@@ -603,9 +628,9 @@ class _$ReviewQuestionsActionEventToggleAnswerImpl
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) {
-    return toggleAnswer?.call(isCorrectAnswer);
+    return toggleAnswer?.call(question, isCorrectAnswer);
   }
 
   @override
@@ -614,11 +639,11 @@ class _$ReviewQuestionsActionEventToggleAnswerImpl
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(bool isCorrectAnswer)? toggleAnswer,
+    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) {
     if (toggleAnswer != null) {
-      return toggleAnswer(isCorrectAnswer);
+      return toggleAnswer(question, isCorrectAnswer);
     }
     return orElse();
   }
@@ -672,9 +697,10 @@ class _$ReviewQuestionsActionEventToggleAnswerImpl
 abstract class ReviewQuestionsActionEventToggleAnswer
     implements ReviewQuestionsActionEvent {
   const factory ReviewQuestionsActionEventToggleAnswer(
-          final bool isCorrectAnswer) =
+          final ZQuestion question, final bool isCorrectAnswer) =
       _$ReviewQuestionsActionEventToggleAnswerImpl;
 
+  ZQuestion get question;
   bool get isCorrectAnswer;
   @JsonKey(ignore: true)
   _$$ReviewQuestionsActionEventToggleAnswerImplCopyWith<

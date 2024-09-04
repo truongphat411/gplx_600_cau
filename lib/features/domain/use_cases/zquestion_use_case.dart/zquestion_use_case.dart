@@ -5,11 +5,16 @@ import 'package:gplx_600_cau/features/domain/repositories/zquestion_repository/z
 import 'package:injectable/injectable.dart';
 
 abstract class ZQuestionUseCase {
-  Future<Either<Failure, List<ZQuestion>>> executeGetAllQuestions() {
+  Future<Either<Failure, List<ZQuestion>>> getAllQuestions() {
     throw UnimplementedError('execute-ZLicenseUseCase-getAllQuestions');
   }
 
-  Future<Either<Failure, List<ZQuestion>>> executeGetTop60CriticalQuestions() {
+  Future<Either<Failure, List<ZQuestion>>> getTop60CriticalQuestions() {
+    throw UnimplementedError(
+        'execute-ZLicenseUseCase-getTop60CriticalQuestions');
+  }
+
+  Future<Either<Failure, int>> updateQuestion(ZQuestion question) {
     throw UnimplementedError(
         'execute-ZLicenseUseCase-getTop60CriticalQuestions');
   }
@@ -22,12 +27,17 @@ class ZQuestionUseCaseImpl extends ZQuestionUseCase {
   ZQuestionUseCaseImpl(this.repository);
 
   @override
-  Future<Either<Failure, List<ZQuestion>>> executeGetAllQuestions() {
+  Future<Either<Failure, List<ZQuestion>>> getAllQuestions() {
     return repository.getAllQuestions();
   }
 
   @override
-  Future<Either<Failure, List<ZQuestion>>> executeGetTop60CriticalQuestions() {
+  Future<Either<Failure, List<ZQuestion>>> getTop60CriticalQuestions() {
     return repository.getTop60CriticalQuestions();
+  }
+
+  @override
+  Future<Either<Failure, int>> updateQuestion(ZQuestion question) {
+    return repository.updateQuestion(question);
   }
 }

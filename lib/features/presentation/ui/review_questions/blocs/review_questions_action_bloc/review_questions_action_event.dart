@@ -8,6 +8,4 @@ class ReviewQuestionsActionEvent with _$ReviewQuestionsActionEvent {
       ReviewQuestionsActionEventPreviousPage;
   const factory ReviewQuestionsActionEvent.JumpPage(int numberPage) =
       ReviewQuestionsActionEventJumpPage;
-  const factory ReviewQuestionsActionEvent.toggleAnswer(bool isCorrectAnswer) =
-      ReviewQuestionsActionEventToggleAnswer;
 }

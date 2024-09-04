@@ -33,4 +33,14 @@ class ZQuestionRepositoryImpl extends ZQuestionRepository {
       return Left(CacheFailure(e.message));
     }
   }
+
+  @override
+  Future<Either<Failure, int>> updateQuestion(ZQuestion quesiton) async {
+    try {
+      int result = await _local.updateQuestion(quesiton);
+      return Right(result);
+    } on CacheException catch (e) {
+      return Left(CacheFailure(e.message));
+    }
+  }
 }

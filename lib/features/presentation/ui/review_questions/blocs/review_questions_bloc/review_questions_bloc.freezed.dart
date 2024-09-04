@@ -37,7 +37,7 @@ mixin _$ReviewQuestionsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ReviewQuestionsEventGetZLicense value)
+    required TResult Function(ReviewQuestionsEventGetAllQuestions value)
         getAllQuestions,
     required TResult Function(
             ReviewQuestionsEventGetTop60CriticalQuestions value)
@@ -46,14 +46,16 @@ mixin _$ReviewQuestionsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
     TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
     TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
     required TResult orElse(),
@@ -81,29 +83,29 @@ class _$ReviewQuestionsEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ReviewQuestionsEventGetZLicenseImplCopyWith<$Res> {
-  factory _$$ReviewQuestionsEventGetZLicenseImplCopyWith(
-          _$ReviewQuestionsEventGetZLicenseImpl value,
-          $Res Function(_$ReviewQuestionsEventGetZLicenseImpl) then) =
-      __$$ReviewQuestionsEventGetZLicenseImplCopyWithImpl<$Res>;
+abstract class _$$ReviewQuestionsEventGetAllQuestionsImplCopyWith<$Res> {
+  factory _$$ReviewQuestionsEventGetAllQuestionsImplCopyWith(
+          _$ReviewQuestionsEventGetAllQuestionsImpl value,
+          $Res Function(_$ReviewQuestionsEventGetAllQuestionsImpl) then) =
+      __$$ReviewQuestionsEventGetAllQuestionsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ReviewQuestionsEventGetZLicenseImplCopyWithImpl<$Res>
+class __$$ReviewQuestionsEventGetAllQuestionsImplCopyWithImpl<$Res>
     extends _$ReviewQuestionsEventCopyWithImpl<$Res,
-        _$ReviewQuestionsEventGetZLicenseImpl>
-    implements _$$ReviewQuestionsEventGetZLicenseImplCopyWith<$Res> {
-  __$$ReviewQuestionsEventGetZLicenseImplCopyWithImpl(
-      _$ReviewQuestionsEventGetZLicenseImpl _value,
-      $Res Function(_$ReviewQuestionsEventGetZLicenseImpl) _then)
+        _$ReviewQuestionsEventGetAllQuestionsImpl>
+    implements _$$ReviewQuestionsEventGetAllQuestionsImplCopyWith<$Res> {
+  __$$ReviewQuestionsEventGetAllQuestionsImplCopyWithImpl(
+      _$ReviewQuestionsEventGetAllQuestionsImpl _value,
+      $Res Function(_$ReviewQuestionsEventGetAllQuestionsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ReviewQuestionsEventGetZLicenseImpl
-    implements ReviewQuestionsEventGetZLicense {
-  const _$ReviewQuestionsEventGetZLicenseImpl();
+class _$ReviewQuestionsEventGetAllQuestionsImpl
+    implements ReviewQuestionsEventGetAllQuestions {
+  const _$ReviewQuestionsEventGetAllQuestionsImpl();
 
   @override
   String toString() {
@@ -114,7 +116,7 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReviewQuestionsEventGetZLicenseImpl);
+            other is _$ReviewQuestionsEventGetAllQuestionsImpl);
   }
 
   @override
@@ -154,7 +156,7 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ReviewQuestionsEventGetZLicense value)
+    required TResult Function(ReviewQuestionsEventGetAllQuestions value)
         getAllQuestions,
     required TResult Function(
             ReviewQuestionsEventGetTop60CriticalQuestions value)
@@ -166,7 +168,8 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
     TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
   }) {
@@ -176,7 +179,8 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
     TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
     required TResult orElse(),
@@ -188,9 +192,10 @@ class _$ReviewQuestionsEventGetZLicenseImpl
   }
 }
 
-abstract class ReviewQuestionsEventGetZLicense implements ReviewQuestionsEvent {
-  const factory ReviewQuestionsEventGetZLicense() =
-      _$ReviewQuestionsEventGetZLicenseImpl;
+abstract class ReviewQuestionsEventGetAllQuestions
+    implements ReviewQuestionsEvent {
+  const factory ReviewQuestionsEventGetAllQuestions() =
+      _$ReviewQuestionsEventGetAllQuestionsImpl;
 }
 
 /// @nodoc
@@ -270,7 +275,7 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ReviewQuestionsEventGetZLicense value)
+    required TResult Function(ReviewQuestionsEventGetAllQuestions value)
         getAllQuestions,
     required TResult Function(
             ReviewQuestionsEventGetTop60CriticalQuestions value)
@@ -282,7 +287,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
     TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
   }) {
@@ -292,7 +298,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ReviewQuestionsEventGetZLicense value)? getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
     TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
     required TResult orElse(),

@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
+import 'package:gplx_600_cau/features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dart';
 import 'package:injectable/injectable.dart';
 
 part 'review_questions_action_bloc.freezed.dart';
@@ -9,12 +11,12 @@ part 'review_questions_action_state.dart';
 @injectable
 class ReviewQuestionsActionBloc
     extends Bloc<ReviewQuestionsActionEvent, ReviewQuestionsActionState> {
-  ReviewQuestionsActionBloc()
+  final ZQuestionUseCase zQuestionUseCase;
+  ReviewQuestionsActionBloc(this.zQuestionUseCase)
       : super(const ReviewQuestionsActionState.initial()) {
     on<ReviewQuestionsActionEventNextPage>(_onNextPage);
     on<ReviewQuestionsActionEventPreviousPage>(_onPreviousPage);
     on<ReviewQuestionsActionEventJumpPage>(_onJumpToPage);
-    on<ReviewQuestionsActionEventToggleAnswer>(_toggleAnswer);
   }
   void _onNextPage(ReviewQuestionsActionEventNextPage event,
       Emitter<ReviewQuestionsActionState> emit) {
@@ -44,15 +46,6 @@ class ReviewQuestionsActionBloc
       Emitter<ReviewQuestionsActionState> emit) {
     emit(
       ReviewQuestionsActionState.pageChanged(event.numberPage),
-    );
-  }
-
-  void _toggleAnswer(ReviewQuestionsActionEventToggleAnswer event,
-      Emitter<ReviewQuestionsActionState> emit) {
-    emit(
-      ReviewQuestionsActionState.answerVisibility(
-        isAnswerVisible: event.isCorrectAnswer,
-      ),
     );
   }
 }

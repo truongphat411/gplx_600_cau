@@ -6,7 +6,4 @@ class ReviewQuestionsActionState with _$ReviewQuestionsActionState {
       ReviewQuestionsActionStateInitial;
   const factory ReviewQuestionsActionState.pageChanged(int currentPage) =
       ReviewQuestionsActionStatePageChanged;
-  const factory ReviewQuestionsActionState.answerVisibility({
-    @Default(false) bool isAnswerVisible,
-  }) = ReviewQuestionsActionStateAnswerVisibility;
 }

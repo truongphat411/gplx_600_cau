@@ -10,6 +10,10 @@ abstract class ZQuestionDataSource {
   Future<List<ZQuestion>> getTop60CriticalQuestions() async {
     throw UnimplementedError('dataSource-getTop60CriticalQuestions');
   }
+
+  Future<int> updateQuestion(ZQuestion question) async {
+    throw UnimplementedError('dataSource-updateQuestion');
+  }
 }
 
 @LazySingleton(as: ZQuestionDataSource)
@@ -39,5 +43,22 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
     List<ZQuestion> list =
         res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
     return list;
+  }
+
+  @override
+  Future<int> updateQuestion(ZQuestion question) async {
+    final db = await databaseHelper.database;
+    Map<String, dynamic> values = {
+      'ZLEARNED': question.ZLEARNED,
+      'ZMARKED': question.ZMARKED,
+      'ZWRONG': question.ZWRONG,
+      'ZAWSA1': question.ZAWSA1,
+    };
+    return await db.update(
+      'ZQUESTION',
+      values,
+      where: 'Z_PK = ?',
+      whereArgs: [question.Z_PK],
+    );
   }
 }
