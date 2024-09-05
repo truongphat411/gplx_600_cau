@@ -17,6 +17,8 @@ class ReviewQuestionsBloc
     on<ReviewQuestionsEventGetAllQuestions>(_getAllQuestions);
     on<ReviewQuestionsEventGetTop60CriticalQuestions>(
         _getTop60CriticalQuestions);
+    on<ReviewQuestionsEventUpdateQuestion>(_updateQuestion);
+    on<ReviewQuestionsEventGetFrequentMistakes>(_getFrequentMistakes);
   }
 
   Future<void> _getAllQuestions(
@@ -44,6 +46,40 @@ class ReviewQuestionsBloc
       (r) => emit(
         ReviewQuestionsState.data(zQuestions: r),
       ),
+    );
+  }
+
+  Future<void> _getFrequentMistakes(
+    ReviewQuestionsEventGetFrequentMistakes event,
+    Emitter<ReviewQuestionsState> emit,
+  ) async {
+    emit(const ReviewQuestionsState.loading());
+    final result = await zQuestionUseCase.getFrequentMistakes();
+    result.fold(
+      (l) => null,
+      (r) => emit(
+        ReviewQuestionsState.data(zQuestions: r),
+      ),
+    );
+  }
+
+  Future<void> _updateQuestion(
+    ReviewQuestionsEventUpdateQuestion event,
+    Emitter<ReviewQuestionsState> emit,
+  ) async {
+    await zQuestionUseCase.updateQuestion(event.question);
+    List<ZQuestion> updatedQuestions = state.maybeWhen(
+      data: (zQuestions) {
+        return zQuestions.map((question) {
+          return question.Z_PK == event.question.Z_PK
+              ? event.question
+              : question;
+        }).toList();
+      },
+      orElse: () => [],
+    );
+    emit(
+      ReviewQuestionsState.data(zQuestions: updatedQuestions),
     );
   }
 }

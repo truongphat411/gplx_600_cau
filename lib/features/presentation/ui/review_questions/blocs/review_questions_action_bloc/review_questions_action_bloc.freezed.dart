@@ -21,8 +21,6 @@ mixin _$ReviewQuestionsActionEvent {
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(ZQuestion question, bool isCorrectAnswer)
-        toggleAnswer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +28,6 @@ mixin _$ReviewQuestionsActionEvent {
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +35,6 @@ mixin _$ReviewQuestionsActionEvent {
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,8 +46,6 @@ mixin _$ReviewQuestionsActionEvent {
         previousPage,
     required TResult Function(ReviewQuestionsActionEventJumpPage value)
         JumpPage,
-    required TResult Function(ReviewQuestionsActionEventToggleAnswer value)
-        toggleAnswer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,8 +54,6 @@ mixin _$ReviewQuestionsActionEvent {
     TResult? Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult? Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult? Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,8 +62,6 @@ mixin _$ReviewQuestionsActionEvent {
     TResult Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,8 +133,6 @@ class _$ReviewQuestionsActionEventNextPageImpl
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(ZQuestion question, bool isCorrectAnswer)
-        toggleAnswer,
   }) {
     return nextPage();
   }
@@ -155,7 +143,6 @@ class _$ReviewQuestionsActionEventNextPageImpl
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) {
     return nextPage?.call();
   }
@@ -166,7 +153,6 @@ class _$ReviewQuestionsActionEventNextPageImpl
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) {
     if (nextPage != null) {
@@ -184,8 +170,6 @@ class _$ReviewQuestionsActionEventNextPageImpl
         previousPage,
     required TResult Function(ReviewQuestionsActionEventJumpPage value)
         JumpPage,
-    required TResult Function(ReviewQuestionsActionEventToggleAnswer value)
-        toggleAnswer,
   }) {
     return nextPage(this);
   }
@@ -197,8 +181,6 @@ class _$ReviewQuestionsActionEventNextPageImpl
     TResult? Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult? Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult? Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
   }) {
     return nextPage?.call(this);
   }
@@ -210,8 +192,6 @@ class _$ReviewQuestionsActionEventNextPageImpl
     TResult Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
     required TResult orElse(),
   }) {
     if (nextPage != null) {
@@ -273,8 +253,6 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(ZQuestion question, bool isCorrectAnswer)
-        toggleAnswer,
   }) {
     return previousPage();
   }
@@ -285,7 +263,6 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) {
     return previousPage?.call();
   }
@@ -296,7 +273,6 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) {
     if (previousPage != null) {
@@ -314,8 +290,6 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
         previousPage,
     required TResult Function(ReviewQuestionsActionEventJumpPage value)
         JumpPage,
-    required TResult Function(ReviewQuestionsActionEventToggleAnswer value)
-        toggleAnswer,
   }) {
     return previousPage(this);
   }
@@ -327,8 +301,6 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     TResult? Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult? Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult? Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
   }) {
     return previousPage?.call(this);
   }
@@ -340,8 +312,6 @@ class _$ReviewQuestionsActionEventPreviousPageImpl
     TResult Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
     required TResult orElse(),
   }) {
     if (previousPage != null) {
@@ -431,8 +401,6 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     required TResult Function() nextPage,
     required TResult Function() previousPage,
     required TResult Function(int numberPage) JumpPage,
-    required TResult Function(ZQuestion question, bool isCorrectAnswer)
-        toggleAnswer,
   }) {
     return JumpPage(numberPage);
   }
@@ -443,7 +411,6 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     TResult? Function()? nextPage,
     TResult? Function()? previousPage,
     TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
   }) {
     return JumpPage?.call(numberPage);
   }
@@ -454,7 +421,6 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     TResult Function()? nextPage,
     TResult Function()? previousPage,
     TResult Function(int numberPage)? JumpPage,
-    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
     required TResult orElse(),
   }) {
     if (JumpPage != null) {
@@ -472,8 +438,6 @@ class _$ReviewQuestionsActionEventJumpPageImpl
         previousPage,
     required TResult Function(ReviewQuestionsActionEventJumpPage value)
         JumpPage,
-    required TResult Function(ReviewQuestionsActionEventToggleAnswer value)
-        toggleAnswer,
   }) {
     return JumpPage(this);
   }
@@ -485,8 +449,6 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     TResult? Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult? Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult? Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
   }) {
     return JumpPage?.call(this);
   }
@@ -498,8 +460,6 @@ class _$ReviewQuestionsActionEventJumpPageImpl
     TResult Function(ReviewQuestionsActionEventPreviousPage value)?
         previousPage,
     TResult Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
     required TResult orElse(),
   }) {
     if (JumpPage != null) {
@@ -522,213 +482,24 @@ abstract class ReviewQuestionsActionEventJumpPage
 }
 
 /// @nodoc
-abstract class _$$ReviewQuestionsActionEventToggleAnswerImplCopyWith<$Res> {
-  factory _$$ReviewQuestionsActionEventToggleAnswerImplCopyWith(
-          _$ReviewQuestionsActionEventToggleAnswerImpl value,
-          $Res Function(_$ReviewQuestionsActionEventToggleAnswerImpl) then) =
-      __$$ReviewQuestionsActionEventToggleAnswerImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ZQuestion question, bool isCorrectAnswer});
-
-  $ZQuestionCopyWith<$Res> get question;
-}
-
-/// @nodoc
-class __$$ReviewQuestionsActionEventToggleAnswerImplCopyWithImpl<$Res>
-    extends _$ReviewQuestionsActionEventCopyWithImpl<$Res,
-        _$ReviewQuestionsActionEventToggleAnswerImpl>
-    implements _$$ReviewQuestionsActionEventToggleAnswerImplCopyWith<$Res> {
-  __$$ReviewQuestionsActionEventToggleAnswerImplCopyWithImpl(
-      _$ReviewQuestionsActionEventToggleAnswerImpl _value,
-      $Res Function(_$ReviewQuestionsActionEventToggleAnswerImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? question = null,
-    Object? isCorrectAnswer = null,
-  }) {
-    return _then(_$ReviewQuestionsActionEventToggleAnswerImpl(
-      null == question
-          ? _value.question
-          : question // ignore: cast_nullable_to_non_nullable
-              as ZQuestion,
-      null == isCorrectAnswer
-          ? _value.isCorrectAnswer
-          : isCorrectAnswer // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ZQuestionCopyWith<$Res> get question {
-    return $ZQuestionCopyWith<$Res>(_value.question, (value) {
-      return _then(_value.copyWith(question: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$ReviewQuestionsActionEventToggleAnswerImpl
-    implements ReviewQuestionsActionEventToggleAnswer {
-  const _$ReviewQuestionsActionEventToggleAnswerImpl(
-      this.question, this.isCorrectAnswer);
-
-  @override
-  final ZQuestion question;
-  @override
-  final bool isCorrectAnswer;
-
-  @override
-  String toString() {
-    return 'ReviewQuestionsActionEvent.toggleAnswer(question: $question, isCorrectAnswer: $isCorrectAnswer)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ReviewQuestionsActionEventToggleAnswerImpl &&
-            (identical(other.question, question) ||
-                other.question == question) &&
-            (identical(other.isCorrectAnswer, isCorrectAnswer) ||
-                other.isCorrectAnswer == isCorrectAnswer));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, question, isCorrectAnswer);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ReviewQuestionsActionEventToggleAnswerImplCopyWith<
-          _$ReviewQuestionsActionEventToggleAnswerImpl>
-      get copyWith =>
-          __$$ReviewQuestionsActionEventToggleAnswerImplCopyWithImpl<
-              _$ReviewQuestionsActionEventToggleAnswerImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() nextPage,
-    required TResult Function() previousPage,
-    required TResult Function(int numberPage) JumpPage,
-    required TResult Function(ZQuestion question, bool isCorrectAnswer)
-        toggleAnswer,
-  }) {
-    return toggleAnswer(question, isCorrectAnswer);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? nextPage,
-    TResult? Function()? previousPage,
-    TResult? Function(int numberPage)? JumpPage,
-    TResult? Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
-  }) {
-    return toggleAnswer?.call(question, isCorrectAnswer);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? nextPage,
-    TResult Function()? previousPage,
-    TResult Function(int numberPage)? JumpPage,
-    TResult Function(ZQuestion question, bool isCorrectAnswer)? toggleAnswer,
-    required TResult orElse(),
-  }) {
-    if (toggleAnswer != null) {
-      return toggleAnswer(question, isCorrectAnswer);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ReviewQuestionsActionEventNextPage value)
-        nextPage,
-    required TResult Function(ReviewQuestionsActionEventPreviousPage value)
-        previousPage,
-    required TResult Function(ReviewQuestionsActionEventJumpPage value)
-        JumpPage,
-    required TResult Function(ReviewQuestionsActionEventToggleAnswer value)
-        toggleAnswer,
-  }) {
-    return toggleAnswer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ReviewQuestionsActionEventNextPage value)? nextPage,
-    TResult? Function(ReviewQuestionsActionEventPreviousPage value)?
-        previousPage,
-    TResult? Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult? Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
-  }) {
-    return toggleAnswer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ReviewQuestionsActionEventNextPage value)? nextPage,
-    TResult Function(ReviewQuestionsActionEventPreviousPage value)?
-        previousPage,
-    TResult Function(ReviewQuestionsActionEventJumpPage value)? JumpPage,
-    TResult Function(ReviewQuestionsActionEventToggleAnswer value)?
-        toggleAnswer,
-    required TResult orElse(),
-  }) {
-    if (toggleAnswer != null) {
-      return toggleAnswer(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ReviewQuestionsActionEventToggleAnswer
-    implements ReviewQuestionsActionEvent {
-  const factory ReviewQuestionsActionEventToggleAnswer(
-          final ZQuestion question, final bool isCorrectAnswer) =
-      _$ReviewQuestionsActionEventToggleAnswerImpl;
-
-  ZQuestion get question;
-  bool get isCorrectAnswer;
-  @JsonKey(ignore: true)
-  _$$ReviewQuestionsActionEventToggleAnswerImplCopyWith<
-          _$ReviewQuestionsActionEventToggleAnswerImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$ReviewQuestionsActionState {
+  int get currentPage => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(int currentPage) initial,
     required TResult Function(int currentPage) pageChanged,
-    required TResult Function(bool isAnswerVisible) answerVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(int currentPage)? initial,
     TResult? Function(int currentPage)? pageChanged,
-    TResult? Function(bool isAnswerVisible)? answerVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(int currentPage)? initial,
     TResult Function(int currentPage)? pageChanged,
-    TResult Function(bool isAnswerVisible)? answerVisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -737,27 +508,25 @@ mixin _$ReviewQuestionsActionState {
     required TResult Function(ReviewQuestionsActionStateInitial value) initial,
     required TResult Function(ReviewQuestionsActionStatePageChanged value)
         pageChanged,
-    required TResult Function(ReviewQuestionsActionStateAnswerVisibility value)
-        answerVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ReviewQuestionsActionStateInitial value)? initial,
     TResult? Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult? Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReviewQuestionsActionStateInitial value)? initial,
     TResult Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ReviewQuestionsActionStateCopyWith<ReviewQuestionsActionState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -766,6 +535,8 @@ abstract class $ReviewQuestionsActionStateCopyWith<$Res> {
           $Res Function(ReviewQuestionsActionState) then) =
       _$ReviewQuestionsActionStateCopyWithImpl<$Res,
           ReviewQuestionsActionState>;
+  @useResult
+  $Res call({int currentPage});
 }
 
 /// @nodoc
@@ -778,14 +549,31 @@ class _$ReviewQuestionsActionStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentPage = null,
+  }) {
+    return _then(_value.copyWith(
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ReviewQuestionsActionStateInitialImplCopyWith<$Res> {
+abstract class _$$ReviewQuestionsActionStateInitialImplCopyWith<$Res>
+    implements $ReviewQuestionsActionStateCopyWith<$Res> {
   factory _$$ReviewQuestionsActionStateInitialImplCopyWith(
           _$ReviewQuestionsActionStateInitialImpl value,
           $Res Function(_$ReviewQuestionsActionStateInitialImpl) then) =
       __$$ReviewQuestionsActionStateInitialImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int currentPage});
 }
 
 /// @nodoc
@@ -797,59 +585,82 @@ class __$$ReviewQuestionsActionStateInitialImplCopyWithImpl<$Res>
       _$ReviewQuestionsActionStateInitialImpl _value,
       $Res Function(_$ReviewQuestionsActionStateInitialImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentPage = null,
+  }) {
+    return _then(_$ReviewQuestionsActionStateInitialImpl(
+      null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ReviewQuestionsActionStateInitialImpl
     implements ReviewQuestionsActionStateInitial {
-  const _$ReviewQuestionsActionStateInitialImpl();
+  const _$ReviewQuestionsActionStateInitialImpl(this.currentPage);
+
+  @override
+  final int currentPage;
 
   @override
   String toString() {
-    return 'ReviewQuestionsActionState.initial()';
+    return 'ReviewQuestionsActionState.initial(currentPage: $currentPage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReviewQuestionsActionStateInitialImpl);
+            other is _$ReviewQuestionsActionStateInitialImpl &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, currentPage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReviewQuestionsActionStateInitialImplCopyWith<
+          _$ReviewQuestionsActionStateInitialImpl>
+      get copyWith => __$$ReviewQuestionsActionStateInitialImplCopyWithImpl<
+          _$ReviewQuestionsActionStateInitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(int currentPage) initial,
     required TResult Function(int currentPage) pageChanged,
-    required TResult Function(bool isAnswerVisible) answerVisibility,
   }) {
-    return initial();
+    return initial(currentPage);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(int currentPage)? initial,
     TResult? Function(int currentPage)? pageChanged,
-    TResult? Function(bool isAnswerVisible)? answerVisibility,
   }) {
-    return initial?.call();
+    return initial?.call(currentPage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(int currentPage)? initial,
     TResult Function(int currentPage)? pageChanged,
-    TResult Function(bool isAnswerVisible)? answerVisibility,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(currentPage);
     }
     return orElse();
   }
@@ -860,8 +671,6 @@ class _$ReviewQuestionsActionStateInitialImpl
     required TResult Function(ReviewQuestionsActionStateInitial value) initial,
     required TResult Function(ReviewQuestionsActionStatePageChanged value)
         pageChanged,
-    required TResult Function(ReviewQuestionsActionStateAnswerVisibility value)
-        answerVisibility,
   }) {
     return initial(this);
   }
@@ -871,8 +680,6 @@ class _$ReviewQuestionsActionStateInitialImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ReviewQuestionsActionStateInitial value)? initial,
     TResult? Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult? Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
   }) {
     return initial?.call(this);
   }
@@ -882,8 +689,6 @@ class _$ReviewQuestionsActionStateInitialImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReviewQuestionsActionStateInitial value)? initial,
     TResult Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -895,16 +700,26 @@ class _$ReviewQuestionsActionStateInitialImpl
 
 abstract class ReviewQuestionsActionStateInitial
     implements ReviewQuestionsActionState {
-  const factory ReviewQuestionsActionStateInitial() =
+  const factory ReviewQuestionsActionStateInitial(final int currentPage) =
       _$ReviewQuestionsActionStateInitialImpl;
+
+  @override
+  int get currentPage;
+  @override
+  @JsonKey(ignore: true)
+  _$$ReviewQuestionsActionStateInitialImplCopyWith<
+          _$ReviewQuestionsActionStateInitialImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ReviewQuestionsActionStatePageChangedImplCopyWith<$Res> {
+abstract class _$$ReviewQuestionsActionStatePageChangedImplCopyWith<$Res>
+    implements $ReviewQuestionsActionStateCopyWith<$Res> {
   factory _$$ReviewQuestionsActionStatePageChangedImplCopyWith(
           _$ReviewQuestionsActionStatePageChangedImpl value,
           $Res Function(_$ReviewQuestionsActionStatePageChangedImpl) then) =
       __$$ReviewQuestionsActionStatePageChangedImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({int currentPage});
 }
@@ -970,9 +785,8 @@ class _$ReviewQuestionsActionStatePageChangedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function(int currentPage) initial,
     required TResult Function(int currentPage) pageChanged,
-    required TResult Function(bool isAnswerVisible) answerVisibility,
   }) {
     return pageChanged(currentPage);
   }
@@ -980,9 +794,8 @@ class _$ReviewQuestionsActionStatePageChangedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function(int currentPage)? initial,
     TResult? Function(int currentPage)? pageChanged,
-    TResult? Function(bool isAnswerVisible)? answerVisibility,
   }) {
     return pageChanged?.call(currentPage);
   }
@@ -990,9 +803,8 @@ class _$ReviewQuestionsActionStatePageChangedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function(int currentPage)? initial,
     TResult Function(int currentPage)? pageChanged,
-    TResult Function(bool isAnswerVisible)? answerVisibility,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -1007,8 +819,6 @@ class _$ReviewQuestionsActionStatePageChangedImpl
     required TResult Function(ReviewQuestionsActionStateInitial value) initial,
     required TResult Function(ReviewQuestionsActionStatePageChanged value)
         pageChanged,
-    required TResult Function(ReviewQuestionsActionStateAnswerVisibility value)
-        answerVisibility,
   }) {
     return pageChanged(this);
   }
@@ -1018,8 +828,6 @@ class _$ReviewQuestionsActionStatePageChangedImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ReviewQuestionsActionStateInitial value)? initial,
     TResult? Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult? Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
   }) {
     return pageChanged?.call(this);
   }
@@ -1029,8 +837,6 @@ class _$ReviewQuestionsActionStatePageChangedImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReviewQuestionsActionStateInitial value)? initial,
     TResult Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -1045,168 +851,11 @@ abstract class ReviewQuestionsActionStatePageChanged
   const factory ReviewQuestionsActionStatePageChanged(final int currentPage) =
       _$ReviewQuestionsActionStatePageChangedImpl;
 
+  @override
   int get currentPage;
+  @override
   @JsonKey(ignore: true)
   _$$ReviewQuestionsActionStatePageChangedImplCopyWith<
           _$ReviewQuestionsActionStatePageChangedImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWith<$Res> {
-  factory _$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWith(
-          _$ReviewQuestionsActionStateAnswerVisibilityImpl value,
-          $Res Function(_$ReviewQuestionsActionStateAnswerVisibilityImpl)
-              then) =
-      __$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool isAnswerVisible});
-}
-
-/// @nodoc
-class __$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWithImpl<$Res>
-    extends _$ReviewQuestionsActionStateCopyWithImpl<$Res,
-        _$ReviewQuestionsActionStateAnswerVisibilityImpl>
-    implements _$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWith<$Res> {
-  __$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWithImpl(
-      _$ReviewQuestionsActionStateAnswerVisibilityImpl _value,
-      $Res Function(_$ReviewQuestionsActionStateAnswerVisibilityImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isAnswerVisible = null,
-  }) {
-    return _then(_$ReviewQuestionsActionStateAnswerVisibilityImpl(
-      isAnswerVisible: null == isAnswerVisible
-          ? _value.isAnswerVisible
-          : isAnswerVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ReviewQuestionsActionStateAnswerVisibilityImpl
-    implements ReviewQuestionsActionStateAnswerVisibility {
-  const _$ReviewQuestionsActionStateAnswerVisibilityImpl(
-      {this.isAnswerVisible = false});
-
-  @override
-  @JsonKey()
-  final bool isAnswerVisible;
-
-  @override
-  String toString() {
-    return 'ReviewQuestionsActionState.answerVisibility(isAnswerVisible: $isAnswerVisible)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ReviewQuestionsActionStateAnswerVisibilityImpl &&
-            (identical(other.isAnswerVisible, isAnswerVisible) ||
-                other.isAnswerVisible == isAnswerVisible));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, isAnswerVisible);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWith<
-          _$ReviewQuestionsActionStateAnswerVisibilityImpl>
-      get copyWith =>
-          __$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWithImpl<
-                  _$ReviewQuestionsActionStateAnswerVisibilityImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(int currentPage) pageChanged,
-    required TResult Function(bool isAnswerVisible) answerVisibility,
-  }) {
-    return answerVisibility(isAnswerVisible);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(int currentPage)? pageChanged,
-    TResult? Function(bool isAnswerVisible)? answerVisibility,
-  }) {
-    return answerVisibility?.call(isAnswerVisible);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int currentPage)? pageChanged,
-    TResult Function(bool isAnswerVisible)? answerVisibility,
-    required TResult orElse(),
-  }) {
-    if (answerVisibility != null) {
-      return answerVisibility(isAnswerVisible);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ReviewQuestionsActionStateInitial value) initial,
-    required TResult Function(ReviewQuestionsActionStatePageChanged value)
-        pageChanged,
-    required TResult Function(ReviewQuestionsActionStateAnswerVisibility value)
-        answerVisibility,
-  }) {
-    return answerVisibility(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ReviewQuestionsActionStateInitial value)? initial,
-    TResult? Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult? Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
-  }) {
-    return answerVisibility?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ReviewQuestionsActionStateInitial value)? initial,
-    TResult Function(ReviewQuestionsActionStatePageChanged value)? pageChanged,
-    TResult Function(ReviewQuestionsActionStateAnswerVisibility value)?
-        answerVisibility,
-    required TResult orElse(),
-  }) {
-    if (answerVisibility != null) {
-      return answerVisibility(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ReviewQuestionsActionStateAnswerVisibility
-    implements ReviewQuestionsActionState {
-  const factory ReviewQuestionsActionStateAnswerVisibility(
-          {final bool isAnswerVisible}) =
-      _$ReviewQuestionsActionStateAnswerVisibilityImpl;
-
-  bool get isAnswerVisible;
-  @JsonKey(ignore: true)
-  _$$ReviewQuestionsActionStateAnswerVisibilityImplCopyWith<
-          _$ReviewQuestionsActionStateAnswerVisibilityImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -43,6 +43,7 @@ mixin _$ZQuestion {
   int? get ZWRONG => throw _privateConstructorUsedError;
   int? get Z_ENT => throw _privateConstructorUsedError;
   int? get Z_PK => throw _privateConstructorUsedError;
+  int get indexAnswerSelected => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -78,7 +79,8 @@ abstract class $ZQuestionCopyWith<$Res> {
       int? ZQUESTIONTYPE,
       int? ZWRONG,
       int? Z_ENT,
-      int? Z_PK});
+      int? Z_PK,
+      int indexAnswerSelected});
 }
 
 /// @nodoc
@@ -117,6 +119,7 @@ class _$ZQuestionCopyWithImpl<$Res, $Val extends ZQuestion>
     Object? ZWRONG = freezed,
     Object? Z_ENT = freezed,
     Object? Z_PK = freezed,
+    Object? indexAnswerSelected = null,
   }) {
     return _then(_value.copyWith(
       ZANSWERDESC: freezed == ZANSWERDESC
@@ -211,6 +214,10 @@ class _$ZQuestionCopyWithImpl<$Res, $Val extends ZQuestion>
           ? _value.Z_PK
           : Z_PK // ignore: cast_nullable_to_non_nullable
               as int?,
+      indexAnswerSelected: null == indexAnswerSelected
+          ? _value.indexAnswerSelected
+          : indexAnswerSelected // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -246,7 +253,8 @@ abstract class _$$ZQuestionImplCopyWith<$Res>
       int? ZQUESTIONTYPE,
       int? ZWRONG,
       int? Z_ENT,
-      int? Z_PK});
+      int? Z_PK,
+      int indexAnswerSelected});
 }
 
 /// @nodoc
@@ -283,6 +291,7 @@ class __$$ZQuestionImplCopyWithImpl<$Res>
     Object? ZWRONG = freezed,
     Object? Z_ENT = freezed,
     Object? Z_PK = freezed,
+    Object? indexAnswerSelected = null,
   }) {
     return _then(_$ZQuestionImpl(
       ZANSWERDESC: freezed == ZANSWERDESC
@@ -377,6 +386,10 @@ class __$$ZQuestionImplCopyWithImpl<$Res>
           ? _value.Z_PK
           : Z_PK // ignore: cast_nullable_to_non_nullable
               as int?,
+      indexAnswerSelected: null == indexAnswerSelected
+          ? _value.indexAnswerSelected
+          : indexAnswerSelected // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -407,7 +420,8 @@ class _$ZQuestionImpl extends _ZQuestion {
       this.ZQUESTIONTYPE,
       this.ZWRONG,
       this.Z_ENT,
-      this.Z_PK})
+      this.Z_PK,
+      this.indexAnswerSelected = 0})
       : super._();
 
   factory _$ZQuestionImpl.fromJson(Map<String, dynamic> json) =>
@@ -459,10 +473,13 @@ class _$ZQuestionImpl extends _ZQuestion {
   final int? Z_ENT;
   @override
   final int? Z_PK;
+  @override
+  @JsonKey()
+  final int indexAnswerSelected;
 
   @override
   String toString() {
-    return 'ZQuestion(ZANSWERDESC: $ZANSWERDESC, ZANSWERS: $ZANSWERS, ZAWSA1: $ZAWSA1, ZIMAGE: $ZIMAGE, ZINCLUDEA1: $ZINCLUDEA1, ZINCLUDEA2: $ZINCLUDEA2, ZINCLUDEA34: $ZINCLUDEA34, ZINCLUDEB1: $ZINCLUDEB1, ZINCLUDEB2: $ZINCLUDEB2, ZINCLUDEC: $ZINCLUDEC, ZINCLUDEDEF: $ZINCLUDEDEF, ZLEARNED: $ZLEARNED, ZMARKED: $ZMARKED, ZOPTION1: $ZOPTION1, ZOPTION2: $ZOPTION2, ZOPTION3: $ZOPTION3, ZOPTION4: $ZOPTION4, ZQUESTIONCONTENT: $ZQUESTIONCONTENT, ZQUESTIONDIE: $ZQUESTIONDIE, ZQUESTIONTYPE: $ZQUESTIONTYPE, ZWRONG: $ZWRONG, Z_ENT: $Z_ENT, Z_PK: $Z_PK)';
+    return 'ZQuestion(ZANSWERDESC: $ZANSWERDESC, ZANSWERS: $ZANSWERS, ZAWSA1: $ZAWSA1, ZIMAGE: $ZIMAGE, ZINCLUDEA1: $ZINCLUDEA1, ZINCLUDEA2: $ZINCLUDEA2, ZINCLUDEA34: $ZINCLUDEA34, ZINCLUDEB1: $ZINCLUDEB1, ZINCLUDEB2: $ZINCLUDEB2, ZINCLUDEC: $ZINCLUDEC, ZINCLUDEDEF: $ZINCLUDEDEF, ZLEARNED: $ZLEARNED, ZMARKED: $ZMARKED, ZOPTION1: $ZOPTION1, ZOPTION2: $ZOPTION2, ZOPTION3: $ZOPTION3, ZOPTION4: $ZOPTION4, ZQUESTIONCONTENT: $ZQUESTIONCONTENT, ZQUESTIONDIE: $ZQUESTIONDIE, ZQUESTIONTYPE: $ZQUESTIONTYPE, ZWRONG: $ZWRONG, Z_ENT: $Z_ENT, Z_PK: $Z_PK, indexAnswerSelected: $indexAnswerSelected)';
   }
 
   @override
@@ -509,7 +526,9 @@ class _$ZQuestionImpl extends _ZQuestion {
                 other.ZQUESTIONTYPE == ZQUESTIONTYPE) &&
             (identical(other.ZWRONG, ZWRONG) || other.ZWRONG == ZWRONG) &&
             (identical(other.Z_ENT, Z_ENT) || other.Z_ENT == Z_ENT) &&
-            (identical(other.Z_PK, Z_PK) || other.Z_PK == Z_PK));
+            (identical(other.Z_PK, Z_PK) || other.Z_PK == Z_PK) &&
+            (identical(other.indexAnswerSelected, indexAnswerSelected) ||
+                other.indexAnswerSelected == indexAnswerSelected));
   }
 
   @JsonKey(ignore: true)
@@ -538,7 +557,8 @@ class _$ZQuestionImpl extends _ZQuestion {
         ZQUESTIONTYPE,
         ZWRONG,
         Z_ENT,
-        Z_PK
+        Z_PK,
+        indexAnswerSelected
       ]);
 
   @JsonKey(ignore: true)
@@ -579,7 +599,8 @@ abstract class _ZQuestion extends ZQuestion {
       final int? ZQUESTIONTYPE,
       final int? ZWRONG,
       final int? Z_ENT,
-      final int? Z_PK}) = _$ZQuestionImpl;
+      final int? Z_PK,
+      final int indexAnswerSelected}) = _$ZQuestionImpl;
   const _ZQuestion._() : super._();
 
   factory _ZQuestion.fromJson(Map<String, dynamic> json) =
@@ -631,6 +652,8 @@ abstract class _ZQuestion extends ZQuestion {
   int? get Z_ENT;
   @override
   int? get Z_PK;
+  @override
+  int get indexAnswerSelected;
   @override
   @JsonKey(ignore: true)
   _$$ZQuestionImplCopyWith<_$ZQuestionImpl> get copyWith =>

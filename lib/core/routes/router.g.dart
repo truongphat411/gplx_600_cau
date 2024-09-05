@@ -107,19 +107,20 @@ extension $MockTestRouteExtension on MockTestRoute {
 }
 
 RouteBase get $reviewQuestionsRoute => GoRouteData.$route(
-      path: '/review-questions/:isQuestionDie',
+      path: '/review-questions/:questionType',
       factory: $ReviewQuestionsRouteExtension._fromState,
     );
 
 extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
   static ReviewQuestionsRoute _fromState(GoRouterState state) =>
       ReviewQuestionsRoute(
-        isQuestionDie:
-            _$boolConverter(state.pathParameters['isQuestionDie']!) ?? false,
+        questionType: _$QuestionTypeEnumMap
+                ._$fromName(state.pathParameters['questionType']!) ??
+            QuestionType.all,
       );
 
   String get location => GoRouteData.$location(
-        '/review-questions/${Uri.encodeComponent(isQuestionDie.toString())}',
+        '/review-questions/${Uri.encodeComponent(_$QuestionTypeEnumMap[questionType]!)}',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -132,15 +133,15 @@ extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-bool _$boolConverter(String value) {
-  switch (value) {
-    case 'true':
-      return true;
-    case 'false':
-      return false;
-    default:
-      throw UnsupportedError('Cannot convert "$value" into a bool.');
-  }
+const _$QuestionTypeEnumMap = {
+  QuestionType.all: 'all',
+  QuestionType.critical: 'critical',
+  QuestionType.frequentMistakes: 'frequent-mistakes',
+};
+
+extension<T extends Enum> on Map<T, String> {
+  T _$fromName(String value) =>
+      entries.singleWhere((element) => element.value == value).key;
 }
 
 RouteBase get $frequentMistakesRoute => GoRouteData.$route(

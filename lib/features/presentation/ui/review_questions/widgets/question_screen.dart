@@ -48,9 +48,12 @@ class _QuestionScreenState extends State<_QuestionScreen> {
                       ReviewQuestionsActionEvent.JumpPage(index),
                     );
               },
-              itemBuilder: (_, i) {
+              itemBuilder: (context, i) {
                 return _QuestionDetailScreen(
+                  key: ValueKey(widget.questions[i].Z_PK),
                   question: widget.questions[i],
+                  index: i,
+                  //indexAnswerSelected: indexAnswerSelected ?? 0,
                 );
               },
             ),

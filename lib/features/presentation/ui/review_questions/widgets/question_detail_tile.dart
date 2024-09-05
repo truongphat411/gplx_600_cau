@@ -4,50 +4,70 @@ class QuestionDetailTile extends StatelessWidget {
   const QuestionDetailTile({
     super.key,
     required this.content,
-    this.isCorrect = false,
-    this.onTap,
+    required this.indexCorrect,
     required this.color,
-    this.isShadow = true,
-    this.isLearned = false,
-    this.isWrong = false,
+    required this.index,
+    required this.indexAnswerSelected,
+    required this.indexLearned,
+    this.onTap,
   });
 
   final String content;
   final Color color;
+  final int indexCorrect;
+  final int index;
+  final int indexAnswerSelected;
+  final int indexLearned;
   final VoidCallback? onTap;
-  final bool isCorrect;
-  final bool isShadow;
-  final bool isLearned;
-  final bool isWrong;
 
   @override
   Widget build(BuildContext context) {
+    Color? determineBorderColor(int selectedIndex) {
+      if (selectedIndex == 0 && indexLearned == 0) return null;
+      if (selectedIndex == indexCorrect || indexLearned == indexCorrect) {
+        return index == selectedIndex || index == indexLearned
+            ? Colors.green
+            : null;
+      }
+      return index == selectedIndex || index == indexLearned
+          ? Colors.red
+          : index == indexCorrect
+              ? Colors.green
+              : null;
+    }
+
+    Color? determineBackgroundColor(int selectedIndex) {
+      if (selectedIndex == 0 && indexLearned == 0) return null;
+      if (selectedIndex == indexCorrect || indexLearned == indexCorrect) {
+        return index == selectedIndex || index == indexLearned
+            ? Colors.green.shade100
+            : null;
+      }
+
+      return index == selectedIndex || index == indexLearned
+          ? Colors.red.shade100
+          : index == indexCorrect
+              ? Colors.green.shade100
+              : null;
+    }
+
+    final selectedIndex = indexAnswerSelected;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: isWrong && isLearned
-            ? Colors.green.shade100
-            : !isWrong && !isLearned
-                ? Colors.red.shade100
-                : color,
+        color: determineBackgroundColor(selectedIndex) ?? Colors.white,
         border: Border.all(
-          color: isWrong && isLearned
-              ? Colors.green
-              : !isWrong && !isLearned
-                  ? Colors.red
-                  : color,
-        ),
+            color: determineBorderColor(selectedIndex) ?? Colors.white),
         borderRadius: BorderRadius.circular(12),
-        boxShadow: isShadow
-            ? [
-                BoxShadow(
-                  color: Colors.grey.shade200,
-                  spreadRadius: 4,
-                  blurRadius: 8,
-                  offset: const Offset(0, 4),
-                ),
-              ]
-            : null,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade200,
+            spreadRadius: 4,
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Material(
         color: Colors.transparent,
@@ -62,11 +82,7 @@ class QuestionDetailTile extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
-                color: isWrong && isLearned
-                    ? Colors.green
-                    : !isWrong && !isLearned
-                        ? Colors.red
-                        : Colors.black,
+                color: determineBorderColor(selectedIndex) ?? Colors.black,
               ),
             ),
           ),

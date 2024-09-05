@@ -29,6 +29,7 @@ class ZQuestion with _$ZQuestion {
     int? ZWRONG,
     int? Z_ENT,
     int? Z_PK,
+    @Default(0) int indexAnswerSelected,
   }) = _ZQuestion;
 
   const ZQuestion._();

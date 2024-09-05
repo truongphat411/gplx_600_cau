@@ -3,23 +3,26 @@ part of '../review_questions_screen.dart';
 class _QuestionDetailScreen extends StatelessWidget {
   const _QuestionDetailScreen({
     required this.question,
+    required this.index,
+    super.key,
   });
 
   final ZQuestion question;
+  final int index;
 
   void _toggleAnswer({
     required BuildContext context,
-    required bool isCorrect,
-    int? posAnswer,
+    required int indexSelected,
   }) {
-    final learned = posAnswer;
-    final wrong = posAnswer;
+    final learned = indexSelected;
+    final wrong = question.ZANSWERS == indexSelected ? 0 : 1;
     final updatedQuestion = question.copyWith(
       ZLEARNED: learned,
       ZWRONG: wrong,
+      indexAnswerSelected: indexSelected,
     );
-    context.read<QuestionDetailBloc>().add(
-          QuestionDetailEvent.toggleAnswer(updatedQuestion, isCorrect),
+    context.read<ReviewQuestionsBloc>().add(
+          ReviewQuestionsEvent.updateQuestion(updatedQuestion),
         );
   }
 
@@ -62,85 +65,83 @@ class _QuestionDetailScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          BlocBuilder<QuestionDetailBloc, QuestionDetailState>(
-            builder: (context, state) {
-              final isAnswerVisible = state.maybeWhen(
-                answerVisibility: (isAnswerVisible) => isAnswerVisible,
-                orElse: () => false,
-              );
-              return Column(
-                children: [
-                  if (question.ZOPTION1 != null) ...[
-                    QuestionDetailTile(
-                      color: Colors.white,
-                      isLearned: question.ZLEARNED == question.ZANSWERS,
-                      content: question.ZOPTION1 ?? '',
-                      isWrong: question.ZWRONG != 0,
-                      onTap: () => _toggleAnswer(
-                        context: context,
-                        isCorrect: question.ZANSWERS == 1,
-                        posAnswer: 1,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                  ],
-                  if (question.ZOPTION2 != null) ...[
-                    QuestionDetailTile(
-                      color: Colors.white,
-                      isLearned: question.ZLEARNED == 2,
-                      content: question.ZOPTION2 ?? '',
-                      isWrong: question.ZWRONG != 0,
-                      onTap: () => _toggleAnswer(
-                        context: context,
-                        isCorrect: question.ZANSWERS == 2,
-                        posAnswer: 2,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                  ],
-                  if (question.ZOPTION3 != null) ...[
-                    QuestionDetailTile(
-                      color: Colors.white,
-                      isLearned: question.ZLEARNED == 3,
-                      content: question.ZOPTION3 ?? '',
-                      isWrong: question.ZWRONG != 0,
-                      onTap: () => _toggleAnswer(
-                        context: context,
-                        isCorrect: question.ZANSWERS == 3,
-                        posAnswer: 3,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                  ],
-                  if (question.ZOPTION4 != null) ...[
-                    QuestionDetailTile(
-                      color: Colors.white,
-                      isLearned: question.ZLEARNED == 4,
-                      content: question.ZOPTION4 ?? '',
-                      isWrong: question.ZWRONG != 0,
-                      onTap: () => _toggleAnswer(
-                        context: context,
-                        isCorrect: question.ZANSWERS == 4,
-                        posAnswer: 4,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                  ],
-                  AnimatedClipRect(
-                    open: isAnswerVisible ||
-                        (question.ZLEARNED != 0 && question.ZWRONG == 0),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: QuestionDetailTile(
-                        content: question.ZANSWERDESC ?? '',
-                        color: Colors.amber.shade200,
-                        isShadow: isAnswerVisible,
-                      ),
-                    ),
+          Column(
+            children: [
+              if (question.ZOPTION1 != null) ...[
+                QuestionDetailTile(
+                  color: Colors.white,
+                  index: 1,
+                  indexCorrect: question.ZANSWERS ?? 0,
+                  content: question.ZOPTION1 ?? '',
+                  indexLearned: question.ZLEARNED ?? 0,
+                  indexAnswerSelected: question.indexAnswerSelected,
+                  onTap: () => _toggleAnswer(
+                    context: context,
+                    indexSelected: 1,
                   ),
-                ],
-              );
-            },
+                ),
+                const SizedBox(height: 8),
+              ],
+              if (question.ZOPTION2 != null) ...[
+                QuestionDetailTile(
+                  color: Colors.white,
+                  index: 2,
+                  indexCorrect: question.ZANSWERS ?? 0,
+                  indexLearned: question.ZLEARNED ?? 0,
+                  content: question.ZOPTION2 ?? '',
+                  indexAnswerSelected: question.indexAnswerSelected,
+                  onTap: () => _toggleAnswer(
+                    context: context,
+                    indexSelected: 2,
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
+              if (question.ZOPTION3 != null) ...[
+                QuestionDetailTile(
+                  color: Colors.white,
+                  index: 3,
+                  indexCorrect: question.ZANSWERS ?? 0,
+                  indexLearned: question.ZLEARNED ?? 0,
+                  indexAnswerSelected: question.indexAnswerSelected,
+                  content: question.ZOPTION3 ?? '',
+                  onTap: () => _toggleAnswer(
+                    context: context,
+                    indexSelected: 3,
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
+              if (question.ZOPTION4 != null) ...[
+                QuestionDetailTile(
+                  color: Colors.white,
+                  index: 4,
+                  indexCorrect: question.ZANSWERS ?? 0,
+                  indexLearned: question.ZLEARNED ?? 0,
+                  indexAnswerSelected: question.indexAnswerSelected,
+                  content: question.ZOPTION4 ?? '',
+                  onTap: () => _toggleAnswer(
+                    context: context,
+                    indexSelected: 4,
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
+              AnimatedClipRect(
+                open: question.indexAnswerSelected == question.ZANSWERS ||
+                    question.ZLEARNED == question.ZANSWERS,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: QuestionDetailTile(
+                      index: 5,
+                      indexAnswerSelected: question.indexAnswerSelected,
+                      indexLearned: question.ZLEARNED ?? 0,
+                      indexCorrect: question.ZANSWERS ?? 0,
+                      content: question.ZANSWERDESC ?? '',
+                      color: Colors.amber.shade200),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 8),
         ],

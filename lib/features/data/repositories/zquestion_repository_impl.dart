@@ -35,6 +35,16 @@ class ZQuestionRepositoryImpl extends ZQuestionRepository {
   }
 
   @override
+  Future<Either<Failure, List<ZQuestion>>> getFrequentMistakes() async {
+    try {
+      List<ZQuestion> result = await _local.getFrequentMistakes();
+      return Right(result);
+    } on CacheException catch (e) {
+      return Left(CacheFailure(e.message));
+    }
+  }
+
+  @override
   Future<Either<Failure, int>> updateQuestion(ZQuestion quesiton) async {
     try {
       int result = await _local.updateQuestion(quesiton);

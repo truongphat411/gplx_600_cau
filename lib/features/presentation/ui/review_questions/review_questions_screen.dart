@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gap/gap.dart';
+import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
-import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/question_detail_boc/question_detail_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
@@ -20,10 +17,10 @@ part 'widgets/animated_clip_react.dart';
 class ReviewQuestionsScreen extends StatefulWidget {
   const ReviewQuestionsScreen({
     super.key,
-    this.isQuestionDie = false,
+    this.questionType = QuestionType.all,
   });
 
-  final bool isQuestionDie;
+  final QuestionType questionType;
 
   @override
   State<ReviewQuestionsScreen> createState() => _ReviewQuestionsScreenState();
@@ -33,11 +30,27 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<ReviewQuestionsBloc>().add(
-          widget.isQuestionDie
-              ? const ReviewQuestionsEvent.getTop60CriticalQuestions()
-              : const ReviewQuestionsEvent.getAllQuestions(),
-        );
+    _loadQuestionsBasedOnType(widget.questionType);
+  }
+
+  void _loadQuestionsBasedOnType(QuestionType type) {
+    switch (type) {
+      case QuestionType.all:
+        context.read<ReviewQuestionsBloc>().add(
+              const ReviewQuestionsEvent.getAllQuestions(),
+            );
+        break;
+      case QuestionType.critical:
+        context.read<ReviewQuestionsBloc>().add(
+              const ReviewQuestionsEvent.getTop60CriticalQuestions(),
+            );
+        break;
+      case QuestionType.frequentMistakes:
+        context.read<ReviewQuestionsBloc>().add(
+              const ReviewQuestionsEvent.getFrequentMistakes(),
+            );
+        break;
+    }
   }
 
   @override

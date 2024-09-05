@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/observer/navigator_obs.dart';
 import 'package:gplx_600_cau/core/routes/route_path.dart';
 import 'package:gplx_600_cau/di.dart';
-import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/question_detail_boc/question_detail_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/frequent-mistakes/frequent_mistakes_screen.dart';
@@ -72,10 +72,10 @@ class MockTestRoute extends GoRouteData {
 @TypedGoRoute<ReviewQuestionsRoute>(path: $RouterPath.reviewQuestions)
 class ReviewQuestionsRoute extends GoRouteData {
   const ReviewQuestionsRoute({
-    this.isQuestionDie = false,
+    this.questionType = QuestionType.all,
   });
 
-  final bool isQuestionDie;
+  final QuestionType questionType;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -87,12 +87,9 @@ class ReviewQuestionsRoute extends GoRouteData {
         BlocProvider(
           create: (context) => getIt<ReviewQuestionsActionBloc>(),
         ),
-        BlocProvider(
-          create: (context) => getIt<QuestionDetailBloc>(),
-        )
       ],
       child: ReviewQuestionsScreen(
-        isQuestionDie: isQuestionDie,
+        questionType: questionType,
       ),
     );
   }

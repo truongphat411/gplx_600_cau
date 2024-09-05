@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/core/gen/assets.gen.dart';
+import 'package:gplx_600_cau/core/routes/router.dart';
 import 'package:gplx_600_cau/features/presentation/components/banner_ads_widget.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/models/item_home.dart';
@@ -40,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: 'Xem câu sai',
         icon: Assets.images.icFrequentMistakes,
         color: Colors.blue,
-        navigationPath: '/frequent-mistakes',
+        navigationPath: 'review-questions/frequentMistakes',
       ),
       ItemHome(
         title: 'Mẹo thi kết quả cao',
@@ -64,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: '60 câu điểm liệt',
         icon: Assets.images.icTrafficSigns,
         color: Colors.deepOrange,
-        navigationPath: '/review-questions/true',
+        navigationPath: '/review-questions/critical',
       ),
       ItemHome(
         title: '50 câu hay sai',

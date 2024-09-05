@@ -20,18 +20,24 @@ mixin _$ReviewQuestionsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
+    required TResult Function() getFrequentMistakes,
+    required TResult Function(ZQuestion question) updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
+    TResult? Function()? getFrequentMistakes,
+    TResult? Function(ZQuestion question)? updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
+    TResult Function()? getFrequentMistakes,
+    TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,6 +48,10 @@ mixin _$ReviewQuestionsEvent {
     required TResult Function(
             ReviewQuestionsEventGetTop60CriticalQuestions value)
         getTop60CriticalQuestions,
+    required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
+        getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventUpdateQuestion value)
+        updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +60,9 @@ mixin _$ReviewQuestionsEvent {
         getAllQuestions,
     TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
+    TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +71,9 @@ mixin _$ReviewQuestionsEvent {
         getAllQuestions,
     TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
+    TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +143,8 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
   TResult when<TResult extends Object?>({
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
+    required TResult Function() getFrequentMistakes,
+    required TResult Function(ZQuestion question) updateQuestion,
   }) {
     return getAllQuestions();
   }
@@ -136,6 +154,8 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
+    TResult? Function()? getFrequentMistakes,
+    TResult? Function(ZQuestion question)? updateQuestion,
   }) {
     return getAllQuestions?.call();
   }
@@ -145,6 +165,8 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
+    TResult Function()? getFrequentMistakes,
+    TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getAllQuestions != null) {
@@ -161,6 +183,10 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
     required TResult Function(
             ReviewQuestionsEventGetTop60CriticalQuestions value)
         getTop60CriticalQuestions,
+    required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
+        getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventUpdateQuestion value)
+        updateQuestion,
   }) {
     return getAllQuestions(this);
   }
@@ -172,6 +198,9 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
         getAllQuestions,
     TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
+    TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) {
     return getAllQuestions?.call(this);
   }
@@ -183,6 +212,9 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
         getAllQuestions,
     TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
+    TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getAllQuestions != null) {
@@ -246,6 +278,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
   TResult when<TResult extends Object?>({
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
+    required TResult Function() getFrequentMistakes,
+    required TResult Function(ZQuestion question) updateQuestion,
   }) {
     return getTop60CriticalQuestions();
   }
@@ -255,6 +289,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
+    TResult? Function()? getFrequentMistakes,
+    TResult? Function(ZQuestion question)? updateQuestion,
   }) {
     return getTop60CriticalQuestions?.call();
   }
@@ -264,6 +300,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
+    TResult Function()? getFrequentMistakes,
+    TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getTop60CriticalQuestions != null) {
@@ -280,6 +318,10 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
     required TResult Function(
             ReviewQuestionsEventGetTop60CriticalQuestions value)
         getTop60CriticalQuestions,
+    required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
+        getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventUpdateQuestion value)
+        updateQuestion,
   }) {
     return getTop60CriticalQuestions(this);
   }
@@ -291,6 +333,9 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
         getAllQuestions,
     TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
+    TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) {
     return getTop60CriticalQuestions?.call(this);
   }
@@ -302,6 +347,9 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
         getAllQuestions,
     TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
         getTop60CriticalQuestions,
+    TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getTop60CriticalQuestions != null) {
@@ -315,6 +363,314 @@ abstract class ReviewQuestionsEventGetTop60CriticalQuestions
     implements ReviewQuestionsEvent {
   const factory ReviewQuestionsEventGetTop60CriticalQuestions() =
       _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl;
+}
+
+/// @nodoc
+abstract class _$$ReviewQuestionsEventGetFrequentMistakesImplCopyWith<$Res> {
+  factory _$$ReviewQuestionsEventGetFrequentMistakesImplCopyWith(
+          _$ReviewQuestionsEventGetFrequentMistakesImpl value,
+          $Res Function(_$ReviewQuestionsEventGetFrequentMistakesImpl) then) =
+      __$$ReviewQuestionsEventGetFrequentMistakesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReviewQuestionsEventGetFrequentMistakesImplCopyWithImpl<$Res>
+    extends _$ReviewQuestionsEventCopyWithImpl<$Res,
+        _$ReviewQuestionsEventGetFrequentMistakesImpl>
+    implements _$$ReviewQuestionsEventGetFrequentMistakesImplCopyWith<$Res> {
+  __$$ReviewQuestionsEventGetFrequentMistakesImplCopyWithImpl(
+      _$ReviewQuestionsEventGetFrequentMistakesImpl _value,
+      $Res Function(_$ReviewQuestionsEventGetFrequentMistakesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ReviewQuestionsEventGetFrequentMistakesImpl
+    implements ReviewQuestionsEventGetFrequentMistakes {
+  const _$ReviewQuestionsEventGetFrequentMistakesImpl();
+
+  @override
+  String toString() {
+    return 'ReviewQuestionsEvent.getFrequentMistakes()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReviewQuestionsEventGetFrequentMistakesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllQuestions,
+    required TResult Function() getTop60CriticalQuestions,
+    required TResult Function() getFrequentMistakes,
+    required TResult Function(ZQuestion question) updateQuestion,
+  }) {
+    return getFrequentMistakes();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllQuestions,
+    TResult? Function()? getTop60CriticalQuestions,
+    TResult? Function()? getFrequentMistakes,
+    TResult? Function(ZQuestion question)? updateQuestion,
+  }) {
+    return getFrequentMistakes?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllQuestions,
+    TResult Function()? getTop60CriticalQuestions,
+    TResult Function()? getFrequentMistakes,
+    TResult Function(ZQuestion question)? updateQuestion,
+    required TResult orElse(),
+  }) {
+    if (getFrequentMistakes != null) {
+      return getFrequentMistakes();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ReviewQuestionsEventGetAllQuestions value)
+        getAllQuestions,
+    required TResult Function(
+            ReviewQuestionsEventGetTop60CriticalQuestions value)
+        getTop60CriticalQuestions,
+    required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
+        getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventUpdateQuestion value)
+        updateQuestion,
+  }) {
+    return getFrequentMistakes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+    TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
+  }) {
+    return getFrequentMistakes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+    TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
+    required TResult orElse(),
+  }) {
+    if (getFrequentMistakes != null) {
+      return getFrequentMistakes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReviewQuestionsEventGetFrequentMistakes
+    implements ReviewQuestionsEvent {
+  const factory ReviewQuestionsEventGetFrequentMistakes() =
+      _$ReviewQuestionsEventGetFrequentMistakesImpl;
+}
+
+/// @nodoc
+abstract class _$$ReviewQuestionsEventUpdateQuestionImplCopyWith<$Res> {
+  factory _$$ReviewQuestionsEventUpdateQuestionImplCopyWith(
+          _$ReviewQuestionsEventUpdateQuestionImpl value,
+          $Res Function(_$ReviewQuestionsEventUpdateQuestionImpl) then) =
+      __$$ReviewQuestionsEventUpdateQuestionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ZQuestion question});
+
+  $ZQuestionCopyWith<$Res> get question;
+}
+
+/// @nodoc
+class __$$ReviewQuestionsEventUpdateQuestionImplCopyWithImpl<$Res>
+    extends _$ReviewQuestionsEventCopyWithImpl<$Res,
+        _$ReviewQuestionsEventUpdateQuestionImpl>
+    implements _$$ReviewQuestionsEventUpdateQuestionImplCopyWith<$Res> {
+  __$$ReviewQuestionsEventUpdateQuestionImplCopyWithImpl(
+      _$ReviewQuestionsEventUpdateQuestionImpl _value,
+      $Res Function(_$ReviewQuestionsEventUpdateQuestionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? question = null,
+  }) {
+    return _then(_$ReviewQuestionsEventUpdateQuestionImpl(
+      null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as ZQuestion,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ZQuestionCopyWith<$Res> get question {
+    return $ZQuestionCopyWith<$Res>(_value.question, (value) {
+      return _then(_value.copyWith(question: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ReviewQuestionsEventUpdateQuestionImpl
+    implements ReviewQuestionsEventUpdateQuestion {
+  const _$ReviewQuestionsEventUpdateQuestionImpl(this.question);
+
+  @override
+  final ZQuestion question;
+
+  @override
+  String toString() {
+    return 'ReviewQuestionsEvent.updateQuestion(question: $question)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReviewQuestionsEventUpdateQuestionImpl &&
+            (identical(other.question, question) ||
+                other.question == question));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, question);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReviewQuestionsEventUpdateQuestionImplCopyWith<
+          _$ReviewQuestionsEventUpdateQuestionImpl>
+      get copyWith => __$$ReviewQuestionsEventUpdateQuestionImplCopyWithImpl<
+          _$ReviewQuestionsEventUpdateQuestionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllQuestions,
+    required TResult Function() getTop60CriticalQuestions,
+    required TResult Function() getFrequentMistakes,
+    required TResult Function(ZQuestion question) updateQuestion,
+  }) {
+    return updateQuestion(question);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllQuestions,
+    TResult? Function()? getTop60CriticalQuestions,
+    TResult? Function()? getFrequentMistakes,
+    TResult? Function(ZQuestion question)? updateQuestion,
+  }) {
+    return updateQuestion?.call(question);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllQuestions,
+    TResult Function()? getTop60CriticalQuestions,
+    TResult Function()? getFrequentMistakes,
+    TResult Function(ZQuestion question)? updateQuestion,
+    required TResult orElse(),
+  }) {
+    if (updateQuestion != null) {
+      return updateQuestion(question);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ReviewQuestionsEventGetAllQuestions value)
+        getAllQuestions,
+    required TResult Function(
+            ReviewQuestionsEventGetTop60CriticalQuestions value)
+        getTop60CriticalQuestions,
+    required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
+        getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventUpdateQuestion value)
+        updateQuestion,
+  }) {
+    return updateQuestion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+    TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
+  }) {
+    return updateQuestion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+    TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
+    required TResult orElse(),
+  }) {
+    if (updateQuestion != null) {
+      return updateQuestion(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReviewQuestionsEventUpdateQuestion
+    implements ReviewQuestionsEvent {
+  const factory ReviewQuestionsEventUpdateQuestion(final ZQuestion question) =
+      _$ReviewQuestionsEventUpdateQuestionImpl;
+
+  ZQuestion get question;
+  @JsonKey(ignore: true)
+  _$$ReviewQuestionsEventUpdateQuestionImplCopyWith<
+          _$ReviewQuestionsEventUpdateQuestionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

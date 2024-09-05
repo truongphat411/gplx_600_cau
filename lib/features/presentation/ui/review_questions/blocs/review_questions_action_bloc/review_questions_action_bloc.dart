@@ -13,7 +13,7 @@ class ReviewQuestionsActionBloc
     extends Bloc<ReviewQuestionsActionEvent, ReviewQuestionsActionState> {
   final ZQuestionUseCase zQuestionUseCase;
   ReviewQuestionsActionBloc(this.zQuestionUseCase)
-      : super(const ReviewQuestionsActionState.initial()) {
+      : super(const ReviewQuestionsActionState.initial(0)) {
     on<ReviewQuestionsActionEventNextPage>(_onNextPage);
     on<ReviewQuestionsActionEventPreviousPage>(_onPreviousPage);
     on<ReviewQuestionsActionEventJumpPage>(_onJumpToPage);

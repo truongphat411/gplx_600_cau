@@ -28,8 +28,6 @@ import 'features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dar
     as _i8;
 import 'features/presentation/ui/license/blocs/license/license_bloc.dart'
     as _i12;
-import 'features/presentation/ui/review_questions/blocs/question_detail_boc/question_detail_bloc.dart'
-    as _i15;
 import 'features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart'
     as _i14;
 import 'features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart'
@@ -65,7 +63,5 @@ _i1.GetIt $initGetIt(
       () => _i13.ReviewQuestionsBloc(gh<_i8.ZQuestionUseCase>()));
   gh.factory<_i14.ReviewQuestionsActionBloc>(
       () => _i14.ReviewQuestionsActionBloc(gh<_i8.ZQuestionUseCase>()));
-  gh.factory<_i15.QuestionDetailBloc>(
-      () => _i15.QuestionDetailBloc(gh<_i8.ZQuestionUseCase>()));
   return getIt;
 }
