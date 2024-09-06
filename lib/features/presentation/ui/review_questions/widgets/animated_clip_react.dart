@@ -4,11 +4,11 @@ class AnimatedClipRect extends StatefulWidget {
   const AnimatedClipRect({
     super.key,
     this.open = false,
-    this.child,
+    required this.content,
   });
 
   final bool open;
-  final Widget? child;
+  final String content;
 
   @override
   State<AnimatedClipRect> createState() => _AnimatedClipRectState();
@@ -56,7 +56,28 @@ class _AnimatedClipRectState extends State<AnimatedClipRect>
             child: child,
           );
         },
-        child: widget.child,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            color: Colors.amber.shade200,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              width: double.infinity,
+              child: Text(
+                widget.content,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/core/gen/assets.gen.dart';
-import 'package:gplx_600_cau/core/routes/router.dart';
 import 'package:gplx_600_cau/features/presentation/components/banner_ads_widget.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/models/item_home.dart';
@@ -36,13 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
         title: 'Ôn tập câu hỏi',
         icon: Assets.images.icExamBySet,
         color: Colors.green,
-        navigationPath: '/review-questions/false',
+        navigationPath: '/review-questions/all',
       ),
       ItemHome(
-        title: 'Xem câu sai',
+        title: 'Câu hay sai',
         icon: Assets.images.icFrequentMistakes,
         color: Colors.blue,
-        navigationPath: 'review-questions/frequentMistakes',
+        navigationPath: '/review-questions/frequent-mistakes',
       ),
       ItemHome(
         title: 'Mẹo thi kết quả cao',
@@ -54,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: 'Câu đã lưu',
         icon: Assets.images.icQuizSave,
         color: Colors.grey,
-        navigationPath: '/saved-question',
+        navigationPath: '/review-questions/saved',
       ),
       ItemHome(
         title: 'Ôn tập biển báo',

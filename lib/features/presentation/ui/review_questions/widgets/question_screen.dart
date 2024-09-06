@@ -3,11 +3,11 @@ part of '../review_questions_screen.dart';
 class _QuestionScreen extends StatefulWidget {
   const _QuestionScreen({
     required this.questions,
-    this.isQuestionDie = false,
+    required this.questionType,
   });
 
   final List<ZQuestion> questions;
-  final bool isQuestionDie;
+  final QuestionType questionType;
 
   @override
   State<_QuestionScreen> createState() => _QuestionScreenState();
@@ -53,7 +53,7 @@ class _QuestionScreenState extends State<_QuestionScreen> {
                   key: ValueKey(widget.questions[i].Z_PK),
                   question: widget.questions[i],
                   index: i,
-                  //indexAnswerSelected: indexAnswerSelected ?? 0,
+                  questionType: widget.questionType,
                 );
               },
             ),

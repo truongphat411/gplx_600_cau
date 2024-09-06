@@ -21,6 +21,7 @@ mixin _$ReviewQuestionsEvent {
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
     required TResult Function() getFrequentMistakes,
+    required TResult Function() getSavedQuestions,
     required TResult Function(ZQuestion question) updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$ReviewQuestionsEvent {
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
     TResult? Function()? getFrequentMistakes,
+    TResult? Function()? getSavedQuestions,
     TResult? Function(ZQuestion question)? updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$ReviewQuestionsEvent {
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
     TResult Function()? getFrequentMistakes,
+    TResult Function()? getSavedQuestions,
     TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) =>
@@ -50,6 +53,8 @@ mixin _$ReviewQuestionsEvent {
         getTop60CriticalQuestions,
     required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
         getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventGetSavedQuestions value)
+        getSavedQuestions,
     required TResult Function(ReviewQuestionsEventUpdateQuestion value)
         updateQuestion,
   }) =>
@@ -62,6 +67,8 @@ mixin _$ReviewQuestionsEvent {
         getTop60CriticalQuestions,
     TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +80,8 @@ mixin _$ReviewQuestionsEvent {
         getTop60CriticalQuestions,
     TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) =>
@@ -144,6 +153,7 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
     required TResult Function() getFrequentMistakes,
+    required TResult Function() getSavedQuestions,
     required TResult Function(ZQuestion question) updateQuestion,
   }) {
     return getAllQuestions();
@@ -155,6 +165,7 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
     TResult? Function()? getFrequentMistakes,
+    TResult? Function()? getSavedQuestions,
     TResult? Function(ZQuestion question)? updateQuestion,
   }) {
     return getAllQuestions?.call();
@@ -166,6 +177,7 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
     TResult Function()? getFrequentMistakes,
+    TResult Function()? getSavedQuestions,
     TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) {
@@ -185,6 +197,8 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
         getTop60CriticalQuestions,
     required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
         getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventGetSavedQuestions value)
+        getSavedQuestions,
     required TResult Function(ReviewQuestionsEventUpdateQuestion value)
         updateQuestion,
   }) {
@@ -200,6 +214,8 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
         getTop60CriticalQuestions,
     TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) {
     return getAllQuestions?.call(this);
@@ -214,6 +230,8 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
         getTop60CriticalQuestions,
     TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) {
@@ -279,6 +297,7 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
     required TResult Function() getFrequentMistakes,
+    required TResult Function() getSavedQuestions,
     required TResult Function(ZQuestion question) updateQuestion,
   }) {
     return getTop60CriticalQuestions();
@@ -290,6 +309,7 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
     TResult? Function()? getFrequentMistakes,
+    TResult? Function()? getSavedQuestions,
     TResult? Function(ZQuestion question)? updateQuestion,
   }) {
     return getTop60CriticalQuestions?.call();
@@ -301,6 +321,7 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
     TResult Function()? getFrequentMistakes,
+    TResult Function()? getSavedQuestions,
     TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) {
@@ -320,6 +341,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
         getTop60CriticalQuestions,
     required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
         getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventGetSavedQuestions value)
+        getSavedQuestions,
     required TResult Function(ReviewQuestionsEventUpdateQuestion value)
         updateQuestion,
   }) {
@@ -335,6 +358,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
         getTop60CriticalQuestions,
     TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) {
     return getTop60CriticalQuestions?.call(this);
@@ -349,6 +374,8 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
         getTop60CriticalQuestions,
     TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) {
@@ -411,6 +438,7 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
     required TResult Function() getFrequentMistakes,
+    required TResult Function() getSavedQuestions,
     required TResult Function(ZQuestion question) updateQuestion,
   }) {
     return getFrequentMistakes();
@@ -422,6 +450,7 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
     TResult? Function()? getFrequentMistakes,
+    TResult? Function()? getSavedQuestions,
     TResult? Function(ZQuestion question)? updateQuestion,
   }) {
     return getFrequentMistakes?.call();
@@ -433,6 +462,7 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
     TResult Function()? getFrequentMistakes,
+    TResult Function()? getSavedQuestions,
     TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) {
@@ -452,6 +482,8 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
         getTop60CriticalQuestions,
     required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
         getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventGetSavedQuestions value)
+        getSavedQuestions,
     required TResult Function(ReviewQuestionsEventUpdateQuestion value)
         updateQuestion,
   }) {
@@ -467,6 +499,8 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
         getTop60CriticalQuestions,
     TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) {
     return getFrequentMistakes?.call(this);
@@ -481,6 +515,8 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
         getTop60CriticalQuestions,
     TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) {
@@ -495,6 +531,147 @@ abstract class ReviewQuestionsEventGetFrequentMistakes
     implements ReviewQuestionsEvent {
   const factory ReviewQuestionsEventGetFrequentMistakes() =
       _$ReviewQuestionsEventGetFrequentMistakesImpl;
+}
+
+/// @nodoc
+abstract class _$$ReviewQuestionsEventGetSavedQuestionsImplCopyWith<$Res> {
+  factory _$$ReviewQuestionsEventGetSavedQuestionsImplCopyWith(
+          _$ReviewQuestionsEventGetSavedQuestionsImpl value,
+          $Res Function(_$ReviewQuestionsEventGetSavedQuestionsImpl) then) =
+      __$$ReviewQuestionsEventGetSavedQuestionsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReviewQuestionsEventGetSavedQuestionsImplCopyWithImpl<$Res>
+    extends _$ReviewQuestionsEventCopyWithImpl<$Res,
+        _$ReviewQuestionsEventGetSavedQuestionsImpl>
+    implements _$$ReviewQuestionsEventGetSavedQuestionsImplCopyWith<$Res> {
+  __$$ReviewQuestionsEventGetSavedQuestionsImplCopyWithImpl(
+      _$ReviewQuestionsEventGetSavedQuestionsImpl _value,
+      $Res Function(_$ReviewQuestionsEventGetSavedQuestionsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ReviewQuestionsEventGetSavedQuestionsImpl
+    implements ReviewQuestionsEventGetSavedQuestions {
+  const _$ReviewQuestionsEventGetSavedQuestionsImpl();
+
+  @override
+  String toString() {
+    return 'ReviewQuestionsEvent.getSavedQuestions()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReviewQuestionsEventGetSavedQuestionsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllQuestions,
+    required TResult Function() getTop60CriticalQuestions,
+    required TResult Function() getFrequentMistakes,
+    required TResult Function() getSavedQuestions,
+    required TResult Function(ZQuestion question) updateQuestion,
+  }) {
+    return getSavedQuestions();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllQuestions,
+    TResult? Function()? getTop60CriticalQuestions,
+    TResult? Function()? getFrequentMistakes,
+    TResult? Function()? getSavedQuestions,
+    TResult? Function(ZQuestion question)? updateQuestion,
+  }) {
+    return getSavedQuestions?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllQuestions,
+    TResult Function()? getTop60CriticalQuestions,
+    TResult Function()? getFrequentMistakes,
+    TResult Function()? getSavedQuestions,
+    TResult Function(ZQuestion question)? updateQuestion,
+    required TResult orElse(),
+  }) {
+    if (getSavedQuestions != null) {
+      return getSavedQuestions();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ReviewQuestionsEventGetAllQuestions value)
+        getAllQuestions,
+    required TResult Function(
+            ReviewQuestionsEventGetTop60CriticalQuestions value)
+        getTop60CriticalQuestions,
+    required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
+        getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventGetSavedQuestions value)
+        getSavedQuestions,
+    required TResult Function(ReviewQuestionsEventUpdateQuestion value)
+        updateQuestion,
+  }) {
+    return getSavedQuestions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
+    TResult? Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+    TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
+    TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
+  }) {
+    return getSavedQuestions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ReviewQuestionsEventGetAllQuestions value)?
+        getAllQuestions,
+    TResult Function(ReviewQuestionsEventGetTop60CriticalQuestions value)?
+        getTop60CriticalQuestions,
+    TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
+        getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
+    TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
+    required TResult orElse(),
+  }) {
+    if (getSavedQuestions != null) {
+      return getSavedQuestions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReviewQuestionsEventGetSavedQuestions
+    implements ReviewQuestionsEvent {
+  const factory ReviewQuestionsEventGetSavedQuestions() =
+      _$ReviewQuestionsEventGetSavedQuestionsImpl;
 }
 
 /// @nodoc
@@ -581,6 +758,7 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
     required TResult Function() getAllQuestions,
     required TResult Function() getTop60CriticalQuestions,
     required TResult Function() getFrequentMistakes,
+    required TResult Function() getSavedQuestions,
     required TResult Function(ZQuestion question) updateQuestion,
   }) {
     return updateQuestion(question);
@@ -592,6 +770,7 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
     TResult? Function()? getAllQuestions,
     TResult? Function()? getTop60CriticalQuestions,
     TResult? Function()? getFrequentMistakes,
+    TResult? Function()? getSavedQuestions,
     TResult? Function(ZQuestion question)? updateQuestion,
   }) {
     return updateQuestion?.call(question);
@@ -603,6 +782,7 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
     TResult Function()? getAllQuestions,
     TResult Function()? getTop60CriticalQuestions,
     TResult Function()? getFrequentMistakes,
+    TResult Function()? getSavedQuestions,
     TResult Function(ZQuestion question)? updateQuestion,
     required TResult orElse(),
   }) {
@@ -622,6 +802,8 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
         getTop60CriticalQuestions,
     required TResult Function(ReviewQuestionsEventGetFrequentMistakes value)
         getFrequentMistakes,
+    required TResult Function(ReviewQuestionsEventGetSavedQuestions value)
+        getSavedQuestions,
     required TResult Function(ReviewQuestionsEventUpdateQuestion value)
         updateQuestion,
   }) {
@@ -637,6 +819,8 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
         getTop60CriticalQuestions,
     TResult? Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult? Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult? Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
   }) {
     return updateQuestion?.call(this);
@@ -651,6 +835,8 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
         getTop60CriticalQuestions,
     TResult Function(ReviewQuestionsEventGetFrequentMistakes value)?
         getFrequentMistakes,
+    TResult Function(ReviewQuestionsEventGetSavedQuestions value)?
+        getSavedQuestions,
     TResult Function(ReviewQuestionsEventUpdateQuestion value)? updateQuestion,
     required TResult orElse(),
   }) {

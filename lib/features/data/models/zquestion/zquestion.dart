@@ -30,6 +30,7 @@ class ZQuestion with _$ZQuestion {
     int? Z_ENT,
     int? Z_PK,
     @Default(0) int indexAnswerSelected,
+    @Default(false) bool isMarked,
   }) = _ZQuestion;
 
   const ZQuestion._();

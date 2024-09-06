@@ -136,6 +136,7 @@ extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
 const _$QuestionTypeEnumMap = {
   QuestionType.all: 'all',
   QuestionType.critical: 'critical',
+  QuestionType.saved: 'saved',
   QuestionType.frequentMistakes: 'frequent-mistakes',
 };
 

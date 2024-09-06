@@ -5,7 +5,7 @@ class QuestionDetailTile extends StatelessWidget {
     super.key,
     required this.content,
     required this.indexCorrect,
-    required this.color,
+    this.color,
     required this.index,
     required this.indexAnswerSelected,
     required this.indexLearned,
@@ -13,7 +13,7 @@ class QuestionDetailTile extends StatelessWidget {
   });
 
   final String content;
-  final Color color;
+  final Color? color;
   final int indexCorrect;
   final int index;
   final int indexAnswerSelected;

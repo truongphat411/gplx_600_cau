@@ -29,9 +29,9 @@ import 'features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dar
 import 'features/presentation/ui/license/blocs/license/license_bloc.dart'
     as _i12;
 import 'features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart'
-    as _i14;
-import 'features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart'
     as _i13;
+import 'features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart'
+    as _i14;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -59,9 +59,9 @@ _i1.GetIt $initGetIt(
       () => _i11.ZLicenseUseCaseImpl(gh<_i9.ZLicenseRepository>()));
   gh.factory<_i12.LicenseBloc>(
       () => _i12.LicenseBloc(gh<_i9.ZLicenseRepository>()));
-  gh.factory<_i13.ReviewQuestionsBloc>(
-      () => _i13.ReviewQuestionsBloc(gh<_i8.ZQuestionUseCase>()));
-  gh.factory<_i14.ReviewQuestionsActionBloc>(
-      () => _i14.ReviewQuestionsActionBloc(gh<_i8.ZQuestionUseCase>()));
+  gh.factory<_i13.ReviewQuestionsActionBloc>(
+      () => _i13.ReviewQuestionsActionBloc(gh<_i8.ZQuestionUseCase>()));
+  gh.factory<_i14.ReviewQuestionsBloc>(
+      () => _i14.ReviewQuestionsBloc(gh<_i8.ZQuestionUseCase>()));
   return getIt;
 }

@@ -32,6 +32,7 @@ _$ZQuestionImpl _$$ZQuestionImplFromJson(Map<String, dynamic> json) =>
       Z_ENT: (json['Z_ENT'] as num?)?.toInt(),
       Z_PK: (json['Z_PK'] as num?)?.toInt(),
       indexAnswerSelected: (json['indexAnswerSelected'] as num?)?.toInt() ?? 0,
+      isMarked: json['isMarked'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$ZQuestionImplToJson(_$ZQuestionImpl instance) =>
@@ -60,4 +61,5 @@ Map<String, dynamic> _$$ZQuestionImplToJson(_$ZQuestionImpl instance) =>
       'Z_ENT': instance.Z_ENT,
       'Z_PK': instance.Z_PK,
       'indexAnswerSelected': instance.indexAnswerSelected,
+      'isMarked': instance.isMarked,
     };

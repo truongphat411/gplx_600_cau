@@ -15,6 +15,10 @@ abstract class ZQuestionDataSource {
     throw UnimplementedError('dataSource-getFrequentMistakes');
   }
 
+  Future<List<ZQuestion>> getSavedQuestions() async {
+    throw UnimplementedError('dataSource-getFrequentMistakes');
+  }
+
   Future<int> updateQuestion(ZQuestion question) async {
     throw UnimplementedError('dataSource-updateQuestion');
   }
@@ -50,6 +54,20 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
   }
 
   @override
+  Future<List<ZQuestion>> getSavedQuestions() async {
+    final db = await databaseHelper.database;
+    var res = await db.query(
+      "ZQUESTION",
+      where: "ZMARKED = ?",
+      whereArgs: [1],
+    );
+
+    List<ZQuestion> list =
+        res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
+    return list;
+  }
+
+  @override
   Future<List<ZQuestion>> getFrequentMistakes() async {
     final db = await databaseHelper.database;
     var res = await db.query(
@@ -70,7 +88,6 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
       'ZLEARNED': question.ZLEARNED,
       'ZMARKED': question.ZMARKED,
       'ZWRONG': question.ZWRONG,
-      'ZAWSA1': question.ZAWSA1,
     };
     return await db.update(
       'ZQUESTION',
