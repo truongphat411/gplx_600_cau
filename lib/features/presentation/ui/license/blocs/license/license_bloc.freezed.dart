@@ -16,44 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LicenseEvent {
+  String get Z_NAME => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllLicenses,
-    required TResult Function(int? Z_PK) selectedZLicense,
+    required TResult Function(String Z_NAME) getAllLicenses,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getAllLicenses,
-    TResult? Function(int? Z_PK)? selectedZLicense,
+    TResult? Function(String Z_NAME)? getAllLicenses,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllLicenses,
-    TResult Function(int? Z_PK)? selectedZLicense,
+    TResult Function(String Z_NAME)? getAllLicenses,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LicenseEventGetAllLicense value) getAllLicenses,
-    required TResult Function(LicenseEventSelectedLincense value)
-        selectedZLicense,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LicenseEventGetAllLicense value)? getAllLicenses,
-    TResult? Function(LicenseEventSelectedLincense value)? selectedZLicense,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LicenseEventGetAllLicense value)? getAllLicenses,
-    TResult Function(LicenseEventSelectedLincense value)? selectedZLicense,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $LicenseEventCopyWith<LicenseEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,6 +60,8 @@ abstract class $LicenseEventCopyWith<$Res> {
   factory $LicenseEventCopyWith(
           LicenseEvent value, $Res Function(LicenseEvent) then) =
       _$LicenseEventCopyWithImpl<$Res, LicenseEvent>;
+  @useResult
+  $Res call({String Z_NAME});
 }
 
 /// @nodoc
@@ -73,14 +73,31 @@ class _$LicenseEventCopyWithImpl<$Res, $Val extends LicenseEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? Z_NAME = null,
+  }) {
+    return _then(_value.copyWith(
+      Z_NAME: null == Z_NAME
+          ? _value.Z_NAME
+          : Z_NAME // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$LicenseEventGetAllLicenseImplCopyWith<$Res> {
+abstract class _$$LicenseEventGetAllLicenseImplCopyWith<$Res>
+    implements $LicenseEventCopyWith<$Res> {
   factory _$$LicenseEventGetAllLicenseImplCopyWith(
           _$LicenseEventGetAllLicenseImpl value,
           $Res Function(_$LicenseEventGetAllLicenseImpl) then) =
       __$$LicenseEventGetAllLicenseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String Z_NAME});
 }
 
 /// @nodoc
@@ -91,55 +108,76 @@ class __$$LicenseEventGetAllLicenseImplCopyWithImpl<$Res>
       _$LicenseEventGetAllLicenseImpl _value,
       $Res Function(_$LicenseEventGetAllLicenseImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? Z_NAME = null,
+  }) {
+    return _then(_$LicenseEventGetAllLicenseImpl(
+      null == Z_NAME
+          ? _value.Z_NAME
+          : Z_NAME // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LicenseEventGetAllLicenseImpl implements LicenseEventGetAllLicense {
-  const _$LicenseEventGetAllLicenseImpl();
+  const _$LicenseEventGetAllLicenseImpl(this.Z_NAME);
+
+  @override
+  final String Z_NAME;
 
   @override
   String toString() {
-    return 'LicenseEvent.getAllLicenses()';
+    return 'LicenseEvent.getAllLicenses(Z_NAME: $Z_NAME)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LicenseEventGetAllLicenseImpl);
+            other is _$LicenseEventGetAllLicenseImpl &&
+            (identical(other.Z_NAME, Z_NAME) || other.Z_NAME == Z_NAME));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, Z_NAME);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LicenseEventGetAllLicenseImplCopyWith<_$LicenseEventGetAllLicenseImpl>
+      get copyWith => __$$LicenseEventGetAllLicenseImplCopyWithImpl<
+          _$LicenseEventGetAllLicenseImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllLicenses,
-    required TResult Function(int? Z_PK) selectedZLicense,
+    required TResult Function(String Z_NAME) getAllLicenses,
   }) {
-    return getAllLicenses();
+    return getAllLicenses(Z_NAME);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getAllLicenses,
-    TResult? Function(int? Z_PK)? selectedZLicense,
+    TResult? Function(String Z_NAME)? getAllLicenses,
   }) {
-    return getAllLicenses?.call();
+    return getAllLicenses?.call(Z_NAME);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllLicenses,
-    TResult Function(int? Z_PK)? selectedZLicense,
+    TResult Function(String Z_NAME)? getAllLicenses,
     required TResult orElse(),
   }) {
     if (getAllLicenses != null) {
-      return getAllLicenses();
+      return getAllLicenses(Z_NAME);
     }
     return orElse();
   }
@@ -148,8 +186,6 @@ class _$LicenseEventGetAllLicenseImpl implements LicenseEventGetAllLicense {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LicenseEventGetAllLicense value) getAllLicenses,
-    required TResult Function(LicenseEventSelectedLincense value)
-        selectedZLicense,
   }) {
     return getAllLicenses(this);
   }
@@ -158,7 +194,6 @@ class _$LicenseEventGetAllLicenseImpl implements LicenseEventGetAllLicense {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LicenseEventGetAllLicense value)? getAllLicenses,
-    TResult? Function(LicenseEventSelectedLincense value)? selectedZLicense,
   }) {
     return getAllLicenses?.call(this);
   }
@@ -167,7 +202,6 @@ class _$LicenseEventGetAllLicenseImpl implements LicenseEventGetAllLicense {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LicenseEventGetAllLicense value)? getAllLicenses,
-    TResult Function(LicenseEventSelectedLincense value)? selectedZLicense,
     required TResult orElse(),
   }) {
     if (getAllLicenses != null) {
@@ -178,147 +212,14 @@ class _$LicenseEventGetAllLicenseImpl implements LicenseEventGetAllLicense {
 }
 
 abstract class LicenseEventGetAllLicense implements LicenseEvent {
-  const factory LicenseEventGetAllLicense() = _$LicenseEventGetAllLicenseImpl;
-}
-
-/// @nodoc
-abstract class _$$LicenseEventSelectedLincenseImplCopyWith<$Res> {
-  factory _$$LicenseEventSelectedLincenseImplCopyWith(
-          _$LicenseEventSelectedLincenseImpl value,
-          $Res Function(_$LicenseEventSelectedLincenseImpl) then) =
-      __$$LicenseEventSelectedLincenseImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int? Z_PK});
-}
-
-/// @nodoc
-class __$$LicenseEventSelectedLincenseImplCopyWithImpl<$Res>
-    extends _$LicenseEventCopyWithImpl<$Res, _$LicenseEventSelectedLincenseImpl>
-    implements _$$LicenseEventSelectedLincenseImplCopyWith<$Res> {
-  __$$LicenseEventSelectedLincenseImplCopyWithImpl(
-      _$LicenseEventSelectedLincenseImpl _value,
-      $Res Function(_$LicenseEventSelectedLincenseImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? Z_PK = freezed,
-  }) {
-    return _then(_$LicenseEventSelectedLincenseImpl(
-      freezed == Z_PK
-          ? _value.Z_PK
-          : Z_PK // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LicenseEventSelectedLincenseImpl
-    implements LicenseEventSelectedLincense {
-  const _$LicenseEventSelectedLincenseImpl(this.Z_PK);
+  const factory LicenseEventGetAllLicense(final String Z_NAME) =
+      _$LicenseEventGetAllLicenseImpl;
 
   @override
-  final int? Z_PK;
-
+  String get Z_NAME;
   @override
-  String toString() {
-    return 'LicenseEvent.selectedZLicense(Z_PK: $Z_PK)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LicenseEventSelectedLincenseImpl &&
-            (identical(other.Z_PK, Z_PK) || other.Z_PK == Z_PK));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, Z_PK);
-
   @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LicenseEventSelectedLincenseImplCopyWith<
-          _$LicenseEventSelectedLincenseImpl>
-      get copyWith => __$$LicenseEventSelectedLincenseImplCopyWithImpl<
-          _$LicenseEventSelectedLincenseImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getAllLicenses,
-    required TResult Function(int? Z_PK) selectedZLicense,
-  }) {
-    return selectedZLicense(Z_PK);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getAllLicenses,
-    TResult? Function(int? Z_PK)? selectedZLicense,
-  }) {
-    return selectedZLicense?.call(Z_PK);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllLicenses,
-    TResult Function(int? Z_PK)? selectedZLicense,
-    required TResult orElse(),
-  }) {
-    if (selectedZLicense != null) {
-      return selectedZLicense(Z_PK);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LicenseEventGetAllLicense value) getAllLicenses,
-    required TResult Function(LicenseEventSelectedLincense value)
-        selectedZLicense,
-  }) {
-    return selectedZLicense(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LicenseEventGetAllLicense value)? getAllLicenses,
-    TResult? Function(LicenseEventSelectedLincense value)? selectedZLicense,
-  }) {
-    return selectedZLicense?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LicenseEventGetAllLicense value)? getAllLicenses,
-    TResult Function(LicenseEventSelectedLincense value)? selectedZLicense,
-    required TResult orElse(),
-  }) {
-    if (selectedZLicense != null) {
-      return selectedZLicense(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LicenseEventSelectedLincense implements LicenseEvent {
-  const factory LicenseEventSelectedLincense(final int? Z_PK) =
-      _$LicenseEventSelectedLincenseImpl;
-
-  int? get Z_PK;
-  @JsonKey(ignore: true)
-  _$$LicenseEventSelectedLincenseImplCopyWith<
-          _$LicenseEventSelectedLincenseImpl>
+  _$$LicenseEventGetAllLicenseImplCopyWith<_$LicenseEventGetAllLicenseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

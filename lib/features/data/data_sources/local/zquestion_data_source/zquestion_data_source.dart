@@ -1,4 +1,5 @@
 import 'package:gplx_600_cau/features/data/data_sources/local/database_helper.dart';
+import 'package:gplx_600_cau/features/data/data_sources/local/shared_preferences_storage.dart';
 import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
 import 'package:injectable/injectable.dart';
 
@@ -16,7 +17,7 @@ abstract class ZQuestionDataSource {
   }
 
   Future<List<ZQuestion>> getSavedQuestions() async {
-    throw UnimplementedError('dataSource-getFrequentMistakes');
+    throw UnimplementedError('dataSource-getSavedQuestions');
   }
 
   Future<int> updateQuestion(ZQuestion question) async {
@@ -32,68 +33,105 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
 
   @override
   Future<List<ZQuestion>> getAllQuestions() async {
-    final db = await databaseHelper.database;
-    var res = await db.query("ZQUESTION");
-    List<ZQuestion> list =
-        res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
-    return list;
+    try {
+      final db = await databaseHelper.database;
+      final licenseName = SharedPreferencesStorage.getLicenseSelected();
+      final whereClause = licenseName == 'B1' ? "ZINCLUDEB1 = ?" : null;
+      final whereArgs = licenseName == 'B1' ? [1] : null;
+      final res = await db.query(
+        "ZQUESTION",
+        where: whereClause,
+        whereArgs: whereArgs,
+      );
+      return res.map((e) => ZQuestion.fromJson(e)).toList();
+    } catch (e) {
+      print('Error getting all questions: $e');
+      return [];
+    }
   }
 
   @override
   Future<List<ZQuestion>> getTop60CriticalQuestions() async {
-    final db = await databaseHelper.database;
-    var res = await db.query(
-      "ZQUESTION",
-      where: "ZQUESTIONDIE = ?",
-      whereArgs: [1],
-    );
-
-    List<ZQuestion> list =
-        res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
-    return list;
+    try {
+      final db = await databaseHelper.database;
+      final res = await db.query(
+        "ZQUESTION",
+        where: "ZQUESTIONDIE = ?",
+        whereArgs: [1],
+      );
+      return res.isNotEmpty
+          ? res.map((e) => ZQuestion.fromJson(e)).toList()
+          : [];
+    } catch (e) {
+      print('Error getting top 60 critical questions: $e');
+      return [];
+    }
   }
 
   @override
   Future<List<ZQuestion>> getSavedQuestions() async {
-    final db = await databaseHelper.database;
-    var res = await db.query(
-      "ZQUESTION",
-      where: "ZMARKED = ?",
-      whereArgs: [1],
-    );
-
-    List<ZQuestion> list =
-        res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
-    return list;
+    try {
+      final db = await databaseHelper.database;
+      final licenseName = SharedPreferencesStorage.getLicenseSelected();
+      String whereClause = "ZMARKED = ?";
+      List<Object?> whereArgs = [1];
+      if (licenseName == 'B1') {
+        whereClause += " AND ZINCLUDEB1 = ?";
+        whereArgs.add(1);
+      }
+      final res = await db.query(
+        "ZQUESTION",
+        where: whereClause,
+        whereArgs: whereArgs,
+      );
+      return res.map((e) => ZQuestion.fromJson(e)).toList();
+    } catch (e) {
+      print('Error getting saved questions: $e');
+      return [];
+    }
   }
 
   @override
   Future<List<ZQuestion>> getFrequentMistakes() async {
-    final db = await databaseHelper.database;
-    var res = await db.query(
-      "ZQUESTION",
-      where: "ZWRONG = ?",
-      whereArgs: [1],
-    );
-
-    List<ZQuestion> list =
-        res.isNotEmpty ? res.map((e) => ZQuestion.fromJson(e)).toList() : [];
-    return list;
+    try {
+      final db = await databaseHelper.database;
+      final licenseName = SharedPreferencesStorage.getLicenseSelected();
+      String whereClause = "ZWRONG = ?";
+      List<Object?> whereArgs = [1];
+      if (licenseName == 'B1') {
+        whereClause += " AND ZINCLUDEB1 = ?";
+        whereArgs.add(1);
+      }
+      final res = await db.query(
+        "ZQUESTION",
+        where: whereClause,
+        whereArgs: whereArgs,
+      );
+      return res.map((e) => ZQuestion.fromJson(e)).toList();
+    } catch (e) {
+      print('Error getting frequent mistakes: $e');
+      return [];
+    }
   }
 
   @override
   Future<int> updateQuestion(ZQuestion question) async {
-    final db = await databaseHelper.database;
-    Map<String, dynamic> values = {
-      'ZLEARNED': question.ZLEARNED,
-      'ZMARKED': question.ZMARKED,
-      'ZWRONG': question.ZWRONG,
-    };
-    return await db.update(
-      'ZQUESTION',
-      values,
-      where: 'Z_PK = ?',
-      whereArgs: [question.Z_PK],
-    );
+    try {
+      final db = await databaseHelper.database;
+      Map<String, dynamic> values = {
+        'ZLEARNED': question.ZLEARNED,
+        'ZMARKED': question.ZMARKED,
+        'ZWRONG': question.ZWRONG,
+      };
+      return await db.update(
+        'ZQUESTION',
+        values,
+        where: 'Z_PK = ?',
+        whereArgs: [question.Z_PK],
+      );
+    } catch (e) {
+      print('Error updating question: $e');
+      return 0;
+    }
   }
 }

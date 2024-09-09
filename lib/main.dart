@@ -12,12 +12,14 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
     unawaited(MobileAds.instance.initialize());
     configureDependencies();
-    SharedPreferencesStorage.init();
+    await SharedPreferencesStorage.init();
     runApp(
       const App(),
     );
     configLoading();
-  }, (error, stack) {});
+  }, (error, stack) {
+    debugPrint('error: $error - stack: $stack');
+  });
 }
 
 void configLoading() {

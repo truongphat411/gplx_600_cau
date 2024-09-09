@@ -16,10 +16,22 @@ class ZLicenseDataSourceImpl extends ZLicenseDataSource {
 
   @override
   Future<List<ZLicense>> getAllLicenses() async {
-    final db = await databaseHelper.database;
-    var res = await db.query("ZLICENSE");
-    List<ZLicense> list =
-        res.isNotEmpty ? res.map((e) => ZLicense.fromJson(e)).toList() : [];
-    return list;
+    try {
+      final db = await databaseHelper.database;
+      var res = await db.query(
+        "ZLICENSE",
+        where: "ZNAME IN (?, ?, ?, ?, ?, ?)",
+        whereArgs: ['B1', 'B2', 'C', 'D', 'E', 'F'],
+      );
+
+      // Mapping the result to a list of ZLicense objects
+      List<ZLicense> list =
+          res.isNotEmpty ? res.map((e) => ZLicense.fromJson(e)).toList() : [];
+
+      return list;
+    } catch (e) {
+      print('Error getting all licenses: $e');
+      return [];
+    }
   }
 }

@@ -1,13 +1,18 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/core/gen/assets.gen.dart';
+import 'package:gplx_600_cau/core/routes/router.dart';
+import 'package:gplx_600_cau/features/data/data_sources/local/shared_preferences_storage.dart';
 import 'package:gplx_600_cau/features/presentation/components/banner_ads_widget.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
+import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/models/item_home.dart';
+import 'package:gplx_600_cau/features/presentation/ui/home/widgets/question_type_list.dart';
 
 part 'widgets/home_menu_items.dart';
 part 'widgets/home_menu_item_tile.dart';
@@ -20,6 +25,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String title = '600 câu hỏi GPLX';
+
+  @override
+  void initState() {
+    super.initState();
+    final licenseName = SharedPreferencesStorage.getLicenseSelected();
+    _setTitle(licenseName);
+    context.read<HomeBloc>().add(
+          const HomeEvent.getQuestionStatistics(),
+        );
+  }
+
+  void _setTitle(String licenseName) {
+    setState(() {
+      title = 'Giấy Phép Lái Xe -  Hạng $licenseName';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).appColors;
@@ -78,15 +101,19 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: Builder(
           builder: (context) {
             return IconButton(
-              icon: const Icon(Icons.menu),
+              icon: const Icon(Icons.settings),
               onPressed: () {
-                Scaffold.of(context).openDrawer();
+                LicenseRoute().push(context).then((value) {
+                  if (value is String) {
+                    _setTitle(value);
+                  }
+                });
               },
             );
           },
         ),
         title: Text(
-          '600 câu hỏi GPLX - B1',
+          title,
           style: TextStyle(
             color: appColors.textPrimary,
             fontWeight: FontWeight.w700,
@@ -94,35 +121,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         elevation: 1,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.amber,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Column(
+            children: [
+              _HomeMenuItems(
+                list: mockDataHomeMenuItems.slices(2).toList(),
               ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            // Add more drawer items here
-          ],
+              BlocBuilder<HomeBloc, HomeState>(
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    orElse: () => Container(),
+                    loading: () => Container(),
+                    data: (questionPerType) => QuestionTypeList(
+                      questionPerType: questionPerType,
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
         ),
-      ),
-      body: _HomeMenuItems(
-        list: mockDataHomeMenuItems.slices(2).toList(),
       ),
       bottomNavigationBar: const BannerAdsWidget(
         adSize: AdSize(

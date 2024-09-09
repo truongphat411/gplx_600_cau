@@ -14,64 +14,75 @@ class _LicenseTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).appColors;
-    return Semantics(
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: appColors.baseWhite,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 12),
+      decoration: BoxDecoration(
+        color: appColors.baseWhite,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(8),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade200,
+            spreadRadius: 4,
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            context.read<LicenseBloc>().add(
+                  LicenseEvent.getAllLicenses(licenseName ?? 'B2'),
+                );
+            SharedPreferencesStorage.setLicenseSelected(
+              value: licenseName ?? 'B2',
+            );
+          },
           borderRadius: const BorderRadius.all(
             Radius.circular(8),
           ),
-          boxShadow: [
-            BoxShadow(
-              color: appColors.baseGray.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(0, 0), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 8,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Bằng $licenseName',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 17),
-                        ),
-                        Text(
-                          description ?? '',
-                          style: const TextStyle(
-                              fontSize: 12, color: Colors.black54),
-                        ),
-                      ],
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    flex: 5,
+                    child: Container(
+                      height: 100,
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Bằng $licenseName',
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 17),
+                          ),
+                          Text(
+                            description ?? '',
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.black54),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: isSelected
-                      ? Icon(
-                          Icons.check_circle,
-                          color: appColors.baseLightGreen,
-                        )
-                      : Container(),
-                ),
-              ],
-            ),
-          ],
+                  Expanded(
+                    child: isSelected
+                        ? Icon(
+                            Icons.check_circle,
+                            color: appColors.baseLightGreen,
+                          )
+                        : Container(),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -31,6 +31,6 @@ class SharedPreferencesStorage {
     return sharedPreferences.getString(
           'license_selected',
         ) ??
-        '';
+        'B2';
   }
 }

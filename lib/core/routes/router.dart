@@ -6,6 +6,8 @@ import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/observer/navigator_obs.dart';
 import 'package:gplx_600_cau/core/routes/route_path.dart';
 import 'package:gplx_600_cau/di.dart';
+import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
+import 'package:gplx_600_cau/features/presentation/ui/license/blocs/license/license_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/frequent-mistakes/frequent_mistakes_screen.dart';
@@ -49,7 +51,10 @@ class RootApp extends GoRouteData {
 class HomeRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const HomeScreen();
+    return BlocProvider(
+      create: (context) => getIt<HomeBloc>(),
+      child: const HomeScreen(),
+    );
   }
 }
 
@@ -57,7 +62,10 @@ class HomeRoute extends GoRouteData {
 class LicenseRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const LicenseScreen();
+    return BlocProvider(
+      create: (context) => getIt<LicenseBloc>(),
+      child: const LicenseScreen(),
+    );
   }
 }
 

@@ -30,10 +30,8 @@ class App extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      //supportedLocales: L10n.supportedLocales,
       title: _title,
       theme: lightTheme,
-      // darkTheme: AppThemes.internal().dartTheme,
     );
   }
 }

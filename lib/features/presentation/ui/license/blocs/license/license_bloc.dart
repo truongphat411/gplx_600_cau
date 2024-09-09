@@ -15,21 +15,11 @@ class LicenseBloc extends Bloc<LicenseEvent, LicenseState> {
     on<LicenseEvent>((event, emit) async {
       await event.map(
         getAllLicenses: (value) async {
-          emit(const LicenseStateLoading());
-          final result = await zLicenseRepository.getAllLicenses();
-          result.fold(
-            (l) => null,
-            (r) => emit(
-              LicenseState.data(zLicenses: r),
-            ),
-          );
-        },
-        selectedZLicense: (value) async {
-          final selectedId = value.Z_PK;
+          final licenseSelected = value.Z_NAME;
           final result = await zLicenseRepository.getAllLicenses();
           result.fold((l) => null, (r) {
             final updatedZLicenses = r.map((zlicense) {
-              if (zlicense.Z_PK == selectedId) {
+              if (zlicense.ZNAME == licenseSelected) {
                 return zlicense.copyWith(isSelected: !zlicense.isSelected);
               }
               return zlicense;
