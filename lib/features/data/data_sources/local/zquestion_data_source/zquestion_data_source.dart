@@ -16,6 +16,12 @@ abstract class ZQuestionDataSource {
     throw UnimplementedError('dataSource-getFrequentMistakes');
   }
 
+  Future<List<ZQuestion>> getQuestionsByType({
+    required int questionType,
+  }) async {
+    throw UnimplementedError('dataSource-getQuestionsByType');
+  }
+
   Future<List<ZQuestion>> getSavedQuestions() async {
     throw UnimplementedError('dataSource-getSavedQuestions');
   }
@@ -36,13 +42,14 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
     try {
       final db = await databaseHelper.database;
       final licenseName = SharedPreferencesStorage.getLicenseSelected();
-      final whereClause = licenseName == 'B1' ? "ZINCLUDEB1 = ?" : null;
-      final whereArgs = licenseName == 'B1' ? [1] : null;
-      final res = await db.query(
-        "ZQUESTION",
-        where: whereClause,
-        whereArgs: whereArgs,
-      );
+      String query = 'SELECT * FROM ZQUESTION';
+      List<Object?> args = [];
+      if (licenseName == 'B1') {
+        query += ' WHERE ZINCLUDEB1 = ?';
+        args.add(1);
+      }
+
+      final res = await db.rawQuery(query, args);
       return res.map((e) => ZQuestion.fromJson(e)).toList();
     } catch (e) {
       print('Error getting all questions: $e');
@@ -51,14 +58,28 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
   }
 
   @override
+  Future<List<ZQuestion>> getQuestionsByType({
+    required int questionType,
+  }) async {
+    try {
+      final db = await databaseHelper.database;
+      String query = 'SELECT * FROM ZQUESTION WHERE ZQUESTIONTYPE = ?';
+      List<Object?> args = [questionType];
+
+      final res = await db.rawQuery(query, args);
+      return res.map((e) => ZQuestion.fromJson(e)).toList();
+    } catch (e) {
+      print('Error getting questions by type: $e');
+      return [];
+    }
+  }
+
+  @override
   Future<List<ZQuestion>> getTop60CriticalQuestions() async {
     try {
       final db = await databaseHelper.database;
-      final res = await db.query(
-        "ZQUESTION",
-        where: "ZQUESTIONDIE = ?",
-        whereArgs: [1],
-      );
+      final res = await db
+          .rawQuery('SELECT * FROM ZQUESTION WHERE ZQUESTIONDIE = ?', [1]);
       return res.isNotEmpty
           ? res.map((e) => ZQuestion.fromJson(e)).toList()
           : [];
@@ -73,17 +94,15 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
     try {
       final db = await databaseHelper.database;
       final licenseName = SharedPreferencesStorage.getLicenseSelected();
-      String whereClause = "ZMARKED = ?";
-      List<Object?> whereArgs = [1];
+      String query = 'SELECT * FROM ZQUESTION WHERE ZMARKED = ?';
+      List<Object?> args = [1];
+
       if (licenseName == 'B1') {
-        whereClause += " AND ZINCLUDEB1 = ?";
-        whereArgs.add(1);
+        query += ' AND ZINCLUDEB1 = ?';
+        args.add(1);
       }
-      final res = await db.query(
-        "ZQUESTION",
-        where: whereClause,
-        whereArgs: whereArgs,
-      );
+
+      final res = await db.rawQuery(query, args);
       return res.map((e) => ZQuestion.fromJson(e)).toList();
     } catch (e) {
       print('Error getting saved questions: $e');
@@ -96,17 +115,15 @@ class ZQuestionDataSourceImpl extends ZQuestionDataSource {
     try {
       final db = await databaseHelper.database;
       final licenseName = SharedPreferencesStorage.getLicenseSelected();
-      String whereClause = "ZWRONG = ?";
-      List<Object?> whereArgs = [1];
+      String query = 'SELECT * FROM ZQUESTION WHERE ZWRONG = ?';
+      List<Object?> args = [1];
+
       if (licenseName == 'B1') {
-        whereClause += " AND ZINCLUDEB1 = ?";
-        whereArgs.add(1);
+        query += ' AND ZINCLUDEB1 = ?';
+        args.add(1);
       }
-      final res = await db.query(
-        "ZQUESTION",
-        where: whereClause,
-        whereArgs: whereArgs,
-      );
+
+      final res = await db.rawQuery(query, args);
       return res.map((e) => ZQuestion.fromJson(e)).toList();
     } catch (e) {
       print('Error getting frequent mistakes: $e');

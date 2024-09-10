@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
+import 'package:gplx_600_cau/features/data/models/znumberquestionpertype/znumberquestionpertype.dart';
 import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
@@ -19,12 +20,15 @@ part 'widgets/animated_clip_react.dart';
 part 'widgets/question_save_button.dart';
 
 class ReviewQuestionsScreen extends StatefulWidget {
-  const ReviewQuestionsScreen({
-    super.key,
-    this.questionType = QuestionType.all,
-  });
+  const ReviewQuestionsScreen(
+      {super.key,
+      this.questionType = QuestionType.all,
+      this.questionTypePK,
+      this.questionTypeName});
 
   final QuestionType questionType;
+  final int? questionTypePK;
+  final String? questionTypeName;
 
   @override
   State<ReviewQuestionsScreen> createState() => _ReviewQuestionsScreenState();
@@ -46,10 +50,12 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
         return '60 câu điểm liệt';
       case QuestionType.frequentMistakes:
         return 'Câu hay sai';
+      case QuestionType.questionByType:
+        return widget.questionTypeName ?? '';
       case QuestionType.saved:
         return 'Câu đã lưu';
       default:
-        return 'Ôn tập câu hỏi';
+        return 'Tất cả câu hỏi';
     }
   }
 
@@ -60,6 +66,9 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
         const ReviewQuestionsEvent.getTop60CriticalQuestions(),
       QuestionType.frequentMistakes =>
         const ReviewQuestionsEvent.getFrequentMistakes(),
+      QuestionType.questionByType => ReviewQuestionsEvent.getQuestionsByType(
+          questionType: widget.questionTypePK ?? 1,
+        ),
       QuestionType.saved => const ReviewQuestionsEvent.getSavedQuestions()
     };
     context.read<ReviewQuestionsBloc>().add(event);
@@ -78,6 +87,12 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
           ),
         ),
         elevation: 1,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop(true);
+          },
+        ),
       ),
       body: BlocBuilder<ReviewQuestionsBloc, ReviewQuestionsState>(
         builder: (context, state) {

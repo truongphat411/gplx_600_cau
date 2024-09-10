@@ -6,6 +6,9 @@ class ReviewQuestionsEvent with _$ReviewQuestionsEvent {
       ReviewQuestionsEventGetAllQuestions;
   const factory ReviewQuestionsEvent.getTop60CriticalQuestions() =
       ReviewQuestionsEventGetTop60CriticalQuestions;
+  const factory ReviewQuestionsEvent.getQuestionsByType({
+    required int questionType,
+  }) = ReviewQuestionsEventGetQuestionsByType;
   const factory ReviewQuestionsEvent.getFrequentMistakes() =
       ReviewQuestionsEventGetFrequentMistakes;
   const factory ReviewQuestionsEvent.getSavedQuestions() =

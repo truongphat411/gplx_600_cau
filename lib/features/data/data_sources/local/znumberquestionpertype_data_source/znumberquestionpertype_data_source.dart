@@ -22,26 +22,103 @@ class ZNumberQuestionPerTypeDataSourceImpl
       final db = await databaseHelper.database;
       final licenseName = SharedPreferencesStorage.getLicenseSelected();
       var res = await db.rawQuery('''
-      SELECT 
-        ZNUMBERQUESTIONPERTYPE.Z_PK,
-        ZQUESTIONTYPE.ZTYPE_NAME, 
-        ZQUESTIONTYPE.ZDESC,
-        COUNT(ZQUESTION.Z_PK) AS TOTALQUESTIONS, 
-        COUNT(CASE WHEN ZQUESTION.ZLEARNED = 1 THEN 1 END) AS TOTALQUESTIONSLEARNED
-      FROM 
-        ZNUMBERQUESTIONPERTYPE
-      JOIN 
-        ZQUESTIONTYPE ON ZNUMBERQUESTIONPERTYPE.ZQUESTIONTYPE = ZQUESTIONTYPE.Z_PK
-      JOIN 
-        ZLICENSE ON ZNUMBERQUESTIONPERTYPE.ZLICENSE = ZLICENSE.Z_PK
-      JOIN  
-        ZQUESTION ON ZQUESTION.ZQUESTIONTYPE = ZQUESTIONTYPE.Z_PK
-      WHERE 
-        ZLICENSE.ZNAME = ?
-      GROUP BY 
-        ZNUMBERQUESTIONPERTYPE.Z_PK, 
-        ZQUESTIONTYPE.ZTYPE_NAME, 
-        ZQUESTIONTYPE.ZDESC;
+      WITH QuestionCounts AS (
+        SELECT 
+            ZQUESTIONTYPE.Z_PK AS QUESTION_TYPE_PK,
+            ZQUESTIONTYPE.ZTYPE_NAME, 
+            ZQUESTIONTYPE.ZDESC,
+            COUNT(ZQUESTION.Z_PK) AS TOTALQUESTIONS, 
+            COUNT(CASE WHEN ZQUESTION.ZLEARNED != 0 THEN 1 END) AS TOTALQUESTIONSLEARNED,
+            3 AS SortOrder
+        FROM 
+            ZNUMBERQUESTIONPERTYPE
+        JOIN 
+            ZQUESTIONTYPE ON ZNUMBERQUESTIONPERTYPE.ZQUESTIONTYPE = ZQUESTIONTYPE.Z_PK
+        JOIN 
+            ZLICENSE ON ZNUMBERQUESTIONPERTYPE.ZLICENSE = ZLICENSE.Z_PK
+        JOIN  
+            ZQUESTION ON ZQUESTION.ZQUESTIONTYPE = ZQUESTIONTYPE.Z_PK
+        WHERE 
+            ZLICENSE.ZNAME = ?
+        GROUP BY 
+            ZQUESTIONTYPE.Z_PK,
+            ZQUESTIONTYPE.ZTYPE_NAME, 
+            ZQUESTIONTYPE.ZDESC
+    ),
+    TotalCounts AS (
+        SELECT
+            NULL AS QUESTION_TYPE_PK,
+            'Tất cả câu hỏi' AS ZTYPE_NAME,
+            'Tất cả câu hỏi' AS ZDESC,
+            SUM(TOTALQUESTIONS) AS TOTALQUESTIONS, 
+            SUM(TOTALQUESTIONSLEARNED) AS TOTALQUESTIONSLEARNED,
+            1 AS SortOrder
+        FROM 
+            QuestionCounts
+    ),
+    CriticalQuestions AS (
+        SELECT
+            NULL AS QUESTION_TYPE_PK,
+            '60 câu điểm liệt' AS ZTYPE_NAME,
+            '60 câu điểm liệt' AS ZDESC,
+            COUNT(ZQUESTION.Z_PK) AS TOTALQUESTIONS,
+            COUNT(CASE WHEN ZQUESTION.ZLEARNED != 0 THEN 1 END) AS TOTALQUESTIONSLEARNED,
+            0 AS SortOrder
+        FROM 
+            ZQUESTION
+        WHERE
+            ZQUESTION.ZQUESTIONDIE = 1
+        GROUP BY 
+            ZQUESTION.ZQUESTIONDIE
+    ),
+    AllCounts AS (
+        SELECT 
+            QUESTION_TYPE_PK,
+            ZTYPE_NAME,
+            ZDESC,
+            TOTALQUESTIONS,
+            TOTALQUESTIONSLEARNED,
+            SortOrder
+        FROM 
+            QuestionCounts
+
+        UNION ALL
+
+        SELECT
+            QUESTION_TYPE_PK,
+            ZTYPE_NAME,
+            ZDESC,
+            TOTALQUESTIONS,
+            TOTALQUESTIONSLEARNED,
+            SortOrder
+        FROM 
+            TotalCounts
+
+        UNION ALL
+
+        SELECT
+            QUESTION_TYPE_PK,
+            ZTYPE_NAME,
+            ZDESC,
+            TOTALQUESTIONS,
+            TOTALQUESTIONSLEARNED,
+            SortOrder
+        FROM 
+            CriticalQuestions
+    )
+
+    SELECT 
+        QUESTION_TYPE_PK,
+        ZTYPE_NAME,
+        ZDESC,
+        TOTALQUESTIONS,
+        TOTALQUESTIONSLEARNED
+    FROM 
+        AllCounts
+
+    ORDER BY 
+        SortOrder,
+        QUESTION_TYPE_PK; 
     ''', [licenseName]);
 
       List<ZNumberQuestionPerType> list = res.isNotEmpty
@@ -50,7 +127,6 @@ class ZNumberQuestionPerTypeDataSourceImpl
 
       return list;
     } catch (e) {
-      // Handle errors
       print('Error getting question statistics: $e');
       return [];
     }

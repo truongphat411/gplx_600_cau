@@ -1,5 +1,7 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -53,12 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.amber,
         navigationPath: '/mock-test',
       ),
-      ItemHome(
-        title: 'Ôn tập câu hỏi',
-        icon: Assets.images.icExamBySet,
-        color: Colors.green,
-        navigationPath: '/review-questions/all',
-      ),
+      // ItemHome(
+      //   title: 'Ôn tập câu hỏi',
+      //   icon: Assets.images.icExamBySet,
+      //   color: Colors.green,
+      //   navigationPath: '/review-questions/all',
+      // ),
       ItemHome(
         title: 'Câu hay sai',
         icon: Assets.images.icFrequentMistakes,
@@ -83,12 +85,12 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.teal,
         navigationPath: '/traffic-signs',
       ),
-      ItemHome(
-        title: '60 câu điểm liệt',
-        icon: Assets.images.icTrafficSigns,
-        color: Colors.deepOrange,
-        navigationPath: '/review-questions/critical',
-      ),
+      // ItemHome(
+      //   title: '60 câu điểm liệt',
+      //   icon: Assets.images.icTrafficSigns,
+      //   color: Colors.deepOrange,
+      //   navigationPath: '/review-questions/critical',
+      // ),
       ItemHome(
         title: '50 câu hay sai',
         icon: Assets.images.icTrafficSigns,
@@ -125,9 +127,23 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: const EdgeInsets.only(top: 8),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _HomeMenuItems(
-                list: mockDataHomeMenuItems.slices(2).toList(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: _HomeMenuItems(
+                  list: mockDataHomeMenuItems.slices(2).toList(),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                child: const Text(
+                  'ÔN TẬP KIẾN THỨC',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
               BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {

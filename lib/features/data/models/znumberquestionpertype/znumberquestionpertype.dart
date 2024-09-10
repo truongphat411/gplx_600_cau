@@ -6,9 +6,11 @@ part 'znumberquestionpertype.g.dart';
 @freezed
 class ZNumberQuestionPerType with _$ZNumberQuestionPerType {
   const factory ZNumberQuestionPerType({
+    int? QUESTION_TYPE_PK,
     String? ZTYPE_NAME,
     String? ZDESC,
     int? TOTALQUESTIONS,
+    int? TOTALQUESTIONSLEARNED,
   }) = _ZNumberQuestionPerType;
 
   const ZNumberQuestionPerType._();

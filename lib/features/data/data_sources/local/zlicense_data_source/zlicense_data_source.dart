@@ -18,13 +18,13 @@ class ZLicenseDataSourceImpl extends ZLicenseDataSource {
   Future<List<ZLicense>> getAllLicenses() async {
     try {
       final db = await databaseHelper.database;
-      var res = await db.query(
-        "ZLICENSE",
-        where: "ZNAME IN (?, ?, ?, ?, ?, ?)",
-        whereArgs: ['B1', 'B2', 'C', 'D', 'E', 'F'],
+      var res = await db.rawQuery(
+        '''
+        SELECT * FROM ZLICENSE 
+        WHERE ZNAME IN (?, ?, ?, ?, ?, ?)
+        ''',
+        ['B1', 'B2', 'C', 'D', 'E', 'F'],
       );
-
-      // Mapping the result to a list of ZLicense objects
       List<ZLicense> list =
           res.isNotEmpty ? res.map((e) => ZLicense.fromJson(e)).toList() : [];
 

@@ -14,6 +14,13 @@ abstract class ZQuestionUseCase {
         'execute-ZLicenseUseCase-getTop60CriticalQuestions');
   }
 
+  Future<Either<Failure, List<ZQuestion>>> getQuestionsByType({
+    required int questionType,
+  }) {
+    throw UnimplementedError(
+        'execute-ZLicenseUseCase-getTop60CriticalQuestions');
+  }
+
   Future<Either<Failure, List<ZQuestion>>> getSavedQuestions() {
     throw UnimplementedError('execute-ZLicenseUseCase-getSavedQuestions');
   }
@@ -42,6 +49,15 @@ class ZQuestionUseCaseImpl extends ZQuestionUseCase {
   @override
   Future<Either<Failure, List<ZQuestion>>> getTop60CriticalQuestions() {
     return repository.getTop60CriticalQuestions();
+  }
+
+  @override
+  Future<Either<Failure, List<ZQuestion>>> getQuestionsByType({
+    required int questionType,
+  }) {
+    return repository.getQuestionsByType(
+      questionType: questionType,
+    );
   }
 
   @override

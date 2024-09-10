@@ -17,6 +17,7 @@ class ReviewQuestionsBloc
     on<ReviewQuestionsEventGetAllQuestions>(_getAllQuestions);
     on<ReviewQuestionsEventGetTop60CriticalQuestions>(
         _getTop60CriticalQuestions);
+    on<ReviewQuestionsEventGetQuestionsByType>(_getQuestionsByType);
     on<ReviewQuestionsEventUpdateQuestion>(_updateQuestion);
     on<ReviewQuestionsEventGetFrequentMistakes>(_getFrequentMistakes);
     on<ReviewQuestionsEventGetSavedQuestions>(_getSavedQuestions);
@@ -42,6 +43,21 @@ class ReviewQuestionsBloc
   ) async {
     emit(const ReviewQuestionsState.loading());
     final result = await zQuestionUseCase.getTop60CriticalQuestions();
+    result.fold(
+      (l) => null,
+      (r) => emit(
+        ReviewQuestionsState.data(zQuestions: r),
+      ),
+    );
+  }
+
+  Future<void> _getQuestionsByType(
+    ReviewQuestionsEventGetQuestionsByType event,
+    Emitter<ReviewQuestionsState> emit,
+  ) async {
+    emit(const ReviewQuestionsState.loading());
+    final result = await zQuestionUseCase.getQuestionsByType(
+        questionType: event.questionType);
     result.fold(
       (l) => null,
       (r) => emit(

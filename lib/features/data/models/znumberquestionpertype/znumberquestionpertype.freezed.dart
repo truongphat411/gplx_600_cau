@@ -21,9 +21,11 @@ ZNumberQuestionPerType _$ZNumberQuestionPerTypeFromJson(
 
 /// @nodoc
 mixin _$ZNumberQuestionPerType {
+  int? get QUESTION_TYPE_PK => throw _privateConstructorUsedError;
   String? get ZTYPE_NAME => throw _privateConstructorUsedError;
   String? get ZDESC => throw _privateConstructorUsedError;
   int? get TOTALQUESTIONS => throw _privateConstructorUsedError;
+  int? get TOTALQUESTIONSLEARNED => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +39,12 @@ abstract class $ZNumberQuestionPerTypeCopyWith<$Res> {
           $Res Function(ZNumberQuestionPerType) then) =
       _$ZNumberQuestionPerTypeCopyWithImpl<$Res, ZNumberQuestionPerType>;
   @useResult
-  $Res call({String? ZTYPE_NAME, String? ZDESC, int? TOTALQUESTIONS});
+  $Res call(
+      {int? QUESTION_TYPE_PK,
+      String? ZTYPE_NAME,
+      String? ZDESC,
+      int? TOTALQUESTIONS,
+      int? TOTALQUESTIONSLEARNED});
 }
 
 /// @nodoc
@@ -54,11 +61,17 @@ class _$ZNumberQuestionPerTypeCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? QUESTION_TYPE_PK = freezed,
     Object? ZTYPE_NAME = freezed,
     Object? ZDESC = freezed,
     Object? TOTALQUESTIONS = freezed,
+    Object? TOTALQUESTIONSLEARNED = freezed,
   }) {
     return _then(_value.copyWith(
+      QUESTION_TYPE_PK: freezed == QUESTION_TYPE_PK
+          ? _value.QUESTION_TYPE_PK
+          : QUESTION_TYPE_PK // ignore: cast_nullable_to_non_nullable
+              as int?,
       ZTYPE_NAME: freezed == ZTYPE_NAME
           ? _value.ZTYPE_NAME
           : ZTYPE_NAME // ignore: cast_nullable_to_non_nullable
@@ -70,6 +83,10 @@ class _$ZNumberQuestionPerTypeCopyWithImpl<$Res,
       TOTALQUESTIONS: freezed == TOTALQUESTIONS
           ? _value.TOTALQUESTIONS
           : TOTALQUESTIONS // ignore: cast_nullable_to_non_nullable
+              as int?,
+      TOTALQUESTIONSLEARNED: freezed == TOTALQUESTIONSLEARNED
+          ? _value.TOTALQUESTIONSLEARNED
+          : TOTALQUESTIONSLEARNED // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -84,7 +101,12 @@ abstract class _$$ZNumberQuestionPerTypeImplCopyWith<$Res>
       __$$ZNumberQuestionPerTypeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? ZTYPE_NAME, String? ZDESC, int? TOTALQUESTIONS});
+  $Res call(
+      {int? QUESTION_TYPE_PK,
+      String? ZTYPE_NAME,
+      String? ZDESC,
+      int? TOTALQUESTIONS,
+      int? TOTALQUESTIONSLEARNED});
 }
 
 /// @nodoc
@@ -100,11 +122,17 @@ class __$$ZNumberQuestionPerTypeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? QUESTION_TYPE_PK = freezed,
     Object? ZTYPE_NAME = freezed,
     Object? ZDESC = freezed,
     Object? TOTALQUESTIONS = freezed,
+    Object? TOTALQUESTIONSLEARNED = freezed,
   }) {
     return _then(_$ZNumberQuestionPerTypeImpl(
+      QUESTION_TYPE_PK: freezed == QUESTION_TYPE_PK
+          ? _value.QUESTION_TYPE_PK
+          : QUESTION_TYPE_PK // ignore: cast_nullable_to_non_nullable
+              as int?,
       ZTYPE_NAME: freezed == ZTYPE_NAME
           ? _value.ZTYPE_NAME
           : ZTYPE_NAME // ignore: cast_nullable_to_non_nullable
@@ -117,6 +145,10 @@ class __$$ZNumberQuestionPerTypeImplCopyWithImpl<$Res>
           ? _value.TOTALQUESTIONS
           : TOTALQUESTIONS // ignore: cast_nullable_to_non_nullable
               as int?,
+      TOTALQUESTIONSLEARNED: freezed == TOTALQUESTIONSLEARNED
+          ? _value.TOTALQUESTIONSLEARNED
+          : TOTALQUESTIONSLEARNED // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -125,22 +157,30 @@ class __$$ZNumberQuestionPerTypeImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ZNumberQuestionPerTypeImpl extends _ZNumberQuestionPerType {
   const _$ZNumberQuestionPerTypeImpl(
-      {this.ZTYPE_NAME, this.ZDESC, this.TOTALQUESTIONS})
+      {this.QUESTION_TYPE_PK,
+      this.ZTYPE_NAME,
+      this.ZDESC,
+      this.TOTALQUESTIONS,
+      this.TOTALQUESTIONSLEARNED})
       : super._();
 
   factory _$ZNumberQuestionPerTypeImpl.fromJson(Map<String, dynamic> json) =>
       _$$ZNumberQuestionPerTypeImplFromJson(json);
 
   @override
+  final int? QUESTION_TYPE_PK;
+  @override
   final String? ZTYPE_NAME;
   @override
   final String? ZDESC;
   @override
   final int? TOTALQUESTIONS;
+  @override
+  final int? TOTALQUESTIONSLEARNED;
 
   @override
   String toString() {
-    return 'ZNumberQuestionPerType(ZTYPE_NAME: $ZTYPE_NAME, ZDESC: $ZDESC, TOTALQUESTIONS: $TOTALQUESTIONS)';
+    return 'ZNumberQuestionPerType(QUESTION_TYPE_PK: $QUESTION_TYPE_PK, ZTYPE_NAME: $ZTYPE_NAME, ZDESC: $ZDESC, TOTALQUESTIONS: $TOTALQUESTIONS, TOTALQUESTIONSLEARNED: $TOTALQUESTIONSLEARNED)';
   }
 
   @override
@@ -148,17 +188,21 @@ class _$ZNumberQuestionPerTypeImpl extends _ZNumberQuestionPerType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ZNumberQuestionPerTypeImpl &&
+            (identical(other.QUESTION_TYPE_PK, QUESTION_TYPE_PK) ||
+                other.QUESTION_TYPE_PK == QUESTION_TYPE_PK) &&
             (identical(other.ZTYPE_NAME, ZTYPE_NAME) ||
                 other.ZTYPE_NAME == ZTYPE_NAME) &&
             (identical(other.ZDESC, ZDESC) || other.ZDESC == ZDESC) &&
             (identical(other.TOTALQUESTIONS, TOTALQUESTIONS) ||
-                other.TOTALQUESTIONS == TOTALQUESTIONS));
+                other.TOTALQUESTIONS == TOTALQUESTIONS) &&
+            (identical(other.TOTALQUESTIONSLEARNED, TOTALQUESTIONSLEARNED) ||
+                other.TOTALQUESTIONSLEARNED == TOTALQUESTIONSLEARNED));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, ZTYPE_NAME, ZDESC, TOTALQUESTIONS);
+  int get hashCode => Object.hash(runtimeType, QUESTION_TYPE_PK, ZTYPE_NAME,
+      ZDESC, TOTALQUESTIONS, TOTALQUESTIONSLEARNED);
 
   @JsonKey(ignore: true)
   @override
@@ -177,20 +221,26 @@ class _$ZNumberQuestionPerTypeImpl extends _ZNumberQuestionPerType {
 
 abstract class _ZNumberQuestionPerType extends ZNumberQuestionPerType {
   const factory _ZNumberQuestionPerType(
-      {final String? ZTYPE_NAME,
+      {final int? QUESTION_TYPE_PK,
+      final String? ZTYPE_NAME,
       final String? ZDESC,
-      final int? TOTALQUESTIONS}) = _$ZNumberQuestionPerTypeImpl;
+      final int? TOTALQUESTIONS,
+      final int? TOTALQUESTIONSLEARNED}) = _$ZNumberQuestionPerTypeImpl;
   const _ZNumberQuestionPerType._() : super._();
 
   factory _ZNumberQuestionPerType.fromJson(Map<String, dynamic> json) =
       _$ZNumberQuestionPerTypeImpl.fromJson;
 
   @override
+  int? get QUESTION_TYPE_PK;
+  @override
   String? get ZTYPE_NAME;
   @override
   String? get ZDESC;
   @override
   int? get TOTALQUESTIONS;
+  @override
+  int? get TOTALQUESTIONSLEARNED;
   @override
   @JsonKey(ignore: true)
   _$$ZNumberQuestionPerTypeImplCopyWith<_$ZNumberQuestionPerTypeImpl>

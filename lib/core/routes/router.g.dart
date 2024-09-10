@@ -117,10 +117,18 @@ extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
         questionType: _$QuestionTypeEnumMap
                 ._$fromName(state.pathParameters['questionType']!) ??
             QuestionType.all,
+        questionTypePK: _$convertMapValue(
+            'question-type-p-k', state.uri.queryParameters, int.parse),
+        questionTypeName: state.uri.queryParameters['question-type-name'],
       );
 
   String get location => GoRouteData.$location(
         '/review-questions/${Uri.encodeComponent(_$QuestionTypeEnumMap[questionType]!)}',
+        queryParams: {
+          if (questionTypePK != null)
+            'question-type-p-k': questionTypePK!.toString(),
+          if (questionTypeName != null) 'question-type-name': questionTypeName,
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -137,8 +145,18 @@ const _$QuestionTypeEnumMap = {
   QuestionType.all: 'all',
   QuestionType.critical: 'critical',
   QuestionType.saved: 'saved',
+  QuestionType.questionByType: 'question-by-type',
   QuestionType.frequentMistakes: 'frequent-mistakes',
 };
+
+T? _$convertMapValue<T>(
+  String key,
+  Map<String, String> map,
+  T Function(String) converter,
+) {
+  final value = map[key];
+  return value == null ? null : converter(value);
+}
 
 extension<T extends Enum> on Map<T, String> {
   T _$fromName(String value) =>

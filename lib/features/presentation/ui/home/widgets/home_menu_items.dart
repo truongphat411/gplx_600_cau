@@ -22,8 +22,8 @@ class _HomeMenuItems extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 4,
                       vertical: 4,
+                      horizontal: 4,
                     ),
                     child: GestureDetector(
                       onTap: () {
