@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
-import 'package:gplx_600_cau/features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dart';
+import 'package:gplx_600_cau/features/data/models/question/question.dart';
+import 'package:gplx_600_cau/features/domain/use_cases/question_use_case.dart/question_use_case.dart';
 import 'package:injectable/injectable.dart';
 
 part 'review_questions_bloc.freezed.dart';
@@ -11,7 +11,7 @@ part 'review_questions_state.dart';
 @injectable
 class ReviewQuestionsBloc
     extends Bloc<ReviewQuestionsEvent, ReviewQuestionsState> {
-  ZQuestionUseCase zQuestionUseCase;
+  QuestionUseCase zQuestionUseCase;
   ReviewQuestionsBloc(this.zQuestionUseCase)
       : super(const ReviewQuestionsState.initial()) {
     on<ReviewQuestionsEventGetAllQuestions>(_getAllQuestions);
@@ -99,7 +99,7 @@ class ReviewQuestionsBloc
     Emitter<ReviewQuestionsState> emit,
   ) async {
     await zQuestionUseCase.updateQuestion(event.question);
-    List<ZQuestion> updatedQuestions = state.maybeWhen(
+    List<Question> updatedQuestions = state.maybeWhen(
       data: (zQuestions) {
         return zQuestions.map((question) {
           return question.Z_PK == event.question.Z_PK

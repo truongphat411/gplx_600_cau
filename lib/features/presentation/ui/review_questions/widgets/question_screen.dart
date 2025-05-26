@@ -6,7 +6,7 @@ class _QuestionScreen extends StatefulWidget {
     required this.questionType,
   });
 
-  final List<ZQuestion> questions;
+  final List<Question> questions;
   final QuestionType questionType;
 
   @override

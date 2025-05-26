@@ -1,0 +1,65 @@
+[
+    {
+        "ZCURRENT_INDEX": 71,
+        "ZDESC": "Gồm 180 câu hỏi (xx câu điểm liệt)",
+        "ZID": "1",
+        "ZTYPE_NAME": "Quy định chung và quy tắc GTĐB",
+        "Z_ENT": 8,
+        "Z_OPT": 7,
+        "Z_PK": 1
+    },
+    {
+        "ZCURRENT_INDEX": 0,
+        "ZDESC": "Gồm 25 câu hỏi",
+        "ZID": "2",
+        "ZTYPE_NAME": "Văn hóa, đạo đức và kỹ năng PCCC",
+        "Z_ENT": 8,
+        "Z_OPT": 7,
+        "Z_PK": 2
+    },
+    {
+        "ZCURRENT_INDEX": 0,
+        "ZDESC": "Gồm 58 câu hỏi (xx câu điểm liệt)",
+        "ZID": "3",
+        "ZTYPE_NAME": "Kỹ thuật lái xe",
+        "Z_ENT": 8,
+        "Z_OPT": 7,
+        "Z_PK": 3
+    },
+    {
+        "ZCURRENT_INDEX": 0,
+        "ZDESC": "Gồm 37 câu hỏi (xx câu điểm liệt)",
+        "ZID": "4",
+        "ZTYPE_NAME": "Cấu tạo và sửa chữa",
+        "Z_ENT": 8,
+        "Z_OPT": 3,
+        "Z_PK": 4
+    },
+    {
+        "ZCURRENT_INDEX": 0,
+        "ZDESC": "Gồm 185 câu hỏi",
+        "ZID": "5",
+        "ZTYPE_NAME": "Báo hiệu đường bộ",
+        "Z_ENT": 8,
+        "Z_OPT": 3,
+        "Z_PK": 5
+    },
+    {
+        "ZCURRENT_INDEX": 0,
+        "ZDESC": "Gồm 115 câu hỏi",
+        "ZID": "6",
+        "ZTYPE_NAME": "Sa hình",
+        "Z_ENT": 8,
+        "Z_OPT": 7,
+        "Z_PK": 6
+    },
+    {
+        "ZCURRENT_INDEX": 0,
+        "ZDESC": "Gồm 60 câu hỏi",
+        "ZID": "0",
+        "ZTYPE_NAME": "Câu điểm liệt",
+        "Z_ENT": 8,
+        "Z_OPT": 7,
+        "Z_PK": 99
+    }
+]

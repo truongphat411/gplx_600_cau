@@ -6,7 +6,7 @@ class _QuestionSaveButton extends StatefulWidget {
     required this.question,
   }) : super(key: key);
 
-  final ZQuestion question;
+  final Question question;
 
   @override
   State<_QuestionSaveButton> createState() => _QuestionSaveButtonState();
@@ -17,7 +17,7 @@ class _QuestionSaveButtonState extends State<_QuestionSaveButton> {
     final isMarked = widget.question.ZMARKED == 1;
     final updatedQuestion = widget.question.copyWith(
       ZMARKED: isMarked ? 0 : 1,
-      isMarked: !isMarked,
+      // isMarked: !isMarked,
     );
 
     context.read<ReviewQuestionsBloc>().add(
@@ -27,7 +27,7 @@ class _QuestionSaveButtonState extends State<_QuestionSaveButton> {
 
   @override
   Widget build(BuildContext context) {
-    final isMarked = widget.question.ZMARKED == 1 || widget.question.isMarked;
+    // final isMarked = widget.question.ZMARKED == 1 || widget.question.isMarked;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -41,11 +41,11 @@ class _QuestionSaveButtonState extends State<_QuestionSaveButton> {
             scale: animation,
             child: child,
           ),
-          child: SvgPicture.asset(
-            isMarked ? Assets.images.icSaveCheck : Assets.images.icSaveUncheck,
-            key: ValueKey<bool>(isMarked),
-            height: 28,
-          ),
+          // child: SvgPicture.asset(
+          //   isMarked ? Assets.images.icSaveCheck : Assets.images.icSaveUncheck,
+          //   key: ValueKey<bool>(isMarked),
+          //   height: 28,
+          // ),
         ),
       ),
     );

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
-import 'package:gplx_600_cau/features/data/models/znumberquestionpertype/znumberquestionpertype.dart';
-import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
+import 'package:gplx_600_cau/features/data/models/question/question.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
@@ -106,7 +104,7 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
     );
   }
 
-  Widget _buildQuestionList(List<ZQuestion> questions) {
+  Widget _buildQuestionList(List<Question> questions) {
     if (questions.isEmpty &&
         widget.questionType == QuestionType.frequentMistakes) {
       return const _EmptyFrequentMistakes();

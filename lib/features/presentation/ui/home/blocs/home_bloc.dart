@@ -1,8 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gplx_600_cau/features/data/models/znumberquestionpertype/znumberquestionpertype.dart';
-import 'package:gplx_600_cau/features/domain/use_cases/znumberquestionpertype_use_case/znumberquestionpertype_use_case.dart';
 import 'package:injectable/injectable.dart';
+import '../../../../domain/use_cases/use_cases.dart';
 
 part 'home_bloc.freezed.dart';
 part 'home_event.dart';
@@ -10,21 +9,44 @@ part 'home_state.dart';
 
 @injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  ZNumberQuestionPerTypeUseCase zNumberQuestionPerTypeUseCase;
-  HomeBloc(this.zNumberQuestionPerTypeUseCase)
-      : super(const HomeState.initial()) {
-    on<HomeEventGetQuestionStatistics>(_getQuestionStatistics);
+  HomeBloc(
+    this.licenseUseCase,
+    this.questionUseCase,
+    this.questionTypeUseCase,
+    this.tableNoticeBoardUseCase,
+    this.tableNoticeBoardTypeUseCase,
+    this.testUseCase,
+    this.testQuestUseCase,
+  ) : super(const HomeState.initial()) {
+    on<HomeEventInsertData>(((event, emit) async {
+      await event.map(
+        insertData: (value) async {
+          emit(const HomeState.loading());
+
+          final result = await Future.wait([
+            licenseUseCase.insertLicenses(),
+            questionUseCase.insertQuestions(),
+            questionTypeUseCase.insertQuestionTypes(),
+            tableNoticeBoardUseCase.insertTableNoticeBoards(),
+            tableNoticeBoardTypeUseCase.insertTableNoticeBoardTypes(),
+            testUseCase.insertTests(),
+            testQuestUseCase.insertTestQuests(),
+          ]);
+          final hasError = result.any((either) => either.isLeft());
+          if (hasError) {
+            return;
+          }
+          emit(const HomeState.data());
+        },
+      );
+    }));
   }
 
-  Future<void> _getQuestionStatistics(
-    HomeEventGetQuestionStatistics event,
-    Emitter<HomeState> emit,
-  ) async {
-    emit(const HomeState.loading());
-    final result = await zNumberQuestionPerTypeUseCase.getQuestionStatistics();
-    result.fold(
-      (l) => null,
-      (r) => emit(HomeState.data(questionPerType: r)),
-    );
-  }
+  final LicenseUseCase licenseUseCase;
+  final QuestionUseCase questionUseCase;
+  final QuestionTypeUseCase questionTypeUseCase;
+  final TableNoticeBoardUseCase tableNoticeBoardUseCase;
+  final TableNoticeBoardTypeUseCase tableNoticeBoardTypeUseCase;
+  final TestUseCase testUseCase;
+  final TestQuestUseCase testQuestUseCase;
 }

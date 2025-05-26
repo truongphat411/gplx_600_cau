@@ -64,11 +64,49 @@ class $AssetsImagesGen {
       ];
 }
 
+class $AssetsMockDataGen {
+  const $AssetsMockDataGen();
+
+  /// File path: assets/mock_data/table_notice_board.json
+  String get tableNoticeBoard => 'assets/mock_data/table_notice_board.json';
+
+  /// File path: assets/mock_data/table_notice_board_type.json
+  String get tableNoticeBoardType =>
+      'assets/mock_data/table_notice_board_type.json';
+
+  /// File path: assets/mock_data/zlicense.json
+  String get zlicense => 'assets/mock_data/zlicense.json';
+
+  /// File path: assets/mock_data/zquestion.json
+  String get zquestion => 'assets/mock_data/zquestion.json';
+
+  /// File path: assets/mock_data/zquestion_type.json
+  String get zquestionType => 'assets/mock_data/zquestion_type.json';
+
+  /// File path: assets/mock_data/ztest.json
+  String get ztest => 'assets/mock_data/ztest.json';
+
+  /// File path: assets/mock_data/ztest_quest.json
+  String get ztestQuest => 'assets/mock_data/ztest_quest.json';
+
+  /// List of all assets
+  List<String> get values => [
+        tableNoticeBoard,
+        tableNoticeBoardType,
+        zlicense,
+        zquestion,
+        zquestionType,
+        ztest,
+        ztestQuest
+      ];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsDatabaseGen database = $AssetsDatabaseGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsMockDataGen mockData = $AssetsMockDataGen();
 }
 
 class AssetGenImage {

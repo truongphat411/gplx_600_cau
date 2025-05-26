@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gplx_600_cau/features/data/models/zquestion/zquestion.dart';
-import 'package:gplx_600_cau/features/domain/use_cases/zquestion_use_case.dart/zquestion_use_case.dart';
+import 'package:gplx_600_cau/features/data/models/question/question.dart';
+import 'package:gplx_600_cau/features/domain/use_cases/question_use_case.dart/question_use_case.dart';
 import 'package:injectable/injectable.dart';
 
 part 'review_questions_action_bloc.freezed.dart';
@@ -11,7 +11,7 @@ part 'review_questions_action_state.dart';
 @injectable
 class ReviewQuestionsActionBloc
     extends Bloc<ReviewQuestionsActionEvent, ReviewQuestionsActionState> {
-  final ZQuestionUseCase zQuestionUseCase;
+  final QuestionUseCase zQuestionUseCase;
   ReviewQuestionsActionBloc(this.zQuestionUseCase)
       : super(const ReviewQuestionsActionState.initial(0)) {
     on<ReviewQuestionsActionEventNextPage>(_onNextPage);

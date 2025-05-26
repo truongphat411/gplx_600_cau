@@ -8,7 +8,7 @@ class _QuestionDetailScreen extends StatelessWidget {
     super.key,
   });
 
-  final ZQuestion question;
+  final Question question;
   final QuestionType questionType;
   final int index;
 
@@ -17,11 +17,11 @@ class _QuestionDetailScreen extends StatelessWidget {
     required int indexSelected,
   }) {
     final learned = indexSelected;
-    final wrong = question.ZANSWERS == indexSelected ? 0 : 1;
+    final wrong = question.ZCORRECT == indexSelected ? 0 : 1;
     final updatedQuestion = question.copyWith(
       ZLEARNED: learned,
       ZWRONG: wrong,
-      indexAnswerSelected: indexSelected,
+      // indexAnswerSelected: indexSelected,
     );
     context.read<ReviewQuestionsBloc>().add(
           ReviewQuestionsEvent.updateQuestion(updatedQuestion),
@@ -62,10 +62,10 @@ class _QuestionDetailScreen extends StatelessWidget {
               if (question.ZOPTION1 != null) ...[
                 QuestionDetailTile(
                   index: 1,
-                  indexCorrect: question.ZANSWERS ?? 0,
+                  indexCorrect: question.ZCORRECT ?? 0,
                   content: question.ZOPTION1 ?? '',
                   indexLearned: question.ZLEARNED ?? 0,
-                  indexAnswerSelected: question.indexAnswerSelected,
+                  // indexAnswerSelected: question.indexAnswerSelected,
                   onTap: isFrequentMistakes
                       ? null
                       : () => _toggleAnswer(
@@ -78,10 +78,10 @@ class _QuestionDetailScreen extends StatelessWidget {
               if (question.ZOPTION2 != null) ...[
                 QuestionDetailTile(
                   index: 2,
-                  indexCorrect: question.ZANSWERS ?? 0,
+                  indexCorrect: question.ZCORRECT ?? 0,
                   indexLearned: question.ZLEARNED ?? 0,
                   content: question.ZOPTION2 ?? '',
-                  indexAnswerSelected: question.indexAnswerSelected,
+                  // indexAnswerSelected: question.indexAnswerSelected,
                   onTap: isFrequentMistakes
                       ? null
                       : () => _toggleAnswer(
@@ -94,9 +94,9 @@ class _QuestionDetailScreen extends StatelessWidget {
               if (question.ZOPTION3 != null) ...[
                 QuestionDetailTile(
                   index: 3,
-                  indexCorrect: question.ZANSWERS ?? 0,
+                  indexCorrect: question.ZCORRECT ?? 0,
                   indexLearned: question.ZLEARNED ?? 0,
-                  indexAnswerSelected: question.indexAnswerSelected,
+                  // indexAnswerSelected: question.indexAnswerSelected,
                   content: question.ZOPTION3 ?? '',
                   onTap: isFrequentMistakes
                       ? null
@@ -110,9 +110,9 @@ class _QuestionDetailScreen extends StatelessWidget {
               if (question.ZOPTION4 != null) ...[
                 QuestionDetailTile(
                   index: 4,
-                  indexCorrect: question.ZANSWERS ?? 0,
+                  indexCorrect: question.ZCORRECT ?? 0,
                   indexLearned: question.ZLEARNED ?? 0,
-                  indexAnswerSelected: question.indexAnswerSelected,
+                  // indexAnswerSelected: question.indexAnswerSelected,
                   content: question.ZOPTION4 ?? '',
                   onTap: isFrequentMistakes
                       ? null
@@ -124,11 +124,11 @@ class _QuestionDetailScreen extends StatelessWidget {
                 const Gap(8),
               ],
               const Gap(8),
-              AnimatedClipRect(
-                open: question.indexAnswerSelected == question.ZANSWERS ||
-                    question.ZLEARNED != 0,
-                content: question.ZANSWERDESC ?? '',
-              ),
+              // AnimatedClipRect(
+              //   open: question.indexAnswerSelected == question.ZCORRECT ||
+              //       question.ZLEARNED != 0,
+              //   content: question.ZANSWERDESC ?? '',
+              // ),
             ],
           ),
           const Gap(8),

@@ -18,36 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getQuestionStatistics,
+    required TResult Function() insertData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getQuestionStatistics,
+    TResult? Function()? insertData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getQuestionStatistics,
+    TResult Function()? insertData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HomeEventGetQuestionStatistics value)
-        getQuestionStatistics,
+    required TResult Function(HomeEventInsertData value) insertData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HomeEventGetQuestionStatistics value)?
-        getQuestionStatistics,
+    TResult? Function(HomeEventInsertData value)? insertData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HomeEventGetQuestionStatistics value)?
-        getQuestionStatistics,
+    TResult Function(HomeEventInsertData value)? insertData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,39 +68,36 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$HomeEventGetQuestionStatisticsImplCopyWith<$Res> {
-  factory _$$HomeEventGetQuestionStatisticsImplCopyWith(
-          _$HomeEventGetQuestionStatisticsImpl value,
-          $Res Function(_$HomeEventGetQuestionStatisticsImpl) then) =
-      __$$HomeEventGetQuestionStatisticsImplCopyWithImpl<$Res>;
+abstract class _$$HomeEventInsertDataImplCopyWith<$Res> {
+  factory _$$HomeEventInsertDataImplCopyWith(_$HomeEventInsertDataImpl value,
+          $Res Function(_$HomeEventInsertDataImpl) then) =
+      __$$HomeEventInsertDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HomeEventGetQuestionStatisticsImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$HomeEventGetQuestionStatisticsImpl>
-    implements _$$HomeEventGetQuestionStatisticsImplCopyWith<$Res> {
-  __$$HomeEventGetQuestionStatisticsImplCopyWithImpl(
-      _$HomeEventGetQuestionStatisticsImpl _value,
-      $Res Function(_$HomeEventGetQuestionStatisticsImpl) _then)
+class __$$HomeEventInsertDataImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HomeEventInsertDataImpl>
+    implements _$$HomeEventInsertDataImplCopyWith<$Res> {
+  __$$HomeEventInsertDataImplCopyWithImpl(_$HomeEventInsertDataImpl _value,
+      $Res Function(_$HomeEventInsertDataImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HomeEventGetQuestionStatisticsImpl
-    implements HomeEventGetQuestionStatistics {
-  const _$HomeEventGetQuestionStatisticsImpl();
+class _$HomeEventInsertDataImpl implements HomeEventInsertData {
+  const _$HomeEventInsertDataImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.getQuestionStatistics()';
+    return 'HomeEvent.insertData()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomeEventGetQuestionStatisticsImpl);
+            other is _$HomeEventInsertDataImpl);
   }
 
   @override
@@ -112,27 +106,27 @@ class _$HomeEventGetQuestionStatisticsImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getQuestionStatistics,
+    required TResult Function() insertData,
   }) {
-    return getQuestionStatistics();
+    return insertData();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getQuestionStatistics,
+    TResult? Function()? insertData,
   }) {
-    return getQuestionStatistics?.call();
+    return insertData?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getQuestionStatistics,
+    TResult Function()? insertData,
     required TResult orElse(),
   }) {
-    if (getQuestionStatistics != null) {
-      return getQuestionStatistics();
+    if (insertData != null) {
+      return insertData();
     }
     return orElse();
   }
@@ -140,38 +134,34 @@ class _$HomeEventGetQuestionStatisticsImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HomeEventGetQuestionStatistics value)
-        getQuestionStatistics,
+    required TResult Function(HomeEventInsertData value) insertData,
   }) {
-    return getQuestionStatistics(this);
+    return insertData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HomeEventGetQuestionStatistics value)?
-        getQuestionStatistics,
+    TResult? Function(HomeEventInsertData value)? insertData,
   }) {
-    return getQuestionStatistics?.call(this);
+    return insertData?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HomeEventGetQuestionStatistics value)?
-        getQuestionStatistics,
+    TResult Function(HomeEventInsertData value)? insertData,
     required TResult orElse(),
   }) {
-    if (getQuestionStatistics != null) {
-      return getQuestionStatistics(this);
+    if (insertData != null) {
+      return insertData(this);
     }
     return orElse();
   }
 }
 
-abstract class HomeEventGetQuestionStatistics implements HomeEvent {
-  const factory HomeEventGetQuestionStatistics() =
-      _$HomeEventGetQuestionStatisticsImpl;
+abstract class HomeEventInsertData implements HomeEvent {
+  const factory HomeEventInsertData() = _$HomeEventInsertDataImpl;
 }
 
 /// @nodoc
@@ -180,25 +170,24 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZNumberQuestionPerType> questionPerType)
-        data,
     required TResult Function(Exception error) failure,
+    required TResult Function() data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult? Function(Exception error)? failure,
+    TResult? Function()? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult Function(Exception error)? failure,
+    TResult Function()? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -206,24 +195,24 @@ mixin _$HomeState {
   TResult map<TResult extends Object?>({
     required TResult Function(HomeStateInItal value) initial,
     required TResult Function(HomeStateLoading value) loading,
-    required TResult Function(HomeStateData value) data,
     required TResult Function(HomeStateFailure value) failure,
+    required TResult Function(HomeStateData value) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeStateInItal value)? initial,
     TResult? Function(HomeStateLoading value)? loading,
-    TResult? Function(HomeStateData value)? data,
     TResult? Function(HomeStateFailure value)? failure,
+    TResult? Function(HomeStateData value)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeStateInItal value)? initial,
     TResult Function(HomeStateLoading value)? loading,
-    TResult Function(HomeStateData value)? data,
     TResult Function(HomeStateFailure value)? failure,
+    TResult Function(HomeStateData value)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -286,9 +275,8 @@ class _$HomeStateInItalImpl implements HomeStateInItal {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZNumberQuestionPerType> questionPerType)
-        data,
     required TResult Function(Exception error) failure,
+    required TResult Function() data,
   }) {
     return initial();
   }
@@ -298,8 +286,8 @@ class _$HomeStateInItalImpl implements HomeStateInItal {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult? Function(Exception error)? failure,
+    TResult? Function()? data,
   }) {
     return initial?.call();
   }
@@ -309,8 +297,8 @@ class _$HomeStateInItalImpl implements HomeStateInItal {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult Function(Exception error)? failure,
+    TResult Function()? data,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -324,8 +312,8 @@ class _$HomeStateInItalImpl implements HomeStateInItal {
   TResult map<TResult extends Object?>({
     required TResult Function(HomeStateInItal value) initial,
     required TResult Function(HomeStateLoading value) loading,
-    required TResult Function(HomeStateData value) data,
     required TResult Function(HomeStateFailure value) failure,
+    required TResult Function(HomeStateData value) data,
   }) {
     return initial(this);
   }
@@ -335,8 +323,8 @@ class _$HomeStateInItalImpl implements HomeStateInItal {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeStateInItal value)? initial,
     TResult? Function(HomeStateLoading value)? loading,
-    TResult? Function(HomeStateData value)? data,
     TResult? Function(HomeStateFailure value)? failure,
+    TResult? Function(HomeStateData value)? data,
   }) {
     return initial?.call(this);
   }
@@ -346,8 +334,8 @@ class _$HomeStateInItalImpl implements HomeStateInItal {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeStateInItal value)? initial,
     TResult Function(HomeStateLoading value)? loading,
-    TResult Function(HomeStateData value)? data,
     TResult Function(HomeStateFailure value)? failure,
+    TResult Function(HomeStateData value)? data,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -401,9 +389,8 @@ class _$HomeStateLoadingImpl implements HomeStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZNumberQuestionPerType> questionPerType)
-        data,
     required TResult Function(Exception error) failure,
+    required TResult Function() data,
   }) {
     return loading();
   }
@@ -413,8 +400,8 @@ class _$HomeStateLoadingImpl implements HomeStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult? Function(Exception error)? failure,
+    TResult? Function()? data,
   }) {
     return loading?.call();
   }
@@ -424,8 +411,8 @@ class _$HomeStateLoadingImpl implements HomeStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult Function(Exception error)? failure,
+    TResult Function()? data,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -439,8 +426,8 @@ class _$HomeStateLoadingImpl implements HomeStateLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(HomeStateInItal value) initial,
     required TResult Function(HomeStateLoading value) loading,
-    required TResult Function(HomeStateData value) data,
     required TResult Function(HomeStateFailure value) failure,
+    required TResult Function(HomeStateData value) data,
   }) {
     return loading(this);
   }
@@ -450,8 +437,8 @@ class _$HomeStateLoadingImpl implements HomeStateLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeStateInItal value)? initial,
     TResult? Function(HomeStateLoading value)? loading,
-    TResult? Function(HomeStateData value)? data,
     TResult? Function(HomeStateFailure value)? failure,
+    TResult? Function(HomeStateData value)? data,
   }) {
     return loading?.call(this);
   }
@@ -461,8 +448,8 @@ class _$HomeStateLoadingImpl implements HomeStateLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeStateInItal value)? initial,
     TResult Function(HomeStateLoading value)? loading,
-    TResult Function(HomeStateData value)? data,
     TResult Function(HomeStateFailure value)? failure,
+    TResult Function(HomeStateData value)? data,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -474,163 +461,6 @@ class _$HomeStateLoadingImpl implements HomeStateLoading {
 
 abstract class HomeStateLoading implements HomeState {
   const factory HomeStateLoading() = _$HomeStateLoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$HomeStateDataImplCopyWith<$Res> {
-  factory _$$HomeStateDataImplCopyWith(
-          _$HomeStateDataImpl value, $Res Function(_$HomeStateDataImpl) then) =
-      __$$HomeStateDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<ZNumberQuestionPerType> questionPerType});
-}
-
-/// @nodoc
-class __$$HomeStateDataImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateDataImpl>
-    implements _$$HomeStateDataImplCopyWith<$Res> {
-  __$$HomeStateDataImplCopyWithImpl(
-      _$HomeStateDataImpl _value, $Res Function(_$HomeStateDataImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? questionPerType = null,
-  }) {
-    return _then(_$HomeStateDataImpl(
-      questionPerType: null == questionPerType
-          ? _value._questionPerType
-          : questionPerType // ignore: cast_nullable_to_non_nullable
-              as List<ZNumberQuestionPerType>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$HomeStateDataImpl implements HomeStateData {
-  const _$HomeStateDataImpl(
-      {required final List<ZNumberQuestionPerType> questionPerType})
-      : _questionPerType = questionPerType;
-
-  final List<ZNumberQuestionPerType> _questionPerType;
-  @override
-  List<ZNumberQuestionPerType> get questionPerType {
-    if (_questionPerType is EqualUnmodifiableListView) return _questionPerType;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_questionPerType);
-  }
-
-  @override
-  String toString() {
-    return 'HomeState.data(questionPerType: $questionPerType)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HomeStateDataImpl &&
-            const DeepCollectionEquality()
-                .equals(other._questionPerType, _questionPerType));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_questionPerType));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HomeStateDataImplCopyWith<_$HomeStateDataImpl> get copyWith =>
-      __$$HomeStateDataImplCopyWithImpl<_$HomeStateDataImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<ZNumberQuestionPerType> questionPerType)
-        data,
-    required TResult Function(Exception error) failure,
-  }) {
-    return data(questionPerType);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<ZNumberQuestionPerType> questionPerType)? data,
-    TResult? Function(Exception error)? failure,
-  }) {
-    return data?.call(questionPerType);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<ZNumberQuestionPerType> questionPerType)? data,
-    TResult Function(Exception error)? failure,
-    required TResult orElse(),
-  }) {
-    if (data != null) {
-      return data(questionPerType);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(HomeStateInItal value) initial,
-    required TResult Function(HomeStateLoading value) loading,
-    required TResult Function(HomeStateData value) data,
-    required TResult Function(HomeStateFailure value) failure,
-  }) {
-    return data(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HomeStateInItal value)? initial,
-    TResult? Function(HomeStateLoading value)? loading,
-    TResult? Function(HomeStateData value)? data,
-    TResult? Function(HomeStateFailure value)? failure,
-  }) {
-    return data?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(HomeStateInItal value)? initial,
-    TResult Function(HomeStateLoading value)? loading,
-    TResult Function(HomeStateData value)? data,
-    TResult Function(HomeStateFailure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (data != null) {
-      return data(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class HomeStateData implements HomeState {
-  const factory HomeStateData(
-          {required final List<ZNumberQuestionPerType> questionPerType}) =
-      _$HomeStateDataImpl;
-
-  List<ZNumberQuestionPerType> get questionPerType;
-  @JsonKey(ignore: true)
-  _$$HomeStateDataImplCopyWith<_$HomeStateDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -656,7 +486,7 @@ class __$$HomeStateFailureImplCopyWithImpl<$Res>
     Object? error = null,
   }) {
     return _then(_$HomeStateFailureImpl(
-      error: null == error
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Exception,
@@ -667,7 +497,7 @@ class __$$HomeStateFailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeStateFailureImpl implements HomeStateFailure {
-  const _$HomeStateFailureImpl({required this.error});
+  const _$HomeStateFailureImpl(this.error);
 
   @override
   final Exception error;
@@ -700,9 +530,8 @@ class _$HomeStateFailureImpl implements HomeStateFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZNumberQuestionPerType> questionPerType)
-        data,
     required TResult Function(Exception error) failure,
+    required TResult Function() data,
   }) {
     return failure(error);
   }
@@ -712,8 +541,8 @@ class _$HomeStateFailureImpl implements HomeStateFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult? Function(Exception error)? failure,
+    TResult? Function()? data,
   }) {
     return failure?.call(error);
   }
@@ -723,8 +552,8 @@ class _$HomeStateFailureImpl implements HomeStateFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZNumberQuestionPerType> questionPerType)? data,
     TResult Function(Exception error)? failure,
+    TResult Function()? data,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -738,8 +567,8 @@ class _$HomeStateFailureImpl implements HomeStateFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(HomeStateInItal value) initial,
     required TResult Function(HomeStateLoading value) loading,
-    required TResult Function(HomeStateData value) data,
     required TResult Function(HomeStateFailure value) failure,
+    required TResult Function(HomeStateData value) data,
   }) {
     return failure(this);
   }
@@ -749,8 +578,8 @@ class _$HomeStateFailureImpl implements HomeStateFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeStateInItal value)? initial,
     TResult? Function(HomeStateLoading value)? loading,
-    TResult? Function(HomeStateData value)? data,
     TResult? Function(HomeStateFailure value)? failure,
+    TResult? Function(HomeStateData value)? data,
   }) {
     return failure?.call(this);
   }
@@ -760,8 +589,8 @@ class _$HomeStateFailureImpl implements HomeStateFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeStateInItal value)? initial,
     TResult Function(HomeStateLoading value)? loading,
-    TResult Function(HomeStateData value)? data,
     TResult Function(HomeStateFailure value)? failure,
+    TResult Function(HomeStateData value)? data,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -772,11 +601,125 @@ class _$HomeStateFailureImpl implements HomeStateFailure {
 }
 
 abstract class HomeStateFailure implements HomeState {
-  const factory HomeStateFailure({required final Exception error}) =
+  const factory HomeStateFailure(final Exception error) =
       _$HomeStateFailureImpl;
 
   Exception get error;
   @JsonKey(ignore: true)
   _$$HomeStateFailureImplCopyWith<_$HomeStateFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeStateDataImplCopyWith<$Res> {
+  factory _$$HomeStateDataImplCopyWith(
+          _$HomeStateDataImpl value, $Res Function(_$HomeStateDataImpl) then) =
+      __$$HomeStateDataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$HomeStateDataImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateDataImpl>
+    implements _$$HomeStateDataImplCopyWith<$Res> {
+  __$$HomeStateDataImplCopyWithImpl(
+      _$HomeStateDataImpl _value, $Res Function(_$HomeStateDataImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$HomeStateDataImpl implements HomeStateData {
+  const _$HomeStateDataImpl();
+
+  @override
+  String toString() {
+    return 'HomeState.data()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$HomeStateDataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(Exception error) failure,
+    required TResult Function() data,
+  }) {
+    return data();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(Exception error)? failure,
+    TResult? Function()? data,
+  }) {
+    return data?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(Exception error)? failure,
+    TResult Function()? data,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeStateInItal value) initial,
+    required TResult Function(HomeStateLoading value) loading,
+    required TResult Function(HomeStateFailure value) failure,
+    required TResult Function(HomeStateData value) data,
+  }) {
+    return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomeStateInItal value)? initial,
+    TResult? Function(HomeStateLoading value)? loading,
+    TResult? Function(HomeStateFailure value)? failure,
+    TResult? Function(HomeStateData value)? data,
+  }) {
+    return data?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeStateInItal value)? initial,
+    TResult Function(HomeStateLoading value)? loading,
+    TResult Function(HomeStateFailure value)? failure,
+    TResult Function(HomeStateData value)? data,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeStateData implements HomeState {
+  const factory HomeStateData() = _$HomeStateDataImpl;
 }

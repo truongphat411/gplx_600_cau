@@ -229,7 +229,7 @@ mixin _$LicenseState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZLicense> zLicenses) data,
+    required TResult Function(List<License> zLicenses) data,
     required TResult Function(Exception error) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -237,7 +237,7 @@ mixin _$LicenseState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZLicense> zLicenses)? data,
+    TResult? Function(List<License> zLicenses)? data,
     TResult? Function(Exception error)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -245,7 +245,7 @@ mixin _$LicenseState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZLicense> zLicenses)? data,
+    TResult Function(List<License> zLicenses)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) =>
@@ -335,7 +335,7 @@ class _$LicenseStateInItalImpl implements LicenseStateInItal {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZLicense> zLicenses) data,
+    required TResult Function(List<License> zLicenses) data,
     required TResult Function(Exception error) failure,
   }) {
     return initial();
@@ -346,7 +346,7 @@ class _$LicenseStateInItalImpl implements LicenseStateInItal {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZLicense> zLicenses)? data,
+    TResult? Function(List<License> zLicenses)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return initial?.call();
@@ -357,7 +357,7 @@ class _$LicenseStateInItalImpl implements LicenseStateInItal {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZLicense> zLicenses)? data,
+    TResult Function(List<License> zLicenses)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {
@@ -450,7 +450,7 @@ class _$LicenseStateLoadingImpl implements LicenseStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZLicense> zLicenses) data,
+    required TResult Function(List<License> zLicenses) data,
     required TResult Function(Exception error) failure,
   }) {
     return loading();
@@ -461,7 +461,7 @@ class _$LicenseStateLoadingImpl implements LicenseStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZLicense> zLicenses)? data,
+    TResult? Function(List<License> zLicenses)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return loading?.call();
@@ -472,7 +472,7 @@ class _$LicenseStateLoadingImpl implements LicenseStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZLicense> zLicenses)? data,
+    TResult Function(List<License> zLicenses)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {
@@ -530,7 +530,7 @@ abstract class _$$LicenseStateDataImplCopyWith<$Res> {
           $Res Function(_$LicenseStateDataImpl) then) =
       __$$LicenseStateDataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ZLicense> zLicenses});
+  $Res call({List<License> zLicenses});
 }
 
 /// @nodoc
@@ -550,7 +550,7 @@ class __$$LicenseStateDataImplCopyWithImpl<$Res>
       zLicenses: null == zLicenses
           ? _value._zLicenses
           : zLicenses // ignore: cast_nullable_to_non_nullable
-              as List<ZLicense>,
+              as List<License>,
     ));
   }
 }
@@ -558,12 +558,12 @@ class __$$LicenseStateDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LicenseStateDataImpl implements LicenseStateData {
-  const _$LicenseStateDataImpl({required final List<ZLicense> zLicenses})
+  const _$LicenseStateDataImpl({required final List<License> zLicenses})
       : _zLicenses = zLicenses;
 
-  final List<ZLicense> _zLicenses;
+  final List<License> _zLicenses;
   @override
-  List<ZLicense> get zLicenses {
+  List<License> get zLicenses {
     if (_zLicenses is EqualUnmodifiableListView) return _zLicenses;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_zLicenses);
@@ -599,7 +599,7 @@ class _$LicenseStateDataImpl implements LicenseStateData {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZLicense> zLicenses) data,
+    required TResult Function(List<License> zLicenses) data,
     required TResult Function(Exception error) failure,
   }) {
     return data(zLicenses);
@@ -610,7 +610,7 @@ class _$LicenseStateDataImpl implements LicenseStateData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZLicense> zLicenses)? data,
+    TResult? Function(List<License> zLicenses)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return data?.call(zLicenses);
@@ -621,7 +621,7 @@ class _$LicenseStateDataImpl implements LicenseStateData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZLicense> zLicenses)? data,
+    TResult Function(List<License> zLicenses)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {
@@ -670,10 +670,10 @@ class _$LicenseStateDataImpl implements LicenseStateData {
 }
 
 abstract class LicenseStateData implements LicenseState {
-  const factory LicenseStateData({required final List<ZLicense> zLicenses}) =
+  const factory LicenseStateData({required final List<License> zLicenses}) =
       _$LicenseStateDataImpl;
 
-  List<ZLicense> get zLicenses;
+  List<License> get zLicenses;
   @JsonKey(ignore: true)
   _$$LicenseStateDataImplCopyWith<_$LicenseStateDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -746,7 +746,7 @@ class _$LicenseStateFailureImpl implements LicenseStateFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZLicense> zLicenses) data,
+    required TResult Function(List<License> zLicenses) data,
     required TResult Function(Exception error) failure,
   }) {
     return failure(error);
@@ -757,7 +757,7 @@ class _$LicenseStateFailureImpl implements LicenseStateFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZLicense> zLicenses)? data,
+    TResult? Function(List<License> zLicenses)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return failure?.call(error);
@@ -768,7 +768,7 @@ class _$LicenseStateFailureImpl implements LicenseStateFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZLicense> zLicenses)? data,
+    TResult Function(List<License> zLicenses)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {

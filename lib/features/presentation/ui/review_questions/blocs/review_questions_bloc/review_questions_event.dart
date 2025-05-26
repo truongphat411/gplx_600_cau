@@ -14,6 +14,6 @@ class ReviewQuestionsEvent with _$ReviewQuestionsEvent {
   const factory ReviewQuestionsEvent.getSavedQuestions() =
       ReviewQuestionsEventGetSavedQuestions;
   const factory ReviewQuestionsEvent.updateQuestion(
-    ZQuestion question,
+    Question question,
   ) = ReviewQuestionsEventUpdateQuestion;
 }

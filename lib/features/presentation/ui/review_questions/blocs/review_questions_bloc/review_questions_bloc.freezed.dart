@@ -23,7 +23,7 @@ mixin _$ReviewQuestionsEvent {
     required TResult Function(int questionType) getQuestionsByType,
     required TResult Function() getFrequentMistakes,
     required TResult Function() getSavedQuestions,
-    required TResult Function(ZQuestion question) updateQuestion,
+    required TResult Function(Question question) updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$ReviewQuestionsEvent {
     TResult? Function(int questionType)? getQuestionsByType,
     TResult? Function()? getFrequentMistakes,
     TResult? Function()? getSavedQuestions,
-    TResult? Function(ZQuestion question)? updateQuestion,
+    TResult? Function(Question question)? updateQuestion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$ReviewQuestionsEvent {
     TResult Function(int questionType)? getQuestionsByType,
     TResult Function()? getFrequentMistakes,
     TResult Function()? getSavedQuestions,
-    TResult Function(ZQuestion question)? updateQuestion,
+    TResult Function(Question question)? updateQuestion,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -164,7 +164,7 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
     required TResult Function(int questionType) getQuestionsByType,
     required TResult Function() getFrequentMistakes,
     required TResult Function() getSavedQuestions,
-    required TResult Function(ZQuestion question) updateQuestion,
+    required TResult Function(Question question) updateQuestion,
   }) {
     return getAllQuestions();
   }
@@ -177,7 +177,7 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
     TResult? Function(int questionType)? getQuestionsByType,
     TResult? Function()? getFrequentMistakes,
     TResult? Function()? getSavedQuestions,
-    TResult? Function(ZQuestion question)? updateQuestion,
+    TResult? Function(Question question)? updateQuestion,
   }) {
     return getAllQuestions?.call();
   }
@@ -190,7 +190,7 @@ class _$ReviewQuestionsEventGetAllQuestionsImpl
     TResult Function(int questionType)? getQuestionsByType,
     TResult Function()? getFrequentMistakes,
     TResult Function()? getSavedQuestions,
-    TResult Function(ZQuestion question)? updateQuestion,
+    TResult Function(Question question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getAllQuestions != null) {
@@ -317,7 +317,7 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
     required TResult Function(int questionType) getQuestionsByType,
     required TResult Function() getFrequentMistakes,
     required TResult Function() getSavedQuestions,
-    required TResult Function(ZQuestion question) updateQuestion,
+    required TResult Function(Question question) updateQuestion,
   }) {
     return getTop60CriticalQuestions();
   }
@@ -330,7 +330,7 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
     TResult? Function(int questionType)? getQuestionsByType,
     TResult? Function()? getFrequentMistakes,
     TResult? Function()? getSavedQuestions,
-    TResult? Function(ZQuestion question)? updateQuestion,
+    TResult? Function(Question question)? updateQuestion,
   }) {
     return getTop60CriticalQuestions?.call();
   }
@@ -343,7 +343,7 @@ class _$ReviewQuestionsEventGetTop60CriticalQuestionsImpl
     TResult Function(int questionType)? getQuestionsByType,
     TResult Function()? getFrequentMistakes,
     TResult Function()? getSavedQuestions,
-    TResult Function(ZQuestion question)? updateQuestion,
+    TResult Function(Question question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getTop60CriticalQuestions != null) {
@@ -497,7 +497,7 @@ class _$ReviewQuestionsEventGetQuestionsByTypeImpl
     required TResult Function(int questionType) getQuestionsByType,
     required TResult Function() getFrequentMistakes,
     required TResult Function() getSavedQuestions,
-    required TResult Function(ZQuestion question) updateQuestion,
+    required TResult Function(Question question) updateQuestion,
   }) {
     return getQuestionsByType(questionType);
   }
@@ -510,7 +510,7 @@ class _$ReviewQuestionsEventGetQuestionsByTypeImpl
     TResult? Function(int questionType)? getQuestionsByType,
     TResult? Function()? getFrequentMistakes,
     TResult? Function()? getSavedQuestions,
-    TResult? Function(ZQuestion question)? updateQuestion,
+    TResult? Function(Question question)? updateQuestion,
   }) {
     return getQuestionsByType?.call(questionType);
   }
@@ -523,7 +523,7 @@ class _$ReviewQuestionsEventGetQuestionsByTypeImpl
     TResult Function(int questionType)? getQuestionsByType,
     TResult Function()? getFrequentMistakes,
     TResult Function()? getSavedQuestions,
-    TResult Function(ZQuestion question)? updateQuestion,
+    TResult Function(Question question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getQuestionsByType != null) {
@@ -654,7 +654,7 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
     required TResult Function(int questionType) getQuestionsByType,
     required TResult Function() getFrequentMistakes,
     required TResult Function() getSavedQuestions,
-    required TResult Function(ZQuestion question) updateQuestion,
+    required TResult Function(Question question) updateQuestion,
   }) {
     return getFrequentMistakes();
   }
@@ -667,7 +667,7 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
     TResult? Function(int questionType)? getQuestionsByType,
     TResult? Function()? getFrequentMistakes,
     TResult? Function()? getSavedQuestions,
-    TResult? Function(ZQuestion question)? updateQuestion,
+    TResult? Function(Question question)? updateQuestion,
   }) {
     return getFrequentMistakes?.call();
   }
@@ -680,7 +680,7 @@ class _$ReviewQuestionsEventGetFrequentMistakesImpl
     TResult Function(int questionType)? getQuestionsByType,
     TResult Function()? getFrequentMistakes,
     TResult Function()? getSavedQuestions,
-    TResult Function(ZQuestion question)? updateQuestion,
+    TResult Function(Question question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getFrequentMistakes != null) {
@@ -804,7 +804,7 @@ class _$ReviewQuestionsEventGetSavedQuestionsImpl
     required TResult Function(int questionType) getQuestionsByType,
     required TResult Function() getFrequentMistakes,
     required TResult Function() getSavedQuestions,
-    required TResult Function(ZQuestion question) updateQuestion,
+    required TResult Function(Question question) updateQuestion,
   }) {
     return getSavedQuestions();
   }
@@ -817,7 +817,7 @@ class _$ReviewQuestionsEventGetSavedQuestionsImpl
     TResult? Function(int questionType)? getQuestionsByType,
     TResult? Function()? getFrequentMistakes,
     TResult? Function()? getSavedQuestions,
-    TResult? Function(ZQuestion question)? updateQuestion,
+    TResult? Function(Question question)? updateQuestion,
   }) {
     return getSavedQuestions?.call();
   }
@@ -830,7 +830,7 @@ class _$ReviewQuestionsEventGetSavedQuestionsImpl
     TResult Function(int questionType)? getQuestionsByType,
     TResult Function()? getFrequentMistakes,
     TResult Function()? getSavedQuestions,
-    TResult Function(ZQuestion question)? updateQuestion,
+    TResult Function(Question question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (getSavedQuestions != null) {
@@ -913,9 +913,9 @@ abstract class _$$ReviewQuestionsEventUpdateQuestionImplCopyWith<$Res> {
           $Res Function(_$ReviewQuestionsEventUpdateQuestionImpl) then) =
       __$$ReviewQuestionsEventUpdateQuestionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ZQuestion question});
+  $Res call({Question question});
 
-  $ZQuestionCopyWith<$Res> get question;
+  $QuestionCopyWith<$Res> get question;
 }
 
 /// @nodoc
@@ -937,14 +937,14 @@ class __$$ReviewQuestionsEventUpdateQuestionImplCopyWithImpl<$Res>
       null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
-              as ZQuestion,
+              as Question,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ZQuestionCopyWith<$Res> get question {
-    return $ZQuestionCopyWith<$Res>(_value.question, (value) {
+  $QuestionCopyWith<$Res> get question {
+    return $QuestionCopyWith<$Res>(_value.question, (value) {
       return _then(_value.copyWith(question: value));
     });
   }
@@ -957,7 +957,7 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
   const _$ReviewQuestionsEventUpdateQuestionImpl(this.question);
 
   @override
-  final ZQuestion question;
+  final Question question;
 
   @override
   String toString() {
@@ -992,7 +992,7 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
     required TResult Function(int questionType) getQuestionsByType,
     required TResult Function() getFrequentMistakes,
     required TResult Function() getSavedQuestions,
-    required TResult Function(ZQuestion question) updateQuestion,
+    required TResult Function(Question question) updateQuestion,
   }) {
     return updateQuestion(question);
   }
@@ -1005,7 +1005,7 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
     TResult? Function(int questionType)? getQuestionsByType,
     TResult? Function()? getFrequentMistakes,
     TResult? Function()? getSavedQuestions,
-    TResult? Function(ZQuestion question)? updateQuestion,
+    TResult? Function(Question question)? updateQuestion,
   }) {
     return updateQuestion?.call(question);
   }
@@ -1018,7 +1018,7 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
     TResult Function(int questionType)? getQuestionsByType,
     TResult Function()? getFrequentMistakes,
     TResult Function()? getSavedQuestions,
-    TResult Function(ZQuestion question)? updateQuestion,
+    TResult Function(Question question)? updateQuestion,
     required TResult orElse(),
   }) {
     if (updateQuestion != null) {
@@ -1090,10 +1090,10 @@ class _$ReviewQuestionsEventUpdateQuestionImpl
 
 abstract class ReviewQuestionsEventUpdateQuestion
     implements ReviewQuestionsEvent {
-  const factory ReviewQuestionsEventUpdateQuestion(final ZQuestion question) =
+  const factory ReviewQuestionsEventUpdateQuestion(final Question question) =
       _$ReviewQuestionsEventUpdateQuestionImpl;
 
-  ZQuestion get question;
+  Question get question;
   @JsonKey(ignore: true)
   _$$ReviewQuestionsEventUpdateQuestionImplCopyWith<
           _$ReviewQuestionsEventUpdateQuestionImpl>
@@ -1106,7 +1106,7 @@ mixin _$ReviewQuestionsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZQuestion> zQuestions) data,
+    required TResult Function(List<Question> zQuestions) data,
     required TResult Function(Exception error) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -1114,7 +1114,7 @@ mixin _$ReviewQuestionsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZQuestion> zQuestions)? data,
+    TResult? Function(List<Question> zQuestions)? data,
     TResult? Function(Exception error)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -1122,7 +1122,7 @@ mixin _$ReviewQuestionsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZQuestion> zQuestions)? data,
+    TResult Function(List<Question> zQuestions)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) =>
@@ -1217,7 +1217,7 @@ class _$ReviewQuestionsStateInItalImpl implements ReviewQuestionsStateInItal {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZQuestion> zQuestions) data,
+    required TResult Function(List<Question> zQuestions) data,
     required TResult Function(Exception error) failure,
   }) {
     return initial();
@@ -1228,7 +1228,7 @@ class _$ReviewQuestionsStateInItalImpl implements ReviewQuestionsStateInItal {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZQuestion> zQuestions)? data,
+    TResult? Function(List<Question> zQuestions)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return initial?.call();
@@ -1239,7 +1239,7 @@ class _$ReviewQuestionsStateInItalImpl implements ReviewQuestionsStateInItal {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZQuestion> zQuestions)? data,
+    TResult Function(List<Question> zQuestions)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {
@@ -1335,7 +1335,7 @@ class _$ReviewQuestionsStateLoadingImpl implements ReviewQuestionsStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZQuestion> zQuestions) data,
+    required TResult Function(List<Question> zQuestions) data,
     required TResult Function(Exception error) failure,
   }) {
     return loading();
@@ -1346,7 +1346,7 @@ class _$ReviewQuestionsStateLoadingImpl implements ReviewQuestionsStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZQuestion> zQuestions)? data,
+    TResult? Function(List<Question> zQuestions)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return loading?.call();
@@ -1357,7 +1357,7 @@ class _$ReviewQuestionsStateLoadingImpl implements ReviewQuestionsStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZQuestion> zQuestions)? data,
+    TResult Function(List<Question> zQuestions)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {
@@ -1417,7 +1417,7 @@ abstract class _$$ReviewQuestionsStateDataImplCopyWith<$Res> {
           $Res Function(_$ReviewQuestionsStateDataImpl) then) =
       __$$ReviewQuestionsStateDataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ZQuestion> zQuestions});
+  $Res call({List<Question> zQuestions});
 }
 
 /// @nodoc
@@ -1439,7 +1439,7 @@ class __$$ReviewQuestionsStateDataImplCopyWithImpl<$Res>
       zQuestions: null == zQuestions
           ? _value._zQuestions
           : zQuestions // ignore: cast_nullable_to_non_nullable
-              as List<ZQuestion>,
+              as List<Question>,
     ));
   }
 }
@@ -1448,12 +1448,12 @@ class __$$ReviewQuestionsStateDataImplCopyWithImpl<$Res>
 
 class _$ReviewQuestionsStateDataImpl implements ReviewQuestionsStateData {
   const _$ReviewQuestionsStateDataImpl(
-      {required final List<ZQuestion> zQuestions})
+      {required final List<Question> zQuestions})
       : _zQuestions = zQuestions;
 
-  final List<ZQuestion> _zQuestions;
+  final List<Question> _zQuestions;
   @override
-  List<ZQuestion> get zQuestions {
+  List<Question> get zQuestions {
     if (_zQuestions is EqualUnmodifiableListView) return _zQuestions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_zQuestions);
@@ -1489,7 +1489,7 @@ class _$ReviewQuestionsStateDataImpl implements ReviewQuestionsStateData {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZQuestion> zQuestions) data,
+    required TResult Function(List<Question> zQuestions) data,
     required TResult Function(Exception error) failure,
   }) {
     return data(zQuestions);
@@ -1500,7 +1500,7 @@ class _$ReviewQuestionsStateDataImpl implements ReviewQuestionsStateData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZQuestion> zQuestions)? data,
+    TResult? Function(List<Question> zQuestions)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return data?.call(zQuestions);
@@ -1511,7 +1511,7 @@ class _$ReviewQuestionsStateDataImpl implements ReviewQuestionsStateData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZQuestion> zQuestions)? data,
+    TResult Function(List<Question> zQuestions)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {
@@ -1561,10 +1561,10 @@ class _$ReviewQuestionsStateDataImpl implements ReviewQuestionsStateData {
 
 abstract class ReviewQuestionsStateData implements ReviewQuestionsState {
   const factory ReviewQuestionsStateData(
-          {required final List<ZQuestion> zQuestions}) =
+          {required final List<Question> zQuestions}) =
       _$ReviewQuestionsStateDataImpl;
 
-  List<ZQuestion> get zQuestions;
+  List<Question> get zQuestions;
   @JsonKey(ignore: true)
   _$$ReviewQuestionsStateDataImplCopyWith<_$ReviewQuestionsStateDataImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1640,7 +1640,7 @@ class _$ReviewQuestionsStateFailureImpl implements ReviewQuestionsStateFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ZQuestion> zQuestions) data,
+    required TResult Function(List<Question> zQuestions) data,
     required TResult Function(Exception error) failure,
   }) {
     return failure(error);
@@ -1651,7 +1651,7 @@ class _$ReviewQuestionsStateFailureImpl implements ReviewQuestionsStateFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ZQuestion> zQuestions)? data,
+    TResult? Function(List<Question> zQuestions)? data,
     TResult? Function(Exception error)? failure,
   }) {
     return failure?.call(error);
@@ -1662,7 +1662,7 @@ class _$ReviewQuestionsStateFailureImpl implements ReviewQuestionsStateFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ZQuestion> zQuestions)? data,
+    TResult Function(List<Question> zQuestions)? data,
     TResult Function(Exception error)? failure,
     required TResult orElse(),
   }) {

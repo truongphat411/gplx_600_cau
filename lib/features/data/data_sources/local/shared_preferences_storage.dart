@@ -33,4 +33,15 @@ class SharedPreferencesStorage {
         ) ??
         'B2';
   }
+
+  static Future<void> setIsDataInserted({required bool value}) async {
+    await sharedPreferences.setBool(
+      'data_inserted',
+      value,
+    );
+  }
+
+  static bool getIsDataInserted() {
+    return sharedPreferences.getBool('data_inserted') ?? false;
+  }
 }

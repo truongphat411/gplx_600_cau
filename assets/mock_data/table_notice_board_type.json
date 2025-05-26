@@ -1,0 +1,37 @@
+[
+    {
+        "Icon": null,
+        "Type_ID": 1,
+        "Type_Name": "Biển báo cấm"
+    },
+    {
+        "Icon": null,
+        "Type_ID": 2,
+        "Type_Name": "Biển hiệu lệnh"
+    },
+    {
+        "Icon": null,
+        "Type_ID": 3,
+        "Type_Name": "Biển chỉ dẫn"
+    },
+    {
+        "Icon": null,
+        "Type_ID": 4,
+        "Type_Name": "Biển báo nguy hiểm"
+    },
+    {
+        "Icon": null,
+        "Type_ID": 5,
+        "Type_Name": "Biển phụ"
+    },
+    {
+        "Icon": null,
+        "Type_ID": 11,
+        "Type_Name": "Vạch kẻ đường"
+    },
+    {
+        "Icon": null,
+        "Type_ID": 15,
+        "Type_Name": "Đường cao tốc"
+    }
+]

@@ -6,7 +6,6 @@ import 'package:gplx_600_cau/core/enum/question_type.dart';
 import 'package:gplx_600_cau/core/observer/navigator_obs.dart';
 import 'package:gplx_600_cau/core/routes/route_path.dart';
 import 'package:gplx_600_cau/di.dart';
-import 'package:gplx_600_cau/features/data/models/znumberquestionpertype/znumberquestionpertype.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/license/blocs/license/license_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
@@ -53,7 +52,10 @@ class HomeRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return BlocProvider(
-      create: (context) => getIt<HomeBloc>(),
+      create: (context) => getIt<HomeBloc>()
+        ..add(
+          const HomeEvent.insertData(),
+        ),
       child: const HomeScreen(),
     );
   }

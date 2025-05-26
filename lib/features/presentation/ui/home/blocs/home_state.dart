@@ -4,9 +4,6 @@ part of 'home_bloc.dart';
 class HomeState with _$HomeState {
   const factory HomeState.initial() = HomeStateInItal;
   const factory HomeState.loading() = HomeStateLoading;
-  const factory HomeState.data({
-    required List<ZNumberQuestionPerType> questionPerType,
-  }) = HomeStateData;
-  const factory HomeState.failure({required Exception error}) =
-      HomeStateFailure;
+  const factory HomeState.failure(Exception error) = HomeStateFailure;
+  const factory HomeState.data() = HomeStateData;
 }

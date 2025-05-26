@@ -79,7 +79,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
                     child: _LicenseTile(
                       licenseName: licenses[index].ZNAME,
                       description: licenses[index].ZCONTENT,
-                      isSelected: licenses[index].isSelected,
+                      // isSelected: licenses[index].isSelected,
                     ),
                   );
                 }

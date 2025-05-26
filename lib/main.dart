@@ -7,11 +7,15 @@ import 'package:gplx_600_cau/di.dart';
 import 'package:gplx_600_cau/features/app/app.dart';
 import 'package:gplx_600_cau/features/data/data_sources/local/shared_preferences_storage.dart';
 
+import 'features/data/data_sources/local/database_helper.dart';
+
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     unawaited(MobileAds.instance.initialize());
     configureDependencies();
+    final dbHelper = getIt<DatabaseHelper>();
+    await dbHelper.database;
     await SharedPreferencesStorage.init();
     runApp(
       const App(),

@@ -14,7 +14,6 @@ import 'package:gplx_600_cau/features/presentation/components/banner_ads_widget.
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/models/item_home.dart';
-import 'package:gplx_600_cau/features/presentation/ui/home/widgets/question_type_list.dart';
 
 part 'widgets/home_menu_items.dart';
 part 'widgets/home_menu_item_tile.dart';
@@ -34,9 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     final licenseName = SharedPreferencesStorage.getLicenseSelected();
     _setTitle(licenseName);
-    context.read<HomeBloc>().add(
-          const HomeEvent.getQuestionStatistics(),
-        );
+    // context.read<HomeBloc>().add(
+    //       const HomeEvent.getQuestionStatistics(),
+    //     );
   }
 
   void _setTitle(String licenseName) {
@@ -150,9 +149,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   return state.maybeWhen(
                     orElse: () => Container(),
                     loading: () => Container(),
-                    data: (questionPerType) => QuestionTypeList(
-                      questionPerType: questionPerType,
-                    ),
+                    data: () {
+                      return const Text('Thành công');
+                    },
                   );
                 },
               )

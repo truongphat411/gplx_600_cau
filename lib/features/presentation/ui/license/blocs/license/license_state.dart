@@ -5,7 +5,7 @@ class LicenseState with _$LicenseState {
   const factory LicenseState.initial() = LicenseStateInItal;
   const factory LicenseState.loading() = LicenseStateLoading;
   const factory LicenseState.data({
-    required List<ZLicense> zLicenses,
+    required List<License> zLicenses,
   }) = LicenseStateData;
   const factory LicenseState.failure({required Exception error}) =
       LicenseStateFailure;
