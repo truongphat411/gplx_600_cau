@@ -44,7 +44,7 @@ mixin _$Question {
   String? get ZQUESTIONDIE => throw _privateConstructorUsedError;
   int? get Z_ENT => throw _privateConstructorUsedError;
   int? get ZLATEST => throw _privateConstructorUsedError;
-  String? get REZ1 => throw _privateConstructorUsedError;
+  int? get REZ1 => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -82,7 +82,7 @@ abstract class $QuestionCopyWith<$Res> {
       String? ZQUESTIONDIE,
       int? Z_ENT,
       int? ZLATEST,
-      String? REZ1});
+      int? REZ1});
 }
 
 /// @nodoc
@@ -224,7 +224,7 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
       REZ1: freezed == REZ1
           ? _value.REZ1
           : REZ1 // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ) as $Val);
   }
 }
@@ -262,7 +262,7 @@ abstract class _$$QuestionImplCopyWith<$Res>
       String? ZQUESTIONDIE,
       int? Z_ENT,
       int? ZLATEST,
-      String? REZ1});
+      int? REZ1});
 }
 
 /// @nodoc
@@ -402,7 +402,7 @@ class __$$QuestionImplCopyWithImpl<$Res>
       REZ1: freezed == REZ1
           ? _value.REZ1
           : REZ1 // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ));
   }
 }
@@ -490,7 +490,7 @@ class _$QuestionImpl extends _Question {
   @override
   final int? ZLATEST;
   @override
-  final String? REZ1;
+  final int? REZ1;
 
   @override
   String toString() {
@@ -618,7 +618,7 @@ abstract class _Question extends Question {
       final String? ZQUESTIONDIE,
       final int? Z_ENT,
       final int? ZLATEST,
-      final String? REZ1}) = _$QuestionImpl;
+      final int? REZ1}) = _$QuestionImpl;
   const _Question._() : super._();
 
   factory _Question.fromJson(Map<String, dynamic> json) =
@@ -673,7 +673,7 @@ abstract class _Question extends Question {
   @override
   int? get ZLATEST;
   @override
-  String? get REZ1;
+  int? get REZ1;
   @override
   @JsonKey(ignore: true)
   _$$QuestionImplCopyWith<_$QuestionImpl> get copyWith =>

@@ -1,4 +1,4 @@
-enum QuestionType {
+enum QuestionTypeEnum {
   all,
   critical,
   saved,

@@ -7,3 +7,4 @@ class ReviewQuestionsActionState with _$ReviewQuestionsActionState {
   const factory ReviewQuestionsActionState.pageChanged(int currentPage) =
       ReviewQuestionsActionStatePageChanged;
 }
+

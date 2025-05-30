@@ -1,11 +1,16 @@
 import 'package:dartz/dartz.dart';
 import 'package:gplx_600_cau/core/base_error/failure.dart';
+import 'package:gplx_600_cau/features/data/models/models.dart';
 import 'package:gplx_600_cau/features/domain/repositories/repositories.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class QuestionTypeUseCase {
   Future<Either<Failure, bool>> insertQuestionTypes() {
-    throw UnimplementedError('execute-QuestionTypeUseCase-insertQuestionTypes');
+    throw UnimplementedError('questionTypeUseCase-insertQuestionTypes');
+  }
+
+  Future<Either<Failure, List<QuestionType>>> getQuestionTypes() {
+    throw UnimplementedError('questionTypeUseCase-getQuestionTypes');
   }
 }
 
@@ -18,5 +23,10 @@ class QuestionTypeUseCaseImpl extends QuestionTypeUseCase {
   @override
   Future<Either<Failure, bool>> insertQuestionTypes() {
     return repository.insertQuestionTypes();
+  }
+
+  @override
+  Future<Either<Failure, List<QuestionType>>> getQuestionTypes() {
+    return repository.getQuestionTypes();
   }
 }

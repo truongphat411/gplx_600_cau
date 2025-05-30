@@ -2,14 +2,16 @@ part of '../review_questions_screen.dart';
 
 class _QuestionDetailScreen extends StatelessWidget {
   const _QuestionDetailScreen({
+    required this.homeBloc,
     required this.question,
     required this.questionType,
     required this.index,
     super.key,
   });
 
+  final HomeBloc homeBloc;
   final Question question;
-  final QuestionType questionType;
+  final QuestionTypeEnum questionType;
   final int index;
 
   void _toggleAnswer({
@@ -17,20 +19,20 @@ class _QuestionDetailScreen extends StatelessWidget {
     required int indexSelected,
   }) {
     final learned = indexSelected;
-    final wrong = question.ZCORRECT == indexSelected ? 0 : 1;
+    final wrong = indexSelected;
     final updatedQuestion = question.copyWith(
       ZLEARNED: learned,
       ZWRONG: wrong,
-      // indexAnswerSelected: indexSelected,
     );
-    context.read<ReviewQuestionsBloc>().add(
-          ReviewQuestionsEvent.updateQuestion(updatedQuestion),
-        );
+    homeBloc.add(
+      HomeEvent.updateQuestion(question: updatedQuestion),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    final isFrequentMistakes = questionType == QuestionType.frequentMistakes;
+    final isFrequentMistakes =
+        questionType == QuestionTypeEnum.frequentMistakes;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -42,7 +44,7 @@ class _QuestionDetailScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    '${question.Z_PK}.${question.ZQUESTIONCONTENT}',
+                    '${question.REZ1}.${question.ZQUESTIONCONTENT}',
                     style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Colors.black,
@@ -52,6 +54,7 @@ class _QuestionDetailScreen extends StatelessWidget {
                 ),
                 _QuestionSaveButton(
                   question: question,
+                  homeBloc: homeBloc,
                 )
               ],
             ),
@@ -65,7 +68,6 @@ class _QuestionDetailScreen extends StatelessWidget {
                   indexCorrect: question.ZCORRECT ?? 0,
                   content: question.ZOPTION1 ?? '',
                   indexLearned: question.ZLEARNED ?? 0,
-                  // indexAnswerSelected: question.indexAnswerSelected,
                   onTap: isFrequentMistakes
                       ? null
                       : () => _toggleAnswer(
@@ -81,7 +83,6 @@ class _QuestionDetailScreen extends StatelessWidget {
                   indexCorrect: question.ZCORRECT ?? 0,
                   indexLearned: question.ZLEARNED ?? 0,
                   content: question.ZOPTION2 ?? '',
-                  // indexAnswerSelected: question.indexAnswerSelected,
                   onTap: isFrequentMistakes
                       ? null
                       : () => _toggleAnswer(
@@ -96,7 +97,6 @@ class _QuestionDetailScreen extends StatelessWidget {
                   index: 3,
                   indexCorrect: question.ZCORRECT ?? 0,
                   indexLearned: question.ZLEARNED ?? 0,
-                  // indexAnswerSelected: question.indexAnswerSelected,
                   content: question.ZOPTION3 ?? '',
                   onTap: isFrequentMistakes
                       ? null
@@ -112,7 +112,6 @@ class _QuestionDetailScreen extends StatelessWidget {
                   index: 4,
                   indexCorrect: question.ZCORRECT ?? 0,
                   indexLearned: question.ZLEARNED ?? 0,
-                  // indexAnswerSelected: question.indexAnswerSelected,
                   content: question.ZOPTION4 ?? '',
                   onTap: isFrequentMistakes
                       ? null
@@ -124,11 +123,11 @@ class _QuestionDetailScreen extends StatelessWidget {
                 const Gap(8),
               ],
               const Gap(8),
-              // AnimatedClipRect(
-              //   open: question.indexAnswerSelected == question.ZCORRECT ||
-              //       question.ZLEARNED != 0,
-              //   content: question.ZANSWERDESC ?? '',
-              // ),
+              AnimatedClipRect(
+                open: question.ZLEARNED == question.ZCORRECT ||
+                    question.ZLEARNED != 0,
+                content: question.ZANSWERDESC ?? '',
+              ),
             ],
           ),
           const Gap(8),

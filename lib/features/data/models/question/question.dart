@@ -30,7 +30,7 @@ class Question with _$Question {
     String? ZQUESTIONDIE,
     int? Z_ENT,
     int? ZLATEST,
-    String? REZ1,
+    int? REZ1,
   }) = _Question;
 
   const Question._();

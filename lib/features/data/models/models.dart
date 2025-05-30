@@ -5,3 +5,4 @@ export 'question/question.dart';
 export 'question_type/question_type.dart';
 export 'test/test.dart';
 export 'test_quest/test_quest.dart';
+export 'question_type/question_type_summary.dart';

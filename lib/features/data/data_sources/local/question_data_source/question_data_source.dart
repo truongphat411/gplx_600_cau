@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:gplx_600_cau/core/extension/extension.dart';
 import 'package:gplx_600_cau/features/data/data_sources/local/database_helper.dart';
 import 'package:gplx_600_cau/features/data/data_sources/local/shared_preferences_storage.dart';
 import 'package:gplx_600_cau/features/data/models/question/question.dart';
@@ -12,26 +14,8 @@ abstract class QuestionDataSource {
     throw UnimplementedError('insertQuestions');
   }
 
-  Future<List<Question>> getAllQuestions() async {
-    throw UnimplementedError('dataSource-getAllQuestions');
-  }
-
-  Future<List<Question>> getTop60CriticalQuestions() async {
-    throw UnimplementedError('dataSource-getTop60CriticalQuestions');
-  }
-
-  Future<List<Question>> getFrequentMistakes() async {
-    throw UnimplementedError('dataSource-getFrequentMistakes');
-  }
-
-  Future<List<Question>> getQuestionsByType({
-    required int questionType,
-  }) async {
-    throw UnimplementedError('dataSource-getQuestionsByType');
-  }
-
-  Future<List<Question>> getSavedQuestions() async {
-    throw UnimplementedError('dataSource-getSavedQuestions');
+  Future<List<Question>> getQuestions() async {
+    throw UnimplementedError('dataSource-getQuestions');
   }
 
   Future<int> updateQuestion(Question question) async {
@@ -65,95 +49,48 @@ class QuestionDataSourceImpl extends QuestionDataSource {
   }
 
   @override
-  Future<List<Question>> getAllQuestions() async {
+  Future<List<Question>> getQuestions() async {
     try {
       final db = await databaseHelper.database;
       final licenseName = SharedPreferencesStorage.getLicenseSelected();
-      String query = 'SELECT * FROM ZQUESTION';
-      List<Object?> args = [];
-      if (licenseName == 'B1') {
-        query += ' WHERE ZINCLUDEB1 = ?';
-        args.add(1);
-      }
+      final query = '''
+      SELECT
+        ROW_NUMBER() OVER (ORDER BY Z_PK) AS REZ1,
+        Z_PK,
+        ZQUESTIONCONTENT,
+        ZIMAGE,
+        ZOPTION1,
+        ZOPTION2,
+        ZOPTION3,
+        ZOPTION4,
+        ZANSWERIMG,
+        ZANSWERDESC,
+        ZCORRECT,
+        ZQUESTIONTYPE,
+        ZLEARNED,
+        ZMARKED,
+        ZWRONG,
+        INGROUP_A1,
+        INGROUP_A,
+        INGROUP_B1,
+        INGROUP_B,
+        DIGROUPA1,
+        DIGROUPB1,
+        INGROUP_DTOE,
+        ZQUESTIONDIE,
+        Z_ENT,
+        ZLATEST
+      FROM 
+        ZQUESTION
+      WHERE 
+        ${licenseName.toQuestionGroupColumn} = ?
+    ''';
 
-      final res = await db.rawQuery(query, args);
+      final res = await db.rawQuery(query, [1]);
+
       return res.map((e) => Question.fromJson(e)).toList();
     } catch (e) {
-      print('Error getting all questions: $e');
-      return [];
-    }
-  }
-
-  @override
-  Future<List<Question>> getQuestionsByType({
-    required int questionType,
-  }) async {
-    try {
-      final db = await databaseHelper.database;
-      String query = 'SELECT * FROM ZQUESTION WHERE ZQUESTIONTYPE = ?';
-      List<Object?> args = [questionType];
-
-      final res = await db.rawQuery(query, args);
-      return res.map((e) => Question.fromJson(e)).toList();
-    } catch (e) {
-      print('Error getting questions by type: $e');
-      return [];
-    }
-  }
-
-  @override
-  Future<List<Question>> getTop60CriticalQuestions() async {
-    try {
-      final db = await databaseHelper.database;
-      final res = await db
-          .rawQuery('SELECT * FROM ZQUESTION WHERE ZQUESTIONDIE = ?', [1]);
-      return res.isNotEmpty
-          ? res.map((e) => Question.fromJson(e)).toList()
-          : [];
-    } catch (e) {
-      print('Error getting top 60 critical questions: $e');
-      return [];
-    }
-  }
-
-  @override
-  Future<List<Question>> getSavedQuestions() async {
-    try {
-      final db = await databaseHelper.database;
-      final licenseName = SharedPreferencesStorage.getLicenseSelected();
-      String query = 'SELECT * FROM ZQUESTION WHERE ZMARKED = ?';
-      List<Object?> args = [1];
-
-      if (licenseName == 'B1') {
-        query += ' AND ZINCLUDEB1 = ?';
-        args.add(1);
-      }
-
-      final res = await db.rawQuery(query, args);
-      return res.map((e) => Question.fromJson(e)).toList();
-    } catch (e) {
-      print('Error getting saved questions: $e');
-      return [];
-    }
-  }
-
-  @override
-  Future<List<Question>> getFrequentMistakes() async {
-    try {
-      final db = await databaseHelper.database;
-      final licenseName = SharedPreferencesStorage.getLicenseSelected();
-      String query = 'SELECT * FROM ZQUESTION WHERE ZWRONG = ?';
-      List<Object?> args = [1];
-
-      if (licenseName == 'B1') {
-        query += ' AND ZINCLUDEB1 = ?';
-        args.add(1);
-      }
-
-      final res = await db.rawQuery(query, args);
-      return res.map((e) => Question.fromJson(e)).toList();
-    } catch (e) {
-      print('Error getting frequent mistakes: $e');
+      log('Error getting all questions: $e');
       return [];
     }
   }

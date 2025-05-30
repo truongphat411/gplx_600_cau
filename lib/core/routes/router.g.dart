@@ -10,6 +10,7 @@ List<RouteBase> get $appRoutes => [
       $rootApp,
       $homeRoute,
       $licenseRoute,
+      $questionTypesRoute,
       $mockTestRoute,
       $reviewQuestionsRoute,
       $frequentMistakesRoute,
@@ -68,20 +69,51 @@ RouteBase get $licenseRoute => GoRouteData.$route(
     );
 
 extension $LicenseRouteExtension on LicenseRoute {
-  static LicenseRoute _fromState(GoRouterState state) => LicenseRoute();
+  static LicenseRoute _fromState(GoRouterState state) => LicenseRoute(
+        $extra: state.extra as HomeBloc,
+      );
 
   String get location => GoRouteData.$location(
         '/license',
       );
 
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: $extra);
 
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
 
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: $extra);
 
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
+RouteBase get $questionTypesRoute => GoRouteData.$route(
+      path: '/question-types',
+      factory: $QuestionTypesRouteExtension._fromState,
+    );
+
+extension $QuestionTypesRouteExtension on QuestionTypesRoute {
+  static QuestionTypesRoute _fromState(GoRouterState state) =>
+      QuestionTypesRoute(
+        $extra: state.extra as HomeBloc,
+      );
+
+  String get location => GoRouteData.$location(
+        '/question-types',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
 RouteBase get $mockTestRoute => GoRouteData.$route(
@@ -90,20 +122,24 @@ RouteBase get $mockTestRoute => GoRouteData.$route(
     );
 
 extension $MockTestRouteExtension on MockTestRoute {
-  static MockTestRoute _fromState(GoRouterState state) => MockTestRoute();
+  static MockTestRoute _fromState(GoRouterState state) => MockTestRoute(
+        $extra: state.extra as HomeBloc,
+      );
 
   String get location => GoRouteData.$location(
         '/mock-test',
       );
 
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: $extra);
 
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
 
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: $extra);
 
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
 RouteBase get $reviewQuestionsRoute => GoRouteData.$route(
@@ -114,16 +150,17 @@ RouteBase get $reviewQuestionsRoute => GoRouteData.$route(
 extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
   static ReviewQuestionsRoute _fromState(GoRouterState state) =>
       ReviewQuestionsRoute(
-        questionType: _$QuestionTypeEnumMap
+        questionType: _$QuestionTypeEnumEnumMap
                 ._$fromName(state.pathParameters['questionType']!) ??
-            QuestionType.all,
+            QuestionTypeEnum.all,
         questionTypePK: _$convertMapValue(
             'question-type-p-k', state.uri.queryParameters, int.parse),
         questionTypeName: state.uri.queryParameters['question-type-name'],
+        $extra: state.extra as HomeBloc,
       );
 
   String get location => GoRouteData.$location(
-        '/review-questions/${Uri.encodeComponent(_$QuestionTypeEnumMap[questionType]!)}',
+        '/review-questions/${Uri.encodeComponent(_$QuestionTypeEnumEnumMap[questionType]!)}',
         queryParams: {
           if (questionTypePK != null)
             'question-type-p-k': questionTypePK!.toString(),
@@ -131,22 +168,24 @@ extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
         },
       );
 
-  void go(BuildContext context) => context.go(location);
+  void go(BuildContext context) => context.go(location, extra: $extra);
 
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
 
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
+      context.pushReplacement(location, extra: $extra);
 
-  void replace(BuildContext context) => context.replace(location);
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
 }
 
-const _$QuestionTypeEnumMap = {
-  QuestionType.all: 'all',
-  QuestionType.critical: 'critical',
-  QuestionType.saved: 'saved',
-  QuestionType.questionByType: 'question-by-type',
-  QuestionType.frequentMistakes: 'frequent-mistakes',
+const _$QuestionTypeEnumEnumMap = {
+  QuestionTypeEnum.all: 'all',
+  QuestionTypeEnum.critical: 'critical',
+  QuestionTypeEnum.saved: 'saved',
+  QuestionTypeEnum.questionByType: 'question-by-type',
+  QuestionTypeEnum.frequentMistakes: 'frequent-mistakes',
 };
 
 T? _$convertMapValue<T>(

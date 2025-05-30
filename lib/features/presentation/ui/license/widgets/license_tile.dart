@@ -2,14 +2,16 @@ part of '../license_screen.dart';
 
 class _LicenseTile extends StatelessWidget {
   const _LicenseTile({
-    this.licenseName,
+    required this.licenseName,
     this.description,
-    this.isSelected = false,
+    required this.licenseNameSelected,
+    this.onTap,
   });
 
-  final String? licenseName;
+  final String licenseName;
   final String? description;
-  final bool isSelected;
+  final String licenseNameSelected;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +35,7 @@ class _LicenseTile extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {
-            context.read<LicenseBloc>().add(
-                  LicenseEvent.getAllLicenses(licenseName ?? 'B2'),
-                );
-            SharedPreferencesStorage.setLicenseSelected(
-              value: licenseName ?? 'B2',
-            );
-          },
+          onTap: onTap,
           borderRadius: const BorderRadius.all(
             Radius.circular(8),
           ),
@@ -52,7 +47,6 @@ class _LicenseTile extends StatelessWidget {
                   Expanded(
                     flex: 5,
                     child: Container(
-                      height: 100,
                       padding: const EdgeInsets.all(12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +54,7 @@ class _LicenseTile extends StatelessWidget {
                           Text(
                             'Bằng $licenseName',
                             style: const TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 17),
+                                fontWeight: FontWeight.w500, fontSize: 18),
                           ),
                           Text(
                             description ?? '',
@@ -72,7 +66,7 @@ class _LicenseTile extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: isSelected
+                    child: licenseName == licenseNameSelected
                         ? Icon(
                             Icons.check_circle,
                             color: appColors.baseLightGreen,

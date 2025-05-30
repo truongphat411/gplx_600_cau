@@ -6,16 +6,11 @@ import 'package:gplx_600_cau/features/data/models/question/question.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/base_error/exception.dart';
+import '../../../data/data_sources/local/local.dart';
 
 abstract class QuestionRepository {
   Future<Either<Failure, bool>> insertQuestions();
-  Future<Either<Failure, List<Question>>> getAllQuestions();
-  Future<Either<Failure, List<Question>>> getTop60CriticalQuestions();
-  Future<Either<Failure, List<Question>>> getQuestionsByType({
-    required int questionType,
-  });
-  Future<Either<Failure, List<Question>>> getSavedQuestions();
-  Future<Either<Failure, List<Question>>> getFrequentMistakes();
+  Future<Either<Failure, List<Question>>> getQuestions();
   Future<Either<Failure, int>> updateQuestion(Question quesiton);
 }
 
@@ -38,53 +33,9 @@ class QuestionRepositoryImpl extends QuestionRepository {
   }
 
   @override
-  Future<Either<Failure, List<Question>>> getAllQuestions() async {
+  Future<Either<Failure, List<Question>>> getQuestions() async {
     try {
-      List<Question> result = await _local.getAllQuestions();
-      return Right(result);
-    } on CacheException catch (e) {
-      return Left(CacheFailure(e.message));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getTop60CriticalQuestions() async {
-    try {
-      List<Question> result = await _local.getTop60CriticalQuestions();
-      return Right(result);
-    } on CacheException catch (e) {
-      return Left(CacheFailure(e.message));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getQuestionsByType({
-    required int questionType,
-  }) async {
-    try {
-      List<Question> result = await _local.getQuestionsByType(
-        questionType: questionType,
-      );
-      return Right(result);
-    } on CacheException catch (e) {
-      return Left(CacheFailure(e.message));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getSavedQuestions() async {
-    try {
-      List<Question> result = await _local.getSavedQuestions();
-      return Right(result);
-    } on CacheException catch (e) {
-      return Left(CacheFailure(e.message));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getFrequentMistakes() async {
-    try {
-      List<Question> result = await _local.getFrequentMistakes();
+      List<Question> result = await _local.getQuestions();
       return Right(result);
     } on CacheException catch (e) {
       return Left(CacheFailure(e.message));

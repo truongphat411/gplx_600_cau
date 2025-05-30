@@ -47,10 +47,8 @@ class LicenseDataSourceImpl extends LicenseDataSource {
       final db = await databaseHelper.database;
       var res = await db.rawQuery(
         '''
-        SELECT * FROM ZLICENSE 
-        WHERE ZNAME IN (?, ?, ?, ?, ?, ?)
+        SELECT * FROM ZLICENSE
         ''',
-        ['B1', 'B2', 'C', 'D', 'E', 'F'],
       );
       List<License> list =
           res.isNotEmpty ? res.map((e) => License.fromJson(e)).toList() : [];

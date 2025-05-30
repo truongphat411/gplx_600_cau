@@ -4,11 +4,11 @@ class ItemHome {
   ItemHome({
     required this.title,
     required this.icon,
-    required this.navigationPath,
+    this.onTap,
     required this.color,
   });
   final String title;
   final Color color;
   final String icon;
-  final String navigationPath;
+  final VoidCallback? onTap;
 }

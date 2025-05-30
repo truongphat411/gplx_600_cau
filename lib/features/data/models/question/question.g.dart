@@ -32,7 +32,7 @@ _$QuestionImpl _$$QuestionImplFromJson(Map<String, dynamic> json) =>
       ZQUESTIONDIE: json['ZQUESTIONDIE'] as String?,
       Z_ENT: (json['Z_ENT'] as num?)?.toInt(),
       ZLATEST: (json['ZLATEST'] as num?)?.toInt(),
-      REZ1: json['REZ1'] as String?,
+      REZ1: (json['REZ1'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$QuestionImplToJson(_$QuestionImpl instance) =>

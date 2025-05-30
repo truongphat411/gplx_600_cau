@@ -14,11 +14,11 @@ class _HomeMenuItems extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: list.length,
       itemBuilder: (_, i) {
-        final _HomeMenuItems = list[i];
+        final homeMenuItems = list[i];
         return IntrinsicHeight(
           child: Row(
             children: [
-              for (final item in _HomeMenuItems)
+              for (final item in homeMenuItems)
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -26,9 +26,7 @@ class _HomeMenuItems extends StatelessWidget {
                       horizontal: 4,
                     ),
                     child: GestureDetector(
-                      onTap: () {
-                        context.push(item.navigationPath);
-                      },
+                      onTap: item.onTap,
                       child: _HomeMenuItemTile(
                         itemHome: item,
                       ),

@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:gplx_600_cau/core/enum/question_type.dart';
+import 'package:gplx_600_cau/core/enum/question_type_enum.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
 import 'package:gplx_600_cau/features/data/models/question/question.dart';
+import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
-import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_bloc/review_questions_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
 import 'package:gplx_600_cau/gen/assets.gen.dart';
+
+import 'widgets/control_button.dart';
 
 part 'widgets/question_screen.dart';
 part 'widgets/question_detail_screen.dart';
@@ -18,15 +20,18 @@ part 'widgets/animated_clip_react.dart';
 part 'widgets/question_save_button.dart';
 
 class ReviewQuestionsScreen extends StatefulWidget {
-  const ReviewQuestionsScreen(
-      {super.key,
-      this.questionType = QuestionType.all,
-      this.questionTypePK,
-      this.questionTypeName});
+  const ReviewQuestionsScreen({
+    super.key,
+    required this.homeBloc,
+    this.questionType = QuestionTypeEnum.all,
+    this.questionTypePK,
+    this.questionTypeName,
+  });
 
-  final QuestionType questionType;
+  final QuestionTypeEnum questionType;
   final int? questionTypePK;
   final String? questionTypeName;
+  final HomeBloc homeBloc;
 
   @override
   State<ReviewQuestionsScreen> createState() => _ReviewQuestionsScreenState();
@@ -39,37 +44,41 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
   void initState() {
     super.initState();
     title = _getTitle(widget.questionType);
-    _loadQuestions(widget.questionType);
   }
 
-  String _getTitle(QuestionType type) {
+  String _getTitle(QuestionTypeEnum type) {
     switch (type) {
-      case QuestionType.critical:
-        return '60 câu điểm liệt';
-      case QuestionType.frequentMistakes:
-        return 'Câu hay sai';
-      case QuestionType.questionByType:
+      case QuestionTypeEnum.critical:
         return widget.questionTypeName ?? '';
-      case QuestionType.saved:
+      case QuestionTypeEnum.frequentMistakes:
+        return 'Câu hay sai';
+      case QuestionTypeEnum.questionByType:
+        return widget.questionTypeName ?? '';
+      case QuestionTypeEnum.saved:
         return 'Câu đã lưu';
       default:
         return 'Tất cả câu hỏi';
     }
   }
 
-  void _loadQuestions(QuestionType type) {
-    final event = switch (type) {
-      QuestionType.all => const ReviewQuestionsEvent.getAllQuestions(),
-      QuestionType.critical =>
-        const ReviewQuestionsEvent.getTop60CriticalQuestions(),
-      QuestionType.frequentMistakes =>
-        const ReviewQuestionsEvent.getFrequentMistakes(),
-      QuestionType.questionByType => ReviewQuestionsEvent.getQuestionsByType(
+  List<Question> getQuestions(QuestionTypeEnum type, List<Question> questions) {
+    switch (type) {
+      case QuestionTypeEnum.all:
+        return questions;
+      case QuestionTypeEnum.critical:
+        return widget.homeBloc.getTop60CriticalQuestions(quesitons: questions);
+      case QuestionTypeEnum.frequentMistakes:
+        return widget.homeBloc.getFrequentMistakes(questions: questions);
+      case QuestionTypeEnum.questionByType:
+        return widget.homeBloc.getQuestionsByType(
           questionType: widget.questionTypePK ?? 1,
-        ),
-      QuestionType.saved => const ReviewQuestionsEvent.getSavedQuestions()
-    };
-    context.read<ReviewQuestionsBloc>().add(event);
+          quesitons: questions,
+        );
+      case QuestionTypeEnum.saved:
+        return widget.homeBloc.getSavedQuestions(
+          questions: questions,
+        );
+    }
   }
 
   @override
@@ -92,41 +101,53 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
           },
         ),
       ),
-      body: BlocBuilder<ReviewQuestionsBloc, ReviewQuestionsState>(
-        builder: (context, state) {
-          return state.maybeWhen(
-            orElse: () => Container(),
-            loading: () => const _LoadingIndicator(),
-            data: (questions) => _buildQuestionList(questions),
-          );
-        },
-      ),
+      body: BlocBuilder<HomeBloc, HomeState>(
+          bloc: widget.homeBloc,
+          builder: (context, state) {
+            final questions = getQuestions(
+              widget.questionType,
+              state.questions,
+            );
+            return _buildQuestionList(questions);
+          }),
     );
   }
 
   Widget _buildQuestionList(List<Question> questions) {
     if (questions.isEmpty &&
-        widget.questionType == QuestionType.frequentMistakes) {
-      return const _EmptyFrequentMistakes();
+        widget.questionType == QuestionTypeEnum.frequentMistakes) {
+      return const _EmptyScreen(
+        description: 'Không có câu trả lời nào sai cả!!!',
+      );
+    } else if (questions.isEmpty &&
+        widget.questionType == QuestionTypeEnum.saved) {
+      return const _EmptyScreen(
+        description: 'Bạn chưa lưu câu hỏi nào!!!',
+      );
     }
     return _QuestionScreen(
       questions: questions,
       questionType: widget.questionType,
+      homeBloc: widget.homeBloc,
     );
   }
 }
 
-class _LoadingIndicator extends StatelessWidget {
-  const _LoadingIndicator();
+// class _LoadingIndicator extends StatelessWidget {
+//   const _LoadingIndicator();
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Center(child: CircularProgressIndicator());
+//   }
+// }
 
-class _EmptyFrequentMistakes extends StatelessWidget {
-  const _EmptyFrequentMistakes();
+class _EmptyScreen extends StatelessWidget {
+  const _EmptyScreen({
+    required this.description,
+  });
+
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -138,9 +159,10 @@ class _EmptyFrequentMistakes extends StatelessWidget {
           child: Image.asset(Assets.images.imgWarning.path),
         ),
         const Gap(16),
-        const Text(
-          'Không có câu trả lời nào sai cả!!!',
-          style: TextStyle(
+        Text(
+          // 'Không có câu trả lời nào sai cả!!!',
+          description,
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),

@@ -6,9 +6,15 @@ import 'package:gplx_600_cau/features/data/data_sources/local/database_helper.da
 import 'package:gplx_600_cau/features/data/models/test/test.dart';
 import 'package:injectable/injectable.dart';
 
+import '../local.dart';
+
 abstract class TestDataSource {
   Future<void> insertTests() async {
-    throw UnimplementedError('insertTests');
+    throw UnimplementedError('testDataSource-insertTests');
+  }
+
+  Future<List<Test>> getTests() async {
+    throw UnimplementedError('testDataSource-getTests');
   }
 }
 
@@ -34,6 +40,24 @@ class TestDataSourceImpl extends TestDataSource {
     } catch (e, stackTrace) {
       debugPrint('insertTest failed: $e');
       debugPrint('$stackTrace');
+    }
+  }
+
+  @override
+  Future<List<Test>> getTests() async {
+    try {
+      final db = await databaseHelper.database;
+      final licenseName = SharedPreferencesStorage.getLicenseSelected();
+      final res = await db.query(
+        'ZTEST',
+        where: 'CLASS_LICENSE = ?',
+        whereArgs: [licenseName],
+      );
+
+      return res.map((e) => Test.fromJson(e)).toList();
+    } catch (e) {
+      debugPrint('Error getting tests: $e');
+      return Future.error(e);
     }
   }
 }

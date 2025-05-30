@@ -6,36 +6,15 @@ import 'package:injectable/injectable.dart';
 
 abstract class QuestionUseCase {
   Future<Either<Failure, bool>> insertQuestions() {
-    throw UnimplementedError('execute-QuestionUseCase-insertQuestions');
+    throw UnimplementedError('questionUseCase-insertQuestions');
   }
 
-  Future<Either<Failure, List<Question>>> getAllQuestions() {
-    throw UnimplementedError('execute-ZLicenseUseCase-getAllQuestions');
-  }
-
-  Future<Either<Failure, List<Question>>> getTop60CriticalQuestions() {
-    throw UnimplementedError(
-        'execute-ZLicenseUseCase-getTop60CriticalQuestions');
-  }
-
-  Future<Either<Failure, List<Question>>> getQuestionsByType({
-    required int questionType,
-  }) {
-    throw UnimplementedError(
-        'execute-ZLicenseUseCase-getTop60CriticalQuestions');
-  }
-
-  Future<Either<Failure, List<Question>>> getSavedQuestions() {
-    throw UnimplementedError('execute-ZLicenseUseCase-getSavedQuestions');
-  }
-
-  Future<Either<Failure, List<Question>>> getFrequentMistakes() {
-    throw UnimplementedError('execute-ZLicenseUseCase-getFrequentMistakes');
+  Future<Either<Failure, List<Question>>> getQuestions() {
+    throw UnimplementedError('questionUseCase-getAllQuestions');
   }
 
   Future<Either<Failure, int>> updateQuestion(Question question) {
-    throw UnimplementedError(
-        'execute-ZLicenseUseCase-getTop60CriticalQuestions');
+    throw UnimplementedError('questionUseCase-updateQuestion');
   }
 }
 
@@ -51,32 +30,8 @@ class QuestionUseCaseImpl extends QuestionUseCase {
   }
 
   @override
-  Future<Either<Failure, List<Question>>> getAllQuestions() {
-    return repository.getAllQuestions();
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getTop60CriticalQuestions() {
-    return repository.getTop60CriticalQuestions();
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getQuestionsByType({
-    required int questionType,
-  }) {
-    return repository.getQuestionsByType(
-      questionType: questionType,
-    );
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getSavedQuestions() {
-    return repository.getSavedQuestions();
-  }
-
-  @override
-  Future<Either<Failure, List<Question>>> getFrequentMistakes() {
-    return repository.getFrequentMistakes();
+  Future<Either<Failure, List<Question>>> getQuestions() {
+    return repository.getQuestions();
   }
 
   @override

@@ -32,7 +32,7 @@ class LicenseRepositoryImpl extends LicenseRepository {
   @override
   Future<Either<Failure, List<License>>> getAllLicenses() async {
     try {
-      List<License> result = await _local.getAllLicenses();
+      final result = await _local.getAllLicenses();
       return Right(result);
     } on CacheException catch (e) {
       return Left(CacheFailure(e.message));

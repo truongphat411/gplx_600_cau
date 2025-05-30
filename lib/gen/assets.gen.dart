@@ -9,16 +9,6 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetsDatabaseGen {
-  const $AssetsDatabaseGen();
-
-  /// File path: assets/database/gplx.db
-  String get gplx => 'assets/database/gplx.db';
-
-  /// List of all assets
-  List<String> get values => [gplx];
-}
-
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -104,7 +94,6 @@ class $AssetsMockDataGen {
 class Assets {
   Assets._();
 
-  static const $AssetsDatabaseGen database = $AssetsDatabaseGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsMockDataGen mockData = $AssetsMockDataGen();
 }

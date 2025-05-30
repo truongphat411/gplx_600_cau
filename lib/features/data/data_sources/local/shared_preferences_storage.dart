@@ -31,7 +31,7 @@ class SharedPreferencesStorage {
     return sharedPreferences.getString(
           'license_selected',
         ) ??
-        'B2';
+        'A1';
   }
 
   static Future<void> setIsDataInserted({required bool value}) async {

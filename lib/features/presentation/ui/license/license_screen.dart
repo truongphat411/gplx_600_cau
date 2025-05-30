@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
-import 'package:gplx_600_cau/features/data/data_sources/local/shared_preferences_storage.dart';
-import 'package:gplx_600_cau/features/presentation/ui/license/blocs/license/license_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
+import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
 
 part 'widgets/license_tile.dart';
 
 class LicenseScreen extends StatefulWidget {
   const LicenseScreen({
+    required this.homeBloc,
     super.key,
   });
+
+  final HomeBloc homeBloc;
 
   @override
   _LicenseScreenState createState() => _LicenseScreenState();
 }
 
 class _LicenseScreenState extends State<LicenseScreen> {
-  @override
-  void initState() {
-    super.initState();
-    final licenseName = SharedPreferencesStorage.getLicenseSelected();
-    context.read<LicenseBloc>().add(
-          LicenseEvent.getAllLicenses(licenseName),
-        );
-  }
-
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).appColors;
@@ -43,25 +36,15 @@ class _LicenseScreenState extends State<LicenseScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            final licenseName = SharedPreferencesStorage.getLicenseSelected();
-            Navigator.of(context).pop(licenseName);
+            Navigator.of(context).pop();
           },
         ),
       ),
-      body: BlocBuilder<LicenseBloc, LicenseState>(builder: (context, state) {
-        return state.maybeMap(
-          orElse: () {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-          loading: (e) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-          data: (value) {
-            final licenses = value.zLicenses;
+      body: BlocBuilder<HomeBloc, HomeState>(
+          bloc: widget.homeBloc,
+          builder: (context, state) {
+            final licenses = state.licenses;
+            final licenseName = state.licenseName;
             return ListView.builder(
               physics: const ScrollPhysics(),
               shrinkWrap: true,
@@ -77,17 +60,22 @@ class _LicenseScreenState extends State<LicenseScreen> {
                       vertical: 8,
                     ),
                     child: _LicenseTile(
-                      licenseName: licenses[index].ZNAME,
-                      description: licenses[index].ZCONTENT,
-                      // isSelected: licenses[index].isSelected,
-                    ),
+                        licenseName: licenses[index].ZNAME ?? '',
+                        description: licenses[index].ZCONTENT,
+                        licenseNameSelected: licenseName ?? '',
+                        onTap: () {
+                          Navigator.pop(context, licenses[index].ZNAME ?? '');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content: Text(
+                                    'Đã chọn giấy phép: ${licenses[index].ZNAME ?? ''}')),
+                          );
+                        }),
                   );
                 }
               },
             );
-          },
-        );
-      }),
+          }),
     );
   }
 }

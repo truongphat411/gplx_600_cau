@@ -7,7 +7,6 @@ class QuestionDetailTile extends StatelessWidget {
     required this.indexCorrect,
     this.color,
     required this.index,
-    this.indexAnswerSelected,
     required this.indexLearned,
     this.onTap,
   });
@@ -16,7 +15,6 @@ class QuestionDetailTile extends StatelessWidget {
   final Color? color;
   final int indexCorrect;
   final int index;
-  final int? indexAnswerSelected;
   final int indexLearned;
   final VoidCallback? onTap;
 
@@ -51,14 +49,15 @@ class QuestionDetailTile extends StatelessWidget {
               : null;
     }
 
-    final selectedIndex = indexAnswerSelected;
+    final selectedIndex = indexLearned;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: determineBackgroundColor(selectedIndex!) ?? Colors.white,
+        color: determineBackgroundColor(selectedIndex) ?? Colors.white,
         border: Border.all(
-            color: determineBorderColor(selectedIndex!) ?? Colors.white),
+          color: determineBorderColor(selectedIndex) ?? Colors.white,
+        ),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
