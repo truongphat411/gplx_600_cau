@@ -57,7 +57,7 @@ import 'features/domain/use_cases/test_quest_use_case/test_quest_use_case.dart'
 import 'features/domain/use_cases/test_use_case/test_use_case.dart' as _i22;
 import 'features/domain/use_cases/use_cases.dart' as _i29;
 import 'features/presentation/ui/home/blocs/home_bloc.dart' as _i28;
-import 'features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart'
+import 'features/presentation/ui/question/bloc/questions_action_bloc/questions_action_bloc.dart'
     as _i27;
 
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -81,7 +81,7 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i8.TableNoiceBoardDataSource>(
       () => _i8.TableNoiceBoardDataSourceImpl(gh<_i3.DatabaseHelper>()));
   gh.lazySingleton<_i9.TestQuestDataSource>(
-      () => _i9.TestQuestDataSourceImpl(gh<_i3.DatabaseHelper>()));
+      () => _i9.TestQuestDataSourceImpl(gh<_i7.DatabaseHelper>()));
   gh.lazySingleton<_i10.QuestionTypeRepository>(
       () => _i10.QuestionTypeRepositoryImpl(gh<_i6.QuestionTypeDataSouce>()));
   gh.lazySingleton<_i11.LicenseDataSource>(
@@ -116,8 +116,8 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i26.TableNoticeBoardTypeUseCase>(() =>
       _i26.TableNoticeBoardTypeUseCaseImpl(
           gh<_i16.TableNoticeBoardTypeRepository>()));
-  gh.factory<_i27.ReviewQuestionsActionBloc>(
-      () => _i27.ReviewQuestionsActionBloc(gh<_i25.QuestionUseCase>()));
+  gh.factory<_i27.QuestionsActionBloc>(
+      () => _i27.QuestionsActionBloc(gh<_i25.QuestionUseCase>()));
   gh.factory<_i28.HomeBloc>(() => _i28.HomeBloc(
         gh<_i29.LicenseUseCase>(),
         gh<_i29.QuestionUseCase>(),

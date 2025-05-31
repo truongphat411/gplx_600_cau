@@ -12,11 +12,8 @@ List<RouteBase> get $appRoutes => [
       $licenseRoute,
       $questionTypesRoute,
       $mockTestRoute,
+      $testQuestRoute,
       $reviewQuestionsRoute,
-      $frequentMistakesRoute,
-      $memoryTipsRoute,
-      $savedQuestionRoute,
-      $trafficSignsRoute,
     ];
 
 RouteBase get $rootApp => GoRouteData.$route(
@@ -142,6 +139,36 @@ extension $MockTestRouteExtension on MockTestRoute {
       context.replace(location, extra: $extra);
 }
 
+RouteBase get $testQuestRoute => GoRouteData.$route(
+      path: '/test-quest',
+      factory: $TestQuestRouteExtension._fromState,
+    );
+
+extension $TestQuestRouteExtension on TestQuestRoute {
+  static TestQuestRoute _fromState(GoRouterState state) => TestQuestRoute(
+        testID: int.parse(state.uri.queryParameters['test-i-d']!),
+        $extra: state.extra as HomeBloc,
+      );
+
+  String get location => GoRouteData.$location(
+        '/test-quest',
+        queryParams: {
+          'test-i-d': testID.toString(),
+        },
+      );
+
+  void go(BuildContext context) => context.go(location, extra: $extra);
+
+  Future<T?> push<T>(BuildContext context) =>
+      context.push<T>(location, extra: $extra);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location, extra: $extra);
+
+  void replace(BuildContext context) =>
+      context.replace(location, extra: $extra);
+}
+
 RouteBase get $reviewQuestionsRoute => GoRouteData.$route(
       path: '/review-questions/:questionType',
       factory: $ReviewQuestionsRouteExtension._fromState,
@@ -156,6 +183,8 @@ extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
         questionTypePK: _$convertMapValue(
             'question-type-p-k', state.uri.queryParameters, int.parse),
         questionTypeName: state.uri.queryParameters['question-type-name'],
+        testID:
+            _$convertMapValue('test-i-d', state.uri.queryParameters, int.parse),
         $extra: state.extra as HomeBloc,
       );
 
@@ -165,6 +194,7 @@ extension $ReviewQuestionsRouteExtension on ReviewQuestionsRoute {
           if (questionTypePK != null)
             'question-type-p-k': questionTypePK!.toString(),
           if (questionTypeName != null) 'question-type-name': questionTypeName,
+          if (testID != null) 'test-i-d': testID!.toString(),
         },
       );
 
@@ -186,6 +216,7 @@ const _$QuestionTypeEnumEnumMap = {
   QuestionTypeEnum.saved: 'saved',
   QuestionTypeEnum.questionByType: 'question-by-type',
   QuestionTypeEnum.frequentMistakes: 'frequent-mistakes',
+  QuestionTypeEnum.test: 'test',
 };
 
 T? _$convertMapValue<T>(
@@ -200,95 +231,4 @@ T? _$convertMapValue<T>(
 extension<T extends Enum> on Map<T, String> {
   T _$fromName(String value) =>
       entries.singleWhere((element) => element.value == value).key;
-}
-
-RouteBase get $frequentMistakesRoute => GoRouteData.$route(
-      path: '/frequent-mistakes',
-      factory: $FrequentMistakesRouteExtension._fromState,
-    );
-
-extension $FrequentMistakesRouteExtension on FrequentMistakesRoute {
-  static FrequentMistakesRoute _fromState(GoRouterState state) =>
-      FrequentMistakesRoute();
-
-  String get location => GoRouteData.$location(
-        '/frequent-mistakes',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $memoryTipsRoute => GoRouteData.$route(
-      path: '/memory-tips',
-      factory: $MemoryTipsRouteExtension._fromState,
-    );
-
-extension $MemoryTipsRouteExtension on MemoryTipsRoute {
-  static MemoryTipsRoute _fromState(GoRouterState state) => MemoryTipsRoute();
-
-  String get location => GoRouteData.$location(
-        '/memory-tips',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $savedQuestionRoute => GoRouteData.$route(
-      path: '/saved-question',
-      factory: $SavedQuestionRouteExtension._fromState,
-    );
-
-extension $SavedQuestionRouteExtension on SavedQuestionRoute {
-  static SavedQuestionRoute _fromState(GoRouterState state) =>
-      SavedQuestionRoute();
-
-  String get location => GoRouteData.$location(
-        '/saved-question',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $trafficSignsRoute => GoRouteData.$route(
-      path: '/traffic-signs',
-      factory: $TrafficSignsRouteExtension._fromState,
-    );
-
-extension $TrafficSignsRouteExtension on TrafficSignsRoute {
-  static TrafficSignsRoute _fromState(GoRouterState state) =>
-      TrafficSignsRoute();
-
-  String get location => GoRouteData.$location(
-        '/traffic-signs',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
 }

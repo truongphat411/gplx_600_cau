@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:gplx_600_cau/core/enum/question_type_enum.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
-import 'package:gplx_600_cau/features/data/models/question/question.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
-import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
 import 'package:gplx_600_cau/gen/assets.gen.dart';
 
-import 'widgets/control_button.dart';
-
-part 'widgets/question_screen.dart';
-part 'widgets/question_detail_screen.dart';
-part 'widgets/question_detail_tile.dart';
-part 'widgets/question_controls.dart';
-part 'widgets/animated_clip_react.dart';
-part 'widgets/question_save_button.dart';
+import '../../../data/models/models.dart';
+import '../question/question_screen.dart';
 
 class ReviewQuestionsScreen extends StatefulWidget {
   const ReviewQuestionsScreen({
@@ -26,11 +17,13 @@ class ReviewQuestionsScreen extends StatefulWidget {
     this.questionType = QuestionTypeEnum.all,
     this.questionTypePK,
     this.questionTypeName,
+    this.testID,
   });
 
   final QuestionTypeEnum questionType;
   final int? questionTypePK;
   final String? questionTypeName;
+  final int? testID;
   final HomeBloc homeBloc;
 
   @override
@@ -61,7 +54,11 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
     }
   }
 
-  List<Question> getQuestions(QuestionTypeEnum type, List<Question> questions) {
+  List<Question> getQuestions({
+    required QuestionTypeEnum type,
+    required List<Question> questions,
+    required List<TestQuest> testQuests,
+  }) {
     switch (type) {
       case QuestionTypeEnum.all:
         return questions;
@@ -77,6 +74,12 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
       case QuestionTypeEnum.saved:
         return widget.homeBloc.getSavedQuestions(
           questions: questions,
+        );
+      case QuestionTypeEnum.test:
+        return widget.homeBloc.getQuestionsByTest(
+          questions: questions,
+          testQuests: testQuests,
+          testID: widget.testID ?? 0,
         );
     }
   }
@@ -101,12 +104,14 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
           },
         ),
       ),
+      floatingActionButton: Container(),
       body: BlocBuilder<HomeBloc, HomeState>(
           bloc: widget.homeBloc,
           builder: (context, state) {
             final questions = getQuestions(
-              widget.questionType,
-              state.questions,
+              type: widget.questionType,
+              questions: state.questions,
+              testQuests: state.testQuests,
             );
             return _buildQuestionList(questions);
           }),
@@ -125,22 +130,13 @@ class _ReviewQuestionsScreenState extends State<ReviewQuestionsScreen> {
         description: 'Bạn chưa lưu câu hỏi nào!!!',
       );
     }
-    return _QuestionScreen(
+    return QuestionScreen(
       questions: questions,
       questionType: widget.questionType,
       homeBloc: widget.homeBloc,
     );
   }
 }
-
-// class _LoadingIndicator extends StatelessWidget {
-//   const _LoadingIndicator();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Center(child: CircularProgressIndicator());
-//   }
-// }
 
 class _EmptyScreen extends StatelessWidget {
   const _EmptyScreen({
@@ -160,7 +156,6 @@ class _EmptyScreen extends StatelessWidget {
         ),
         const Gap(16),
         Text(
-          // 'Không có câu trả lời nào sai cả!!!',
           description,
           style: const TextStyle(
             fontSize: 18,

@@ -8,15 +8,12 @@ import 'package:gplx_600_cau/core/routes/route_path.dart';
 import 'package:gplx_600_cau/di.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/question_types/question_types.dart';
-import 'package:gplx_600_cau/features/presentation/ui/review_questions/blocs/review_questions_action_bloc/review_questions_action_bloc.dart';
-import 'package:gplx_600_cau/features/presentation/ui/frequent-mistakes/frequent_mistakes_screen.dart';
+import 'package:gplx_600_cau/features/presentation/ui/question/bloc/questions_action_bloc/questions_action_bloc.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/home_screen.dart';
-import 'package:gplx_600_cau/features/presentation/ui/memory_tips/memory_tips_screen.dart';
 import 'package:gplx_600_cau/features/presentation/ui/mock_test/mock_test_screen.dart';
 import 'package:gplx_600_cau/features/presentation/ui/review_questions/review_questions_screen.dart';
-import 'package:gplx_600_cau/features/presentation/ui/saved_questions/saved_questions_screen.dart';
-import 'package:gplx_600_cau/features/presentation/ui/traffic_signs/traffic_signs_screen.dart';
 import 'package:gplx_600_cau/features/presentation/ui/license/license_screen.dart';
+import 'package:gplx_600_cau/features/presentation/ui/test_quest_screen/test_quest_screen.dart';
 
 part 'router.g.dart';
 
@@ -108,62 +105,55 @@ class MockTestRoute extends GoRouteData {
   }
 }
 
+@TypedGoRoute<TestQuestRoute>(path: $RouterPath.testQuest)
+class TestQuestRoute extends GoRouteData {
+  TestQuestRoute({
+    required this.$extra,
+    required this.testID,
+  });
+
+  final HomeBloc $extra;
+  final int testID;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BlocProvider(
+      create: (context) => getIt<QuestionsActionBloc>(),
+      child: TestQuestScreen(
+        homeBloc: $extra,
+        testID: testID,
+      ),
+    );
+  }
+}
+
 @TypedGoRoute<ReviewQuestionsRoute>(path: $RouterPath.reviewQuestions)
 class ReviewQuestionsRoute extends GoRouteData {
   const ReviewQuestionsRoute({
     this.questionType = QuestionTypeEnum.all,
     this.questionTypePK,
     this.questionTypeName,
+    this.testID,
     required this.$extra,
   });
 
   final QuestionTypeEnum questionType;
   final int? questionTypePK;
   final String? questionTypeName;
+  final int? testID;
   final HomeBloc $extra;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return BlocProvider(
-      create: (context) => getIt<ReviewQuestionsActionBloc>(),
+      create: (context) => getIt<QuestionsActionBloc>(),
       child: ReviewQuestionsScreen(
         questionType: questionType,
         questionTypePK: questionTypePK,
         questionTypeName: questionTypeName,
+        testID: testID,
         homeBloc: $extra,
       ),
     );
-  }
-}
-
-@TypedGoRoute<FrequentMistakesRoute>(path: $RouterPath.frequentMistakes)
-class FrequentMistakesRoute extends GoRouteData {
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const FrequentMistakesScreen();
-  }
-}
-
-@TypedGoRoute<MemoryTipsRoute>(path: $RouterPath.memoryTips)
-class MemoryTipsRoute extends GoRouteData {
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const MemoryTipsScreen();
-  }
-}
-
-@TypedGoRoute<SavedQuestionRoute>(path: $RouterPath.savedQuestion)
-class SavedQuestionRoute extends GoRouteData {
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const SavedQuestionsScreen();
-  }
-}
-
-@TypedGoRoute<TrafficSignsRoute>(path: $RouterPath.trafficSigns)
-class TrafficSignsRoute extends GoRouteData {
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const TrafficSignsScreen();
   }
 }

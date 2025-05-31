@@ -226,9 +226,29 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     return savedQuestions;
   }
 
-  List<QuestionType> filter(
-      {required List<QuestionType> questionTypes,
-      required List<Question> questions}) {
+  List<Question> getQuestionsByTest({
+    required List<Question> questions,
+    required List<TestQuest> testQuests,
+    required int testID,
+  }) {
+    final filteredTestQuests = testQuests
+        .where(
+          (tq) => tq.TESTID == testID,
+        )
+        .toList();
+    final idsInQuestions = filteredTestQuests
+        .map((q) => q.ZQUESTIONID)
+        .where((id) => id != null)
+        .toSet();
+    final filteredQuestions =
+        questions.where((qt) => idsInQuestions.contains(qt.Z_PK)).toList();
+    return filteredQuestions;
+  }
+
+  List<QuestionType> filter({
+    required List<QuestionType> questionTypes,
+    required List<Question> questions,
+  }) {
     final Set<int?> typeIdsInQuestions =
         questions.map((q) => q.ZQUESTIONTYPE).where((id) => id != null).toSet();
 
@@ -276,6 +296,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       return q.ZQUESTIONTYPE == typeID;
     }).length;
+  }
+
+  int numberOfQuestion({
+    required List<License> licenses,
+    String? licenseName,
+  }) {
+    return licenses
+            .where((l) => l.ZNAME == licenseName)
+            .first
+            .ZNUMBEROFQUESTION ??
+        0;
   }
 
   final LicenseUseCase licenseUseCase;

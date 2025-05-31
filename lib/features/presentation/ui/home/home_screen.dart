@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
             title: 'Thi thử',
             icon: Assets.images.icRandomQuiz,
             color: Colors.amber,
-            onTap: () => Navigator.of(context).pushNamed('/mock-test'),
+            onTap: () => MockTestRoute($extra: homeBloc).push(context),
           ),
           ItemHome(
             title: 'Ôn tập câu hỏi',

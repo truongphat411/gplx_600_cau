@@ -2,12 +2,14 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gplx_600_cau/core/extension/theme_data_extension.dart';
+import 'package:gplx_600_cau/core/routes/router.dart';
 import 'package:gplx_600_cau/features/presentation/components/common_app_bar.dart';
 import 'package:gplx_600_cau/features/presentation/ui/home/blocs/home_bloc.dart';
 
 import '../../../data/models/models.dart';
 
-// part 'widgets/mock_test_list.dart';
+part 'widgets/mock_test_list.dart';
+part 'widgets/mock_test_tile.dart';
 
 class MockTestScreen extends StatelessWidget {
   const MockTestScreen({
@@ -23,7 +25,7 @@ class MockTestScreen extends StatelessWidget {
     return Scaffold(
       appBar: CommonAppBar(
         title: Text(
-          'MockTestScreen',
+          'Thi thử',
           style: TextStyle(
             color: appColors.textPrimary,
             fontWeight: FontWeight.w700,
@@ -43,9 +45,14 @@ class MockTestScreen extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4),
-                    // child: _MockTestList(
-                    //   tests: tests.slices(3).toList(),
-                    // ),
+                    child: _MockTestList(
+                      homeBloc: homeBloc,
+                      tests: tests.slices(3).toList(),
+                      numberOfQuestion: homeBloc.numberOfQuestion(
+                        licenses: state.licenses,
+                        licenseName: state.licenseName,
+                      ),
+                    ),
                   ),
                 ],
               ),

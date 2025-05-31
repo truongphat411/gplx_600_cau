@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:gplx_600_cau/core/extension/extension.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../models/models.dart';
@@ -43,50 +42,6 @@ class QuestionTypeDataSouceImpl extends QuestionTypeDataSouce {
       debugPrint('$stackTrace');
     }
   }
-
-  // @override
-  // Future<List<QuestionTypeSummary>> getQuestionTypes() async {
-  //   try {
-  //     final db = await databaseHelper.database;
-  //     final licenseName = SharedPreferencesStorage.getLicenseSelected();
-  //     var res = await db.rawQuery('''
-  //     WITH QuestionCounts AS (
-  //         SELECT
-  //             qt.Z_PK AS QUESTION_TYPE_PK,
-  //             qt.ZTYPE_NAME,
-  //             COUNT(q.Z_PK) AS TOTAL_QUESTIONS,
-  //             COUNT(CASE WHEN q.ZLEARNED != 0 THEN 1 END) AS TOTAL_QUESTIONS_LEARNED,
-  //             1 AS sort_order
-  //         FROM
-  //             ZQUESTION q
-  //         JOIN
-  //             ZQUESTIONTYPE qt ON q.ZQUESTIONTYPE = qt.Z_PK AND q.${licenseName.toQuestionGroupColumn} = 1
-  //         GROUP BY
-  //             qt.Z_PK,
-  //             qt.ZTYPE_NAME
-  //     )
-  //     SELECT
-  //         QUESTION_TYPE_PK,
-  //         ZTYPE_NAME,
-  //         TOTAL_QUESTIONS,
-  //         TOTAL_QUESTIONS_LEARNED
-  //     FROM
-  //         QuestionCounts
-  //     ORDER BY
-  //         sort_order,
-  //         COALESCE(QUESTION_TYPE_PK, 9999);
-  //   ''');
-
-  //     List<QuestionTypeSummary> list = res.isNotEmpty
-  //         ? res.map((e) => QuestionTypeSummary.fromJson(e)).toList()
-  //         : [];
-
-  //     return list;
-  //   } catch (e) {
-  //     print('Error getting question statistics: $e');
-  //     return [];
-  //   }
-  // }
 
   @override
   Future<List<QuestionType>> getQuestionTypes() async {

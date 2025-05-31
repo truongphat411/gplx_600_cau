@@ -4,4 +4,5 @@ enum QuestionTypeEnum {
   saved,
   questionByType,
   frequentMistakes,
+  test
 }
